@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,7 @@
     
     <!-- Open Graph / Link Preview Meta Tags -->
     <meta property="og:title" content="Koop Solutions">
-    <meta property="og:description" content="Innovating digital experiences and technical solutions.">
+    <meta property="og:description" content="Enterprise data architecture, cloud modernization, and advanced technical solutions.">
     <meta property="og:type" content="website">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -18,36 +18,77 @@
                     colors: {
                         koopBlue: '#0055a5',
                         koopCyan: '#00a4e4',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col items-center justify-center p-6">
+<body class="bg-white text-slate-950 min-h-screen flex flex-col justify-between font-sans selection:bg-koopBlue selection:text-white">
 
-    <div class="max-w-md w-full bg-slate-900 border border-slate-800 p-8 rounded-2xl shadow-2xl flex flex-col items-center space-y-8">
-        <!-- Banner Video -->
-        <div class="w-full flex justify-center">
-            <video autoplay loop muted playsinline class="rounded-xl w-full object-cover shadow-inner max-h-48">
-                <source src="images/koopsolutions_no sound.mp4" type="video/mp4">
-				
-                Your browser does not support the video tag.
-            </video>
-        </div>
-
-        <!-- Content & Links -->
-        <div class="w-full text-center space-y-4">
-            <h1 class="text-2xl font-bold tracking-tight text-white">Welcome to Koop Solutions</h1>
-            <p class="text-sm text-slate-400">Innovating digital experiences and technical solutions.</p>
-            
-            <div class="pt-4 flex flex-col space-y-3 w-full">
-                <a href="mailto:contact@koopsolutions.com" class="w-full py-3 px-4 bg-koopBlue hover:bg-blue-600 text-white font-medium rounded-xl transition duration-200 shadow-md flex items-center justify-center space-x-2">
-                    <span>Get in Touch</span>
+    <!-- Top Navigation Bar -->
+    <header class="w-full border-b border-slate-100 bg-white/90 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <span class="text-xl font-bold tracking-tight text-slate-900">Koop <span class="text-koopBlue">Solutions</span></span>
+            </div>
+           
+            <div class="flex items-center space-x-4">
+                <span class="hidden sm:inline-flex items-center px-3 py-1 bg-amber-50 border border-amber-200/60 rounded-full text-xs font-semibold text-amber-800 tracking-wide uppercase">
+                    Coming Soon
+                </span>
+                <a href="mailto:contact@koopsolutions.com" class="inline-flex items-center justify-center px-4 py-2 text-xs font-semibold uppercase tracking-wider text-koopBlue bg-blue-50 hover:bg-koopBlue hover:text-white rounded-lg transition-all duration-200">
+                    Contact
                 </a>
             </div>
         </div>
-    </div>
+    </header>
+
+    <!-- Main Content Hero Section -->
+    <main class="flex-grow flex items-center justify-center px-6 py-12 md:py-20">
+        <div class="max-w-4xl w-full grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+            
+            <!-- Left Column: Typography & Intent -->
+            <div class="md:col-span-7 space-y-6 text-left">
+                <div class="flex flex-wrap items-center gap-2">
+                    
+                    <div class="inline-flex items-center px-3 py-1 bg-amber-50 border border-amber-200/60 rounded-full text-xs font-semibold tracking-wide text-amber-800 uppercase sm:hidden">
+                        Coming Soon
+                    </div>
+                </div>
+
+                <div class="inline-flex items-center space-x-2 text-xs font-semibold tracking-wider text-koopBlue uppercase">
+                    <span>Service-Disabled Veteran-Owned Small Business (SDVOSB)</span>
+                </div>
+                
+
+
+                <di
+            </div>
+
+            <!-- Right Column: Clean Media Container -->
+            <div class="md:col-span-5 w-full">
+                <div class="bg-slate-50 border border-slate-200 p-3 rounded-2xl shadow-sm">
+                    <video autoplay loop muted playsinline class="rounded-xl w-full object-cover shadow-inner max-h-64 sm:max-h-80">
+                        <source src="images/koopsolutions_no sound.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-100 bg-white py-8 px-6 text-xs text-slate-500">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between space-y-4 sm:space-y-0">
+            <div>&copy; 2026 Koop Solutions. All rights reserved. &bull; Service-Disabled Veteran-Owned Small Business (Coming Soon)</div>
+        </div>
+    </footer>
 
 </body>
 </html>
