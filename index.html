@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Koop Solutions LLC</title>
+    <title>Koop Solutions</title>
+    
+    <!-- Open Graph / Link Preview Meta Tags -->
+    <meta property="og:title" content="Koop Solutions">
+    <meta property="og:description" content="Innovating digital experiences and technical solutions.">
+    <meta property="og:type" content="website">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -21,12 +27,26 @@
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col items-center justify-center p-6">
 
     <div class="max-w-md w-full bg-slate-900 border border-slate-800 p-8 rounded-2xl shadow-2xl flex flex-col items-center space-y-8">
-        <!-- Logo -->
+        <!-- Banner Video -->
         <div class="w-full flex justify-center">
-            <img src="images/koop_solutions_canva_logo.png" alt="Koop Solutions Logo" class="rounded-xl w-full object-cover shadow-inner max-h-48">
+            <video autoplay loop muted playsinline class="rounded-xl w-full object-cover shadow-inner max-h-48">
+                <source src="images/koopsolutions_no sound.mp4" type="video/mp4">
+				
+                Your browser does not support the video tag.
+            </video>
         </div>
 
-     
+        <!-- Content & Links -->
+        <div class="w-full text-center space-y-4">
+            <h1 class="text-2xl font-bold tracking-tight text-white">Welcome to Koop Solutions</h1>
+            <p class="text-sm text-slate-400">Innovating digital experiences and technical solutions.</p>
+            
+            <div class="pt-4 flex flex-col space-y-3 w-full">
+                <a href="mailto:contact@koopsolutions.com" class="w-full py-3 px-4 bg-koopBlue hover:bg-blue-600 text-white font-medium rounded-xl transition duration-200 shadow-md flex items-center justify-center space-x-2">
+                    <span>Get in Touch</span>
+                </a>
+            </div>
+        </div>
     </div>
 
 </body>
