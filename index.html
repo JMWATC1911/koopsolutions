@@ -38,9 +38,25 @@
             }
         }
     </script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+	
+	<style>
+    #matrixCanvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1; /* keeps it behind all content */
+        pointer-events: none; /* prevents blocking clicks */
+    }
+</style>
 </head>
-<body class="bg-white text-slate-950 min-h-screen flex flex-col font-sans selection:bg-koopBlue selection:text-white">
+   
+
+<body class="bg-transparent text-slate-950 min-h-screen flex flex-col font-sans selection:bg-koopBlue selection:text-white">
+
+<canvas id="matrixCanvas"></canvas>
 
    <header class="w-full border-b border-slate-100 bg-white/90 backdrop-blur-md sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
@@ -68,7 +84,8 @@
         </div>
     </header>
 
-    <section class="w-full bg-white py-16 lg:py-24 px-6">
+    <section class="w-full bg-transparent py-16 lg:py-24 px-6">
+
         <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
             <div class="lg:col-span-7 space-y-6">
@@ -103,7 +120,8 @@
         </div>
     </section>
 
-    <section class="w-full bg-slate-50 border-t border-slate-200 py-20 px-6">
+        <section class="w-full bg-transparent border-t border-slate-200 py-20 px-6">
+
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-slate-900 tracking-tight">Core Capabilities</h2>
@@ -159,7 +177,8 @@
         </div>
     </section>
 
-    <section class="w-full bg-white border-t border-slate-200 py-20 px-6">
+   <section class="w-full bg-transparent border-t border-slate-200 py-20 px-6">
+
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-slate-900 tracking-tight">Industries Served</h2>
@@ -211,12 +230,18 @@
         </div>
     </section>
 
-    <section class="w-full bg-slate-50 border-t border-slate-200 py-16 px-6 flex-grow">
+   <section class="w-full bg-transparent border-t border-slate-200 py-16 px-6 flex-grow">
+
         <div class="max-w-6xl mx-auto">
             <h2 class="text-2xl font-bold text-slate-900 mb-8 text-center tracking-tight">Company Identifiers</h2>
             
-            <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200 grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12">
+          
                 
+				<div class="bg-white/70 p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200 grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12">
+
+				
+				
+				
                 <div class="md:col-span-4 lg:col-span-3 md:border-r md:border-slate-100 md:pr-8">
                     <h3 class="text-base font-bold text-slate-900 mb-4 border-b border-slate-100 pb-2">Core Credentials</h3>
                     
@@ -297,7 +322,8 @@
         </div>
     </section>
 
-    <footer class="border-t border-slate-200 bg-white py-8 px-6 text-xs text-slate-500 mt-auto">
+    <footer class="border-t border-slate-200 bg-white/80 py-8 px-6 text-xs text-slate-500 mt-auto">
+
         <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-center text-center">
             <div>&copy; 2026 Koop Solutions. All rights reserved. &bull; Service-Disabled Veteran-Owned Small Business (Coming Soon)</div>
         </div>
@@ -323,5 +349,78 @@
             }
         }
     </script>
+	
+	<script>
+const canvas = document.getElementById("matrixCanvas");
+const ctx = canvas.getContext("2d");
+
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener("resize", resize);
+
+// LOWER NODE COUNT + MORE SUBTLE
+const nodes = [];
+const NUM_NODES = 55;  // reduced from 120 → 55
+
+for (let i = 0; i < NUM_NODES; i++) {
+  nodes.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    vx: (Math.random() - 0.5) * 0.25, // slower drift
+    vy: (Math.random() - 0.5) * 0.25
+  });
+}
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Draw nodes (more subtle)
+  nodes.forEach(n => {
+    ctx.beginPath();
+    ctx.arc(n.x, n.y, 1.4, 0, Math.PI * 2); // smaller nodes
+    ctx.fillStyle = "rgba(0, 80, 255, 0.25)"; // softer opacity
+    ctx.fill();
+  });
+
+  // Draw connecting lines (more subtle)
+  for (let i = 0; i < nodes.length; i++) {
+    for (let j = i + 1; j < nodes.length; j++) {
+      const dx = nodes[i].x - nodes[j].x;
+      const dy = nodes[i].y - nodes[j].y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+
+      if (dist < 130) { // slightly shorter connection range
+        ctx.beginPath();
+        ctx.strokeStyle = "rgba(0, 80, 255, 0.10)"; // lighter lines
+        ctx.lineWidth = 1;
+        ctx.moveTo(nodes[i].x, nodes[i].y);
+        ctx.lineTo(nodes[j].x, nodes[j].y);
+        ctx.stroke();
+      }
+    }
+  }
+
+  // Update positions
+  nodes.forEach(n => {
+    n.x += n.vx;
+    n.y += n.vy;
+
+    // Wrap edges
+    if (n.x < 0) n.x = canvas.width;
+    if (n.x > canvas.width) n.x = 0;
+    if (n.y < 0) n.y = canvas.height;
+    if (n.y > canvas.height) n.y = 0;
+  });
+
+  requestAnimationFrame(draw);
+}
+
+draw();
+</script>
+
 </body>
-</html>
+</html>  
+
