@@ -42,15 +42,22 @@
 </head>
 <body class="bg-white text-slate-950 min-h-screen flex flex-col font-sans selection:bg-koopBlue selection:text-white">
 
-    <header class="w-full border-b border-slate-100 bg-white/90 backdrop-blur-md sticky top-0 z-50">
+   <header class="w-full border-b border-slate-100 bg-white/90 backdrop-blur-md sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
             
-            <div class="flex items-center">
-                <div class="text-xl font-bold tracking-tight text-slate-900 flex items-center">
+            <a href="#" class="flex items-center">
+                <img 
+                    id="headerLogo"
+                    src="C:\Users\jwynk\OneDrive\Desktop\KoopSolutions\New folder (2)\main_logo_copilot.png" 
+                    alt="Koop Solutions Logo" 
+                    class="h-10 sm:h-12 w-auto object-contain"
+                    onerror="handleLogoFallback(this)"
+                >
+                <div id="headerLogoFallback" class="hidden text-xl font-bold tracking-tight text-slate-900 items-center">
                     K<span class="text-koopBlue text-3xl px-0.5 inline-flex items-center">&infin;</span>P
                     <span class="ml-1.5 text-slate-900 font-semibold">Solutions</span>
                 </div>
-            </div>
+            </a>
            
             <div class="flex items-center space-x-4">
                 
