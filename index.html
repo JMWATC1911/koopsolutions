@@ -1,3 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koop Solutions</title>
+    
+    <link rel="icon" type="image/png" href="images/g3.png">
+    <link rel="apple-touch-icon" href="images/g3.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://koopsolutions.com">
+    <meta property="og:title" content="Koop Solutions">
+    <meta property="og:description" content="End-to-end technical excellence across data & AI, cloud modernization, and advanced systems integration.">
+    <meta property="og:image" content="https://koopsolutions.com/images/g3.png">
+    <meta property="og:image:secure_url" content="https://koopsolutions.com/images/g3.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Koop Solutions">
+    <meta name="twitter:description" content="End-to-end technical excellence across data & AI, cloud modernization, and advanced systems integration.">
+    <meta name="twitter:image" content="https://koopsolutions.com/images/g3.png">
+
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        koopBlue: '#0055a5',
+                        koopCyan: '#00a4e4',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+	
+	<style>
+    #matrixCanvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1; /* keeps it behind all content */
+        pointer-events: none; /* prevents blocking clicks */
+    }
+</style>
+</head>
+   
+
+<body class="bg-transparent text-slate-950 min-h-screen flex flex-col font-sans selection:bg-koopBlue selection:text-white">
+
+<canvas id="matrixCanvas"></canvas>
+
+   <header class="w-full border-b border-slate-100 bg-white/90 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+            
+            <a href="#" class="flex items-center">
+                <img 
+                    id="headerLogo"
+                    src="images/main_logo_copilot.png" 
+                    alt="Koop Solutions Logo" 
+                    class="h-10 sm:h-12 w-auto object-contain"
+                    onerror="handleLogoFallback(this)"
+                >
+                <div id="headerLogoFallback" class="hidden text-xl font-bold tracking-tight text-slate-900 items-center">
+                    K<span class="text-koopBlue text-3xl px-0.5 inline-flex items-center">&infin;</span>P
+                    <span class="ml-1.5 text-slate-900 font-semibold">Solutions</span>
+                </div>
+            </a>
+           
+            <div class="flex items-center space-x-4">
+                
+                <a href="mailto:contact@koopsolutions.com" class="inline-flex items-center justify-center px-4 py-2 text-xs font-semibold uppercase tracking-wider text-koopBlue bg-blue-50 hover:bg-koopBlue hover:text-white rounded-lg transition-all duration-200">
+                    Contact
+                </a>
+            </div>
+        </div>
+    </header>
+
 <section class="w-full bg-transparent py-16 lg:py-24 px-6">
 
     <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -39,3 +128,328 @@
 
     </div>
 </section>
+
+
+
+<section class="w-full bg-transparent border-t border-slate-200 py-20 px-6">
+
+    <div class="max-w-6xl mx-auto">
+
+        <!-- TITLE + SUBTITLE -->
+        <div class="text-center mb-12 max-w-3xl mx-auto">
+            <h2 class="text-3xl font-bold text-slate-900 tracking-tight">Core Capabilities</h2>
+            <p class="text-slate-500 mt-3 text-sm leading-relaxed">
+                End-to-end technical excellence designed to drive modernization, security, and scale across the enterprise.
+            </p>
+        </div>
+
+        <!-- GRID -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- CARD -->
+            <div class="bg-white/70 p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow duration-200">
+                <h3 class="text-sm font-bold text-koopBlue mb-2 uppercase tracking-wide">Data &amp; Artificial Intelligence</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">Advanced analytics, machine learning pipelines, enterprise data architecture, and predictive modeling.</p>
+            </div>
+
+            <div class="bg-white/70 p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow duration-200">
+                <h3 class="text-sm font-bold text-koopBlue mb-2 uppercase tracking-wide">Cloud &amp; Infrastructure</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">Cloud modernization, hybrid architectures, DevSecOps automation, and zero-downtime migrations.</p>
+            </div>
+
+            <div class="bg-white/70 p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow duration-200">
+                <h3 class="text-sm font-bold text-koopBlue mb-2 uppercase tracking-wide">Technology Transformation</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">Legacy modernization, distributed systems engineering, ERP alignment, and API ecosystem integration.</p>
+            </div>
+
+            <div class="bg-white/70 p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow duration-200">
+                <h3 class="text-sm font-bold text-koopBlue mb-2 uppercase tracking-wide">Cybersecurity &amp; Governance</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">Threat defense, zero-trust network design, security automation, and regulatory compliance frameworks.</p>
+            </div>
+
+            <div class="bg-white/70 p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow duration-200">
+                <h3 class="text-sm font-bold text-koopBlue mb-2 uppercase tracking-wide">Digital Eng. &amp; Manufacturing</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">Industrial IoT, systems automation, edge computing, and digital twin implementations.</p>
+            </div>
+
+            <div class="bg-white/70 p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow duration-200">
+                <h3 class="text-sm font-bold text-koopBlue mb-2 uppercase tracking-wide">Managed Services &amp; Delivery</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">Continuous operations support, platform maintenance, and SLA-backed infrastructure management.</p>
+            </div>
+
+            <div class="bg-white/70 p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow duration-200">
+                <h3 class="text-sm font-bold text-koopBlue mb-2 uppercase tracking-wide">Strategic Advisory &amp; Supply Chain</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">Operating model design, technology roadmaps, logistics optimization, and vendor ecosystem enablement.</p>
+            </div>
+
+            <div class="bg-white/70 p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow duration-200">
+                <h3 class="text-sm font-bold text-koopBlue mb-2 uppercase tracking-wide">Customer &amp; Commerce Solutions</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">Omnichannel customer platforms, digital sales enablement, and service automation.</p>
+            </div>
+
+            <div class="bg-white/70 p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow duration-200">
+                <h3 class="text-sm font-bold text-koopBlue mb-2 uppercase tracking-wide">Sustainable Ops &amp; Learning</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">Green computing strategies, ESG compliance workflows, and enterprise technical upskilling.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+  <section class="w-full bg-transparent border-t border-slate-200 py-20 px-6">
+
+    <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-slate-900 tracking-tight">Industries Served</h2>
+        </div>
+
+        <!-- MATCHES IDENTIFIERS STYLE -->
+        <div class="bg-white/70 p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200">
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
+
+                <div>
+                    <h3 class="text-sm font-bold text-slate-900 mb-3 border-b border-slate-100 pb-2 flex items-center">
+                        <span class="w-2 h-2 rounded-full bg-koopCyan mr-2"></span> Public Sector &amp; Defense
+                    </h3>
+                    <p class="text-sm text-slate-600">Aerospace &amp; Defense, U.S. Federal Government, Public Service</p>
+                </div>
+
+                <div>
+                    <h3 class="text-sm font-bold text-slate-900 mb-3 border-b border-slate-100 pb-2 flex items-center">
+                        <span class="w-2 h-2 rounded-full bg-koopCyan mr-2"></span> Financial &amp; Corporate Services
+                    </h3>
+                    <p class="text-sm text-slate-600">Banking, Insurance, Capital Markets</p>
+                </div>
+
+                <div>
+                    <h3 class="text-sm font-bold text-slate-900 mb-3 border-b border-slate-100 pb-2 flex items-center">
+                        <span class="w-2 h-2 rounded-full bg-koopCyan mr-2"></span> Industrial &amp; Infrastructure
+                    </h3>
+                    <p class="text-sm text-slate-600">Energy, Utilities, Industrial Manufacturing, Automotive</p>
+                </div>
+
+                <div>
+                    <h3 class="text-sm font-bold text-slate-900 mb-3 border-b border-slate-100 pb-2 flex items-center">
+                        <span class="w-2 h-2 rounded-full bg-koopCyan mr-2"></span> State &amp; Local Government
+                    </h3>
+                    <p class="text-sm text-slate-600">State Agencies, Municipalities, Higher Education, K-12</p>
+                </div>
+
+                <div>
+                    <h3 class="text-sm font-bold text-slate-900 mb-3 border-b border-slate-100 pb-2 flex items-center">
+                        <span class="w-2 h-2 rounded-full bg-koopCyan mr-2"></span> Technology &amp; Consumer
+                    </h3>
+                    <p class="text-sm text-slate-600">High Tech, Software &amp; Platforms, Retail, Consumer Goods</p>
+                </div>
+
+                <div>
+                    <h3 class="text-sm font-bold text-slate-900 mb-3 border-b border-slate-100 pb-2 flex items-center">
+                        <span class="w-2 h-2 rounded-full bg-koopCyan mr-2"></span> Healthcare &amp; Life Sciences
+                    </h3>
+                    <p class="text-sm text-slate-600">Health Systems, Digital Health Platforms</p>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- END MATCHED CARD -->
+
+    </div>
+</section>
+
+
+   <section class="w-full bg-transparent border-t border-slate-200 py-16 px-6 flex-grow">
+
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-2xl font-bold text-slate-900 mb-8 text-center tracking-tight">Company Identifiers</h2>
+            
+          
+                
+				<div class="bg-white/70 p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200 grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12">
+
+				
+				
+				
+                <div class="md:col-span-4 lg:col-span-3 md:border-r md:border-slate-100 md:pr-8">
+                    <h3 class="text-base font-bold text-slate-900 mb-4 border-b border-slate-100 pb-2">Core Credentials</h3>
+                    
+                    <ul class="space-y-4">
+                        <li>
+                            <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-0.5">Unique Entity ID (UEI)</span>
+                            <span class="text-sm font-semibold text-slate-800 font-mono">PZS2S9ZA1AK6</span>
+                        </li>
+                        <li>
+                            <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-0.5">CAGE Code</span>
+                            <span class="text-sm font-semibold text-slate-800 font-mono">22YR7</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-8 lg:col-span-9">
+                    <h3 class="text-base font-bold text-slate-900 mb-4 border-b border-slate-100 pb-2">NAICS Codes</h3>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10">
+                        <div>
+                            <h4 class="text-[11px] font-bold text-koopBlue mb-3 uppercase tracking-wider">Technology &amp; Computing</h4>
+                            <ul class="text-xs text-slate-700 space-y-2">
+                                <li class="flex items-start leading-tight">
+                                    <strong class="text-slate-900 font-mono mr-2 w-12 shrink-0">541519</strong> 
+                                    <span>Other Computer Related Services <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[9px] font-bold bg-blue-50 text-koopBlue uppercase ml-1 translate-y-[-1px]">Primary</span></span>
+                                </li>
+                                <li class="flex items-start leading-tight">
+                                    <strong class="text-slate-900 font-mono mr-2 w-12 shrink-0">541511</strong> 
+                                    <span>Custom Computer Programming Services</span>
+                                </li>
+                                <li class="flex items-start leading-tight">
+                                    <strong class="text-slate-900 font-mono mr-2 w-12 shrink-0">541512</strong> 
+                                    <span>Computer Systems Design Services</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="text-[11px] font-bold text-slate-500 mb-3 uppercase tracking-wider">Additional Services</h4>
+                            <ul class="text-xs text-slate-700 space-y-2">
+                                <li class="flex items-start leading-tight">
+                                    <strong class="text-slate-900 font-mono mr-2 w-12 shrink-0">238390</strong> 
+                                    <span>Other Building Finishing Contractors</span>
+                                </li>
+                                <li class="flex items-start leading-tight">
+                                    <strong class="text-slate-900 font-mono mr-2 w-12 shrink-0">423210</strong> 
+                                    <span>Furniture Merchant Wholesalers</span>
+                                </li>
+                                <li class="flex items-start leading-tight">
+                                    <strong class="text-slate-900 font-mono mr-2 w-12 shrink-0">449110</strong> 
+                                    <span>Furniture Retailers</span>
+                                </li>
+                                <li class="flex items-start leading-tight">
+                                    <strong class="text-slate-900 font-mono mr-2 w-12 shrink-0">493110</strong> 
+                                    <span>General Warehousing And Storage</span>
+                                </li>
+                                <li class="flex items-start leading-tight">
+                                    <strong class="text-slate-900 font-mono mr-2 w-12 shrink-0">493190</strong> 
+                                    <span>Other Warehousing And Storage</span>
+                                </li>
+                                <li class="flex items-start leading-tight">
+                                    <strong class="text-slate-900 font-mono mr-2 w-12 shrink-0">532289</strong> 
+                                    <span>All Other Consumer Goods Rental</span>
+                                </li>
+                                <li class="flex items-start leading-tight">
+                                    <strong class="text-slate-900 font-mono mr-2 w-12 shrink-0">532310</strong> 
+                                    <span>General Rental Centers</span>
+                                </li>
+                                <li class="flex items-start leading-tight">
+                                    <strong class="text-slate-900 font-mono mr-2 w-12 shrink-0">532420</strong> 
+                                    <span>Office Machinery And Equipment Rental And Leasing</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-t border-slate-200 bg-white/80 py-8 px-6 text-xs text-slate-500 mt-auto">
+
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-center text-center">
+            <div>&copy; 2026 Koop Solutions. All rights reserved. &bull; Service-Disabled Veteran-Owned Small Business (Coming Soon)</div>
+        </div>
+    </footer>
+
+    <script>
+        const fallbackPaths = [
+            'images/G.png',
+            'G.png',
+            'New%20folder%20(2)/G.png',
+            'New folder (2)/G.png'
+        ];
+        let currentFallbackIndex = 0;
+
+        function handleImageFallback(imgElement) {
+            currentFallbackIndex++;
+            if (currentFallbackIndex < fallbackPaths.length) {
+                imgElement.src = fallbackPaths[currentFallbackIndex];
+            } else {
+                imgElement.style.display = 'none';
+                document.getElementById('imagePlaceholder').classList.remove('hidden');
+                document.getElementById('imagePlaceholder').classList.add('flex');
+            }
+        }
+    </script>
+	
+	<script>
+const canvas = document.getElementById("matrixCanvas");
+const ctx = canvas.getContext("2d");
+
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener("resize", resize);
+
+// LOWER NODE COUNT + MORE SUBTLE
+const nodes = [];
+const NUM_NODES = 55;  // reduced from 120 → 55
+
+for (let i = 0; i < NUM_NODES; i++) {
+  nodes.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    vx: (Math.random() - 0.5) * 0.25, // slower drift
+    vy: (Math.random() - 0.5) * 0.25
+  });
+}
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Draw nodes (more subtle)
+  nodes.forEach(n => {
+    ctx.beginPath();
+    ctx.arc(n.x, n.y, 1.4, 0, Math.PI * 2); // smaller nodes
+    ctx.fillStyle = "rgba(0, 80, 255, 0.25)"; // softer opacity
+    ctx.fill();
+  });
+
+  // Draw connecting lines (more subtle)
+  for (let i = 0; i < nodes.length; i++) {
+    for (let j = i + 1; j < nodes.length; j++) {
+      const dx = nodes[i].x - nodes[j].x;
+      const dy = nodes[i].y - nodes[j].y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+
+      if (dist < 130) { // slightly shorter connection range
+        ctx.beginPath();
+        ctx.strokeStyle = "rgba(0, 80, 255, 0.10)"; // lighter lines
+        ctx.lineWidth = 1;
+        ctx.moveTo(nodes[i].x, nodes[i].y);
+        ctx.lineTo(nodes[j].x, nodes[j].y);
+        ctx.stroke();
+      }
+    }
+  }
+
+  // Update positions
+  nodes.forEach(n => {
+    n.x += n.vx;
+    n.y += n.vy;
+
+    // Wrap edges
+    if (n.x < 0) n.x = canvas.width;
+    if (n.x > canvas.width) n.x = 0;
+    if (n.y < 0) n.y = canvas.height;
+    if (n.y > canvas.height) n.y = 0;
+  });
+
+  requestAnimationFrame(draw);
+}
+
+draw();
+</script>
+
+</body>
+</html>
