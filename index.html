@@ -118,24 +118,272 @@
         </div>
 
         <!-- IMAGE COLUMN -->
-    <div class="lg:col-span-5 w-full flex items-center justify-center relative">
-            <!-- Subtle backdrop glow for the image -->
-            <div class="absolute inset-0 bg-gradient-to-tr from-koopBlue/10 to-koopCyan/10 blur-3xl rounded-full transform scale-90 -z-10"></div>
-            
-            <img 
-                id="visionImg"
-                src="images/G.png" 
-                alt="Koop Solutions Architectural Vision" 
-                class="rounded-2xl w-full h-auto object-cover shadow-2xl border border-white/50"
-                onerror="handleImageFallback(this)"
-            >
-            <div id="imagePlaceholder" class="hidden flex-col items-center justify-center p-12 bg-slate-900 rounded-2xl text-center w-full shadow-2xl border border-slate-700">
-                <svg class="w-16 h-16 text-koopCyan animate-pulse mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <path d="M18.178 8c5.096 0 5.096 8 0 8-5.095 0-7.267-8-12.356-8-5.096 0-5.096 8 0 8 5.089 0 7.261-8 12.356-8z"/>
-                </svg>
-                <span class="text-xs font-mono text-cyan-400 uppercase tracking-widest">Architecture Schematic</span>
+    <!-- HERO ROTATING TELEMETRY CONSOLE -->
+<div class="lg:col-span-5 w-full flex items-center justify-center relative select-none min-h-[380px]">
+    <!-- Atmospheric Ambient Glows -->
+    <div class="absolute -top-12 -left-8 w-64 h-64 bg-koopBlue/15 rounded-full blur-3xl pointer-events-none -z-10"></div>
+    <div class="absolute -bottom-10 -right-8 w-72 h-72 bg-koopCyan/20 rounded-full blur-3xl pointer-events-none -z-10"></div>
+
+    <div class="relative w-full max-w-lg">
+        
+        <!-- SLIDE 1: DATA ARCHITECTURE & STREAMING (UPDATED METRICS) -->
+        <div id="slide-1" class="telemetry-slide transition-opacity duration-700 opacity-100 relative w-full glass-card rounded-2xl p-6 border border-white/90 shadow-2xl backdrop-blur-xl">
+            <div class="flex items-center justify-between pb-4 border-b border-slate-200/60 font-mono text-[11px]">
+                <div class="flex items-center space-x-2">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                    </span>
+                    <span class="font-bold text-slate-800 tracking-tight">DATA_MESH // OBSERVE_01</span>
+                </div>
+                <div class="flex items-center space-x-2 text-[10px] text-slate-400 uppercase tracking-wider">
+                    <span class="px-2 py-0.5 rounded bg-blue-50/80 text-koopBlue font-semibold border border-blue-100">Live Telemetry</span>
+                    <span>us-east-1</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3.5 my-4">
+                <div class="p-3.5 rounded-xl bg-white/70 border border-slate-100/80 shadow-sm">
+                    <div class="flex items-center justify-between text-[10px] font-mono text-slate-400 mb-1">
+                        <span>THROUGHPUT</span>
+                        <span class="text-koopBlue font-bold">+18.4%</span>
+                    </div>
+                    <div class="text-xl font-bold font-mono text-slate-900 tracking-tight">
+                        2.84 <span class="text-xs font-normal text-slate-500">M eps</span>
+                    </div>
+                    <div class="mt-2 h-7 w-full">
+                        <svg viewBox="0 0 120 28" fill="none" class="w-full h-full">
+                            <path d="M0 24 L 20 18 L 40 22 L 60 11 L 80 15 L 100 6 L 120 9" stroke="#0055a5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="p-3.5 rounded-xl bg-white/70 border border-slate-100/80 shadow-sm">
+                    <div class="flex items-center justify-between text-[10px] font-mono text-slate-400 mb-1">
+                        <span>FINOPS EFFICIENCY</span>
+                        <span class="text-koopCyan font-bold">OPTIMIZED</span>
+                    </div>
+                    <div class="text-xl font-bold font-mono text-slate-900 tracking-tight">
+                        -38.2<span class="text-xs font-normal text-slate-500">%</span>
+                    </div>
+                    <div class="mt-3 space-y-1">
+                        <div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden flex">
+                            <div class="bg-gradient-to-r from-koopBlue to-koopCyan h-full rounded-full" style="width: 78%"></div>
+                        </div>
+                        <div class="flex justify-between text-[9px] font-mono text-slate-400">
+                            <span>Provisioned: 94%</span>
+                            <span class="text-slate-600 font-semibold">Idle: 2.1%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-slate-900 text-slate-100 font-mono text-xs shadow-inner space-y-2.5">
+                <div class="flex items-center justify-between text-[10px] text-slate-400 border-b border-slate-800 pb-1.5">
+                    <span class="flex items-center gap-1 text-cyan-400">ZERO_TRUST POLICIES</span>
+                    <span class="text-emerald-400">ENFORCED (100%)</span>
+                </div>
+                <div class="space-y-1.5 pt-0.5">
+                    <div class="flex items-center justify-between text-[11px]">
+                        <span class="text-slate-300">Streaming Ingestion p99</span>
+                        <span class="text-cyan-300 font-semibold">&lt; 14ms</span>
+                    </div>
+                    <div class="flex items-center justify-between text-[11px]">
+                        <span class="text-slate-300">Vector Search Latency</span>
+                        <span class="text-cyan-300 font-semibold">4.1ms</span>
+                    </div>
+                    <div class="flex items-center justify-between text-[11px]">
+                        <span class="text-slate-300">Continuous Drift Guard</span>
+                        <span class="text-emerald-400 font-semibold">STABLE</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="absolute -bottom-3 -right-3 px-3 py-1.5 bg-white rounded-lg shadow-lg border border-slate-100 flex items-center space-x-2 font-mono text-[10px] font-bold text-slate-800">
+                <span class="w-2 h-2 rounded-full bg-koopBlue"></span>
+                <span>UPTIME 99.995%</span>
             </div>
         </div>
+
+        <!-- SLIDE 2: CLOUD MIGRATION & DEVSECOPS PIPELINE -->
+        <div id="slide-2" class="telemetry-slide transition-opacity duration-700 opacity-0 absolute top-0 left-0 w-full glass-card rounded-2xl p-6 border border-white/90 shadow-2xl backdrop-blur-xl pointer-events-none">
+            <div class="flex items-center justify-between pb-4 border-b border-slate-200/60 font-mono text-[11px]">
+                <div class="flex items-center space-x-2">
+                    <span class="relative flex h-2 w-2">
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-koopCyan"></span>
+                    </span>
+                    <span class="font-bold text-slate-800 tracking-tight">CICD_ENGINE // STACK_DEPLOY</span>
+                </div>
+                <div class="flex items-center space-x-2 text-[10px] text-slate-400 uppercase tracking-wider">
+                    <span class="px-2 py-0.5 rounded bg-blue-50/80 text-koopBlue font-semibold border border-blue-100">Zero Downtime</span>
+                    <span>Hybrid Multi-Cloud</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3.5 my-4">
+                <div class="p-3.5 rounded-xl bg-white/70 border border-slate-100/80 shadow-sm">
+                    <div class="flex items-center justify-between text-[10px] font-mono text-slate-400 mb-1">
+                        <span>DEPLOY VELOCITY</span>
+                        <span class="text-emerald-600 font-bold">14.2x</span>
+                    </div>
+                    <div class="text-xl font-bold font-mono text-slate-900 tracking-tight">
+                        42 <span class="text-xs font-normal text-slate-500">releases/wk</span>
+                    </div>
+                    <div class="mt-3 text-[9px] font-mono text-slate-500 flex justify-between">
+                        <span>Rollback Rate: <strong class="text-slate-800">0.01%</strong></span>
+                    </div>
+                </div>
+
+                <div class="p-3.5 rounded-xl bg-white/70 border border-slate-100/80 shadow-sm">
+                    <div class="flex items-center justify-between text-[10px] font-mono text-slate-400 mb-1">
+                        <span>IAC CONVERGENCE</span>
+                        <span class="text-koopBlue font-bold">SYNCED</span>
+                    </div>
+                    <div class="text-xl font-bold font-mono text-slate-900 tracking-tight">
+                        100<span class="text-xs font-normal text-slate-500">%</span>
+                    </div>
+                    <div class="mt-3 text-[9px] font-mono text-slate-500 flex justify-between">
+                        <span>Immutable Enclaves: <strong class="text-koopBlue">Active</strong></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-slate-900 text-slate-100 font-mono text-xs shadow-inner space-y-2.5">
+                <div class="flex items-center justify-between text-[10px] text-slate-400 border-b border-slate-800 pb-1.5">
+                    <span class="flex items-center gap-1 text-cyan-400">DEVSECOPS GATEWAY</span>
+                    <span class="text-emerald-400">PASSED (NIST 800-53)</span>
+                </div>
+                <div class="space-y-1.5 pt-0.5">
+                    <div class="flex items-center justify-between text-[11px]">
+                        <span class="text-slate-300">Container Image Scan</span>
+                        <span class="text-emerald-400 font-semibold">0 CVEs Critical</span>
+                    </div>
+                    <div class="flex items-center justify-between text-[11px]">
+                        <span class="text-slate-300">mTLS Mesh Handshake</span>
+                        <span class="text-cyan-300 font-semibold">0.8ms</span>
+                    </div>
+                    <div class="flex items-center justify-between text-[11px]">
+                        <span class="text-slate-300">Cloud Formation Drift</span>
+                        <span class="text-emerald-400 font-semibold">0.00%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="absolute -bottom-3 -right-3 px-3 py-1.5 bg-white rounded-lg shadow-lg border border-slate-100 flex items-center space-x-2 font-mono text-[10px] font-bold text-slate-800">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                <span>FEDRAMP ALIGNED</span>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: ENTERPRISE AI & ESG / SUSTAINABILITY -->
+        <div id="slide-3" class="telemetry-slide transition-opacity duration-700 opacity-0 absolute top-0 left-0 w-full glass-card rounded-2xl p-6 border border-white/90 shadow-2xl backdrop-blur-xl pointer-events-none">
+            <div class="flex items-center justify-between pb-4 border-b border-slate-200/60 font-mono text-[11px]">
+                <div class="flex items-center space-x-2">
+                    <span class="relative flex h-2 w-2">
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                    </span>
+                    <span class="font-bold text-slate-800 tracking-tight">ESG_CORE // GREEN_COMPUTE</span>
+                </div>
+                <div class="flex items-center space-x-2 text-[10px] text-slate-400 uppercase tracking-wider">
+                    <span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 font-semibold border border-emerald-200">Carbon Guard</span>
+                    <span>v3.8</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3.5 my-4">
+                <div class="p-3.5 rounded-xl bg-white/70 border border-slate-100/80 shadow-sm">
+                    <div class="flex items-center justify-between text-[10px] font-mono text-slate-400 mb-1">
+                        <span>PUE METRIC</span>
+                        <span class="text-emerald-600 font-bold">-22.6%</span>
+                    </div>
+                    <div class="text-xl font-bold font-mono text-slate-900 tracking-tight">
+                        1.14 <span class="text-xs font-normal text-slate-500">target</span>
+                    </div>
+                    <div class="mt-3 text-[9px] font-mono text-slate-500 flex justify-between">
+                        <span>Embodied Carbon: <strong class="text-slate-800">Tracked</strong></span>
+                    </div>
+                </div>
+
+                <div class="p-3.5 rounded-xl bg-white/70 border border-slate-100/80 shadow-sm">
+                    <div class="flex items-center justify-between text-[10px] font-mono text-slate-400 mb-1">
+                        <span>AI GOVERNANCE</span>
+                        <span class="text-koopBlue font-bold">100%</span>
+                    </div>
+                    <div class="text-xl font-bold font-mono text-slate-900 tracking-tight">
+                        Zero <span class="text-xs font-normal text-slate-500">Bias Drift</span>
+                    </div>
+                    <div class="mt-3 text-[9px] font-mono text-slate-500 flex justify-between">
+                        <span>Audited Inference: <strong class="text-koopBlue">Enabled</strong></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-3.5 rounded-xl bg-slate-900 text-slate-100 font-mono text-xs shadow-inner space-y-2.5">
+                <div class="flex items-center justify-between text-[10px] text-slate-400 border-b border-slate-800 pb-1.5">
+                    <span class="flex items-center gap-1 text-emerald-400">COMPLIANCE &amp; AUDIT MATRIX</span>
+                    <span class="text-emerald-400">VERIFIED</span>
+                </div>
+                <div class="space-y-1.5 pt-0.5">
+                    <div class="flex items-center justify-between text-[11px]">
+                        <span class="text-slate-300">Model Lineage Tracking</span>
+                        <span class="text-cyan-300 font-semibold">Immutable / Cryptographic</span>
+                    </div>
+                    <div class="flex items-center justify-between text-[11px]">
+                        <span class="text-slate-300">Compute Energy Index</span>
+                        <span class="text-emerald-400 font-semibold">Optimal Low-Carbon</span>
+                    </div>
+                    <div class="flex items-center justify-between text-[11px]">
+                        <span class="text-slate-300">Workforce Skill Alignment</span>
+                        <span class="text-cyan-300 font-semibold">96.4% Readiness</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="absolute -bottom-3 -right-3 px-3 py-1.5 bg-white rounded-lg shadow-lg border border-slate-100 flex items-center space-x-2 font-mono text-[10px] font-bold text-slate-800">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                <span>ESG AUDIT READY</span>
+            </div>
+        </div>
+
+        <!-- CAROUSEL DOT INDICATORS -->
+        <div class="flex justify-center items-center space-x-2 mt-6">
+            <button onclick="setSlide(0)" id="dot-0" class="w-6 h-1.5 rounded-full bg-koopBlue transition-all duration-300"></button>
+            <button onclick="setSlide(1)" id="dot-1" class="w-2 h-1.5 rounded-full bg-slate-300 hover:bg-slate-400 transition-all duration-300"></button>
+            <button onclick="setSlide(2)" id="dot-2" class="w-2 h-1.5 rounded-full bg-slate-300 hover:bg-slate-400 transition-all duration-300"></button>
+        </div>
+
+    </div>
+</div>
+
+<!-- CAROUSEL ROTATION SCRIPT -->
+<script>
+    let activeIndex = 0;
+    const slides = [document.getElementById('slide-1'), document.getElementById('slide-2'), document.getElementById('slide-3')];
+    const dots = [document.getElementById('dot-0'), document.getElementById('dot-1'), document.getElementById('dot-2')];
+
+    function setSlide(index) {
+        activeIndex = index;
+        slides.forEach((slide, i) => {
+            if (i === index) {
+                slide.classList.remove('opacity-0', 'pointer-events-none');
+                slide.classList.add('opacity-100', 'relative');
+                slide.classList.remove('absolute');
+                dots[i].classList.remove('w-2', 'bg-slate-300');
+                dots[i].classList.add('w-6', 'bg-koopBlue');
+            } else {
+                slide.classList.remove('opacity-100', 'relative');
+                slide.classList.add('opacity-0', 'pointer-events-none', 'absolute');
+                dots[i].classList.remove('w-6', 'bg-koopBlue');
+                dots[i].classList.add('w-2', 'bg-slate-300');
+            }
+        });
+    }
+
+    setInterval(() => {
+        const nextIndex = (activeIndex + 1) % slides.length;
+        setSlide(nextIndex);
+    }, 6000);
+</script>
 
     </div>
 </section>
