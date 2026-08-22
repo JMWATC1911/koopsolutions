@@ -23,7 +23,6 @@
     <meta name="twitter:description" content="End-to-end technical excellence across data & AI, cloud modernization, and advanced systems integration.">
     <meta name="twitter:image" content="https://koopsolutions.com/images/g.png">
 
-
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -32,21 +31,20 @@
                     colors: {
                         koopBlue: '#0055a5',
                         koopCyan: '#00a4e4',
-						blueprintBg: '#f8fafc',	
+                        blueprintBg: '#f8fafc',	
                     },
                     fontFamily: {
-                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        sans: ['Verdana', 'Geneva', 'Tahoma', 'sans-serif'],
                         mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
                     }
                 }
             }
         }
     </script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
 	
 	<style>
-        /* The Executive Blueprint Background */
         body {
+            font-family: 'Verdana', 'Geneva', 'Tahoma', sans-serif;
             background-color: #fafbfc;
             background-image: 
                 linear-gradient(rgba(0, 85, 165, 0.04) 1px, transparent 1px),
@@ -56,21 +54,28 @@
             background-attachment: fixed;
         }
 
-        /* Premium Glassmorphism Cards */
         .glass-card {
-            background: rgba(255, 255, 255, 0.65);
+            background: rgba(255, 255, 255, 0.75);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.9);
             box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.05);
+        }
+
+        .dark-glass-card {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.4);
         }
     </style>
 </head>
-   
 
 <body class="text-slate-950 min-h-screen flex flex-col font-sans selection:bg-koopBlue selection:text-white relative">
 
-   <header class="w-full border-b border-slate-200/60 bg-white/80 backdrop-blur-md sticky top-0 z-50">
+    <!-- STICKY NAVIGATION HEADER -->
+    <header class="w-full border-b border-slate-200/60 bg-white/80 backdrop-blur-md sticky top-0 z-50 transition-all duration-300">
         <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
             
             <a href="#" class="flex items-center">
@@ -87,606 +92,668 @@
                 </div>
             </a>
            
-            <div class="flex items-center space-x-4">
-                <!-- Updated to jump to the form anchor -->
-                <a href="#contact" class="inline-flex items-center justify-center px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-white bg-koopBlue hover:bg-slate-900 rounded-md transition-colors duration-300 shadow-sm">
-                    Contact
-                </a>
+            <!-- ICON-ONLY HAMBURGER TRIGGER & DROPDOWN -->
+            <div class="relative">
+                <button 
+                    id="menuToggleBtn" 
+                    onclick="toggleMenu()" 
+                    aria-label="Toggle navigation menu"
+                    class="p-3 rounded-lg bg-white/90 hover:bg-slate-100 border border-slate-200 shadow-sm transition-all duration-200 focus:outline-none flex items-center justify-center"
+                >
+                    <div class="w-5 h-4 flex flex-col justify-between items-center">
+                        <span id="line1" class="w-full h-0.5 bg-slate-800 rounded-full transition-all duration-300 transform origin-center"></span>
+                        <span id="line2" class="w-full h-0.5 bg-slate-800 rounded-full transition-all duration-300"></span>
+                        <span id="line3" class="w-full h-0.5 bg-slate-800 rounded-full transition-all duration-300 transform origin-center"></span>
+                    </div>
+                </button>
+
+                <!-- DROPDOWN PANEL -->
+                <div 
+                    id="navDropdown" 
+                    class="hidden absolute right-0 mt-3 w-48 glass-card rounded-xl border border-slate-200/90 shadow-2xl p-2 z-50 backdrop-blur-xl transition-all duration-200 origin-top-right"
+                >
+                    <a href="#capabilities" onclick="toggleMenu()" class="block px-3.5 py-2.5 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100/80 hover:text-koopBlue transition-colors">
+                        Capabilities
+                    </a>
+                    
+                    <a href="#industries" onclick="toggleMenu()" class="block px-3.5 py-2.5 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100/80 hover:text-koopBlue transition-colors">
+                        Industries
+                    </a>
+                    
+                    <a href="#identifiers" onclick="toggleMenu()" class="block px-3.5 py-2.5 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100/80 hover:text-koopBlue transition-colors">
+                        Identifiers
+                    </a>
+                    
+                    <div class="my-1 border-t border-slate-100"></div>
+                    
+                    <a href="#contact" onclick="toggleMenu()" class="flex items-center justify-between px-3.5 py-2.5 rounded-lg text-xs font-bold text-white bg-koopBlue hover:bg-slate-900 transition-colors shadow-sm">
+                        <span>Contact Us</span>
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                        </svg>
+                    </a>
+                </div>
             </div>
+
         </div>
     </header>
 
-<section class="w-full py-20 lg:py-32 px-6">
-    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-        
-        <!-- TEXT COLUMN -->
-        <div class="lg:col-span-7 space-y-8 max-w-3xl">
+    <!-- HERO SECTION -->
+    <section class="w-full py-20 lg:py-28 px-6">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
-            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-                Continuous Integration. <br class="hidden sm:inline" />
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-koopBlue to-koopCyan">Lifecycle Continuity.</span>
-            </h1>
+            <!-- TEXT COLUMN -->
+            <div class="lg:col-span-7 space-y-8 max-w-3xl">
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                    Continuous Integration. <br class="hidden sm:inline" />
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-koopBlue to-koopCyan">Lifecycle Continuity.</span>
+                </h1>
 
-            <!-- MATCHED TRANSPARENCY (NO BOX, NO BLUR, NO BORDER) -->
-            <p class="text-base sm:text-lg text-slate-600 leading-relaxed font-light">
-                We believe true technical excellence has no boundaries. Our branding represents a relentless commitment to continuous integration, agile delivery, 
-                and lifecycle support. As your strategic technology partner, we bridge the gap between legacy systems and future-state architecture—unifying cloud engineering,
-                data analytics, and enterprise integration to drive sustainable, long-term scale.
-            </p>
-            <!-- END MATCHED TRANSPARENCY -->
-
-        </div>
-
-        <!-- IMAGE COLUMN -->
-    <!-- HERO ROTATING TELEMETRY CONSOLE -->
-<div class="lg:col-span-5 w-full flex items-center justify-center relative select-none min-h-[380px]">
-    <!-- Atmospheric Ambient Glows -->
-    <div class="absolute -top-12 -left-8 w-64 h-64 bg-koopBlue/15 rounded-full blur-3xl pointer-events-none -z-10"></div>
-    <div class="absolute -bottom-10 -right-8 w-72 h-72 bg-koopCyan/20 rounded-full blur-3xl pointer-events-none -z-10"></div>
-
-    <div class="relative w-full max-w-lg">
-        
-        <!-- SLIDE 1: DATA ARCHITECTURE & STREAMING (UPDATED METRICS) -->
-        <div id="slide-1" class="telemetry-slide transition-opacity duration-700 opacity-100 relative w-full glass-card rounded-2xl p-6 border border-white/90 shadow-2xl backdrop-blur-xl">
-            <div class="flex items-center justify-between pb-4 border-b border-slate-200/60 font-mono text-[11px]">
-                <div class="flex items-center space-x-2">
-                    <span class="relative flex h-2 w-2">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                    </span>
-                    <span class="font-bold text-slate-800 tracking-tight">DATA_MESH // OBSERVE_01</span>
-                </div>
-                <div class="flex items-center space-x-2 text-[10px] text-slate-400 uppercase tracking-wider">
-                    <span class="px-2 py-0.5 rounded bg-blue-50/80 text-koopBlue font-semibold border border-blue-100">Live Telemetry</span>
-                    <span>us-east-1</span>
-                </div>
+                <p class="text-sm sm:text-base text-slate-600 leading-relaxed font-light">
+                    We believe true technical excellence has no boundaries. Our branding represents a relentless commitment to continuous integration, agile delivery, 
+                    and lifecycle support. As your strategic technology partner, we bridge the gap between legacy systems and future-state architecture—unifying cloud engineering,
+                    data analytics, and enterprise integration to drive sustainable, long-term scale.
+                </p>
             </div>
 
-            <div class="grid grid-cols-2 gap-3.5 my-4">
-                <div class="p-3.5 rounded-xl bg-white/70 border border-slate-100/80 shadow-sm">
-                    <div class="flex items-center justify-between text-[10px] font-mono text-slate-400 mb-1">
-                        <span>THROUGHPUT</span>
-                        <span class="text-koopBlue font-bold">+18.4%</span>
-                    </div>
-                    <div class="text-xl font-bold font-mono text-slate-900 tracking-tight">
-                        2.84 <span class="text-xs font-normal text-slate-500">M eps</span>
-                    </div>
-                    <div class="mt-2 h-7 w-full">
-                        <svg viewBox="0 0 120 28" fill="none" class="w-full h-full">
-                            <path d="M0 24 L 20 18 L 40 22 L 60 11 L 80 15 L 100 6 L 120 9" stroke="#0055a5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                </div>
+            <!-- HERO ROTATING TELEMETRY CONSOLE -->
+            <div class="lg:col-span-5 w-full flex items-center justify-center relative select-none min-h-[380px]">
+                <div class="absolute -top-12 -left-8 w-64 h-64 bg-koopBlue/15 rounded-full blur-3xl pointer-events-none -z-10"></div>
+                <div class="absolute -bottom-10 -right-8 w-72 h-72 bg-koopCyan/20 rounded-full blur-3xl pointer-events-none -z-10"></div>
 
-                <div class="p-3.5 rounded-xl bg-white/70 border border-slate-100/80 shadow-sm">
-                    <div class="flex items-center justify-between text-[10px] font-mono text-slate-400 mb-1">
-                        <span>FINOPS EFFICIENCY</span>
-                        <span class="text-koopCyan font-bold">OPTIMIZED</span>
-                    </div>
-                    <div class="text-xl font-bold font-mono text-slate-900 tracking-tight">
-                        -38.2<span class="text-xs font-normal text-slate-500">%</span>
-                    </div>
-                    <div class="mt-3 space-y-1">
-                        <div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden flex">
-                            <div class="bg-gradient-to-r from-koopBlue to-koopCyan h-full rounded-full" style="width: 78%"></div>
+                <div class="relative w-full max-w-lg">
+                    <!-- SLIDE 1: DATA ARCHITECTURE & STREAMING -->
+                    <div id="slide-1" class="telemetry-slide transition-opacity duration-700 opacity-100 relative w-full glass-card rounded-2xl p-6 border border-white/90 shadow-2xl backdrop-blur-xl">
+                        <div class="flex items-center justify-between pb-4 border-b border-slate-200/60 font-mono text-[11px]">
+                            <div class="flex items-center space-x-2">
+                                <span class="relative flex h-2 w-2">
+                                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                    <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                                </span>
+                                <span class="font-bold text-slate-800 tracking-tight">DATA_MESH // OBSERVE_01</span>
+                            </div>
+                            <div class="flex items-center space-x-2 text-[10px] text-slate-400 uppercase tracking-wider">
+                                <span class="px-2 py-0.5 rounded bg-blue-50/80 text-koopBlue font-semibold border border-blue-100">Live Telemetry</span>
+                                <span>us-east-1</span>
+                            </div>
                         </div>
-                        <div class="flex justify-between text-[9px] font-mono text-slate-400">
-                            <span>Provisioned: 94%</span>
-                            <span class="text-slate-600 font-semibold">Idle: 2.1%</span>
+
+                        <div class="grid grid-cols-2 gap-3.5 my-4">
+                            <div class="p-3.5 rounded-xl bg-white/70 border border-slate-100/80 shadow-sm">
+                                <div class="flex items-center justify-between text-[10px] font-mono text-slate-400 mb-1">
+                                    <span>THROUGHPUT</span>
+                                    <span class="text-koopBlue font-bold">+18.4%</span>
+                                </div>
+                                <div class="text-lg font-bold font-mono text-slate-900 tracking-tight">
+                                    2.84 <span class="text-xs font-normal text-slate-500">M eps</span>
+                                </div>
+                                <div class="mt-2 h-7 w-full">
+                                    <svg viewBox="0 0 120 28" fill="none" class="w-full h-full">
+                                        <path d="M0 24 L 20 18 L 40 22 L 60 11 L 80 15 L 100 6 L 120 9" stroke="#0055a5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div class="p-3.5 rounded-xl bg-white/70 border border-slate-100/80 shadow-sm">
+                                <div class="flex items-center justify-between text-[10px] font-mono text-slate-400 mb-1">
+                                    <span>FINOPS EFFICIENCY</span>
+                                    <span class="text-koopCyan font-bold">OPTIMIZED</span>
+                                </div>
+                                <div class="text-lg font-bold font-mono text-slate-900 tracking-tight">
+                                    -38.2<span class="text-xs font-normal text-slate-500">%</span>
+                                </div>
+                                <div class="mt-3 space-y-1">
+                                    <div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden flex">
+                                        <div class="bg-gradient-to-r from-koopBlue to-koopCyan h-full rounded-full" style="width: 78%"></div>
+                                    </div>
+                                    <div class="flex justify-between text-[9px] font-mono text-slate-400">
+                                        <span>Provisioned: 94%</span>
+                                        <span class="text-slate-600 font-semibold">Idle: 2.1%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-3.5 rounded-xl bg-slate-900 text-slate-100 font-mono text-xs shadow-inner space-y-2.5">
+                            <div class="flex items-center justify-between text-[10px] text-slate-400 border-b border-slate-800 pb-1.5">
+                                <span class="flex items-center gap-1 text-cyan-400">ZERO_TRUST POLICIES</span>
+                                <span class="text-emerald-400">ENFORCED (100%)</span>
+                            </div>
+                            <div class="space-y-1.5 pt-0.5">
+                                <div class="flex items-center justify-between text-[11px]">
+                                    <span class="text-slate-300">Streaming Ingestion p99</span>
+                                    <span class="text-cyan-300 font-semibold">&lt; 14ms</span>
+                                </div>
+                                <div class="flex items-center justify-between text-[11px]">
+                                    <span class="text-slate-300">Vector Search Latency</span>
+                                    <span class="text-cyan-300 font-semibold">4.1ms</span>
+                                </div>
+                                <div class="flex items-center justify-between text-[11px]">
+                                    <span class="text-slate-300">Continuous Drift Guard</span>
+                                    <span class="text-emerald-400 font-semibold">STABLE</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="absolute -bottom-3 -right-3 px-3 py-1.5 bg-white rounded-lg shadow-lg border border-slate-100 flex items-center space-x-2 font-mono text-[10px] font-bold text-slate-800">
+                            <span class="w-2 h-2 rounded-full bg-koopBlue"></span>
+                            <span>UPTIME 99.995%</span>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <div class="p-3.5 rounded-xl bg-slate-900 text-slate-100 font-mono text-xs shadow-inner space-y-2.5">
-                <div class="flex items-center justify-between text-[10px] text-slate-400 border-b border-slate-800 pb-1.5">
-                    <span class="flex items-center gap-1 text-cyan-400">ZERO_TRUST POLICIES</span>
-                    <span class="text-emerald-400">ENFORCED (100%)</span>
-                </div>
-                <div class="space-y-1.5 pt-0.5">
-                    <div class="flex items-center justify-between text-[11px]">
-                        <span class="text-slate-300">Streaming Ingestion p99</span>
-                        <span class="text-cyan-300 font-semibold">&lt; 14ms</span>
-                    </div>
-                    <div class="flex items-center justify-between text-[11px]">
-                        <span class="text-slate-300">Vector Search Latency</span>
-                        <span class="text-cyan-300 font-semibold">4.1ms</span>
-                    </div>
-                    <div class="flex items-center justify-between text-[11px]">
-                        <span class="text-slate-300">Continuous Drift Guard</span>
-                        <span class="text-emerald-400 font-semibold">STABLE</span>
-                    </div>
-                </div>
-            </div>
+                    <!-- SLIDE 2: CLOUD MIGRATION & DEVSECOPS PIPELINE -->
+                    <div id="slide-2" class="telemetry-slide transition-opacity duration-700 opacity-0 absolute top-0 left-0 w-full glass-card rounded-2xl p-6 border border-white/90 shadow-2xl backdrop-blur-xl pointer-events-none">
+                        <div class="flex items-center justify-between pb-4 border-b border-slate-200/60 font-mono text-[11px]">
+                            <div class="flex items-center space-x-2">
+                                <span class="relative flex h-2 w-2">
+                                    <span class="relative inline-flex rounded-full h-2 w-2 bg-koopCyan"></span>
+                                </span>
+                                <span class="font-bold text-slate-800 tracking-tight">CICD_ENGINE // STACK_DEPLOY</span>
+                            </div>
+                            <div class="flex items-center space-x-2 text-[10px] text-slate-400 uppercase tracking-wider">
+                                <span class="px-2 py-0.5 rounded bg-blue-50/80 text-koopBlue font-semibold border border-blue-100">Zero Downtime</span>
+                                <span>Hybrid Multi-Cloud</span>
+                            </div>
+                        </div>
 
-            <div class="absolute -bottom-3 -right-3 px-3 py-1.5 bg-white rounded-lg shadow-lg border border-slate-100 flex items-center space-x-2 font-mono text-[10px] font-bold text-slate-800">
-                <span class="w-2 h-2 rounded-full bg-koopBlue"></span>
-                <span>UPTIME 99.995%</span>
-            </div>
-        </div>
+                        <div class="grid grid-cols-2 gap-3.5 my-4">
+                            <div class="p-3.5 rounded-xl bg-white/70 border border-slate-100/80 shadow-sm">
+                                <div class="flex items-center justify-between text-[10px] font-mono text-slate-400 mb-1">
+                                    <span>DEPLOY VELOCITY</span>
+                                    <span class="text-emerald-600 font-bold">14.2x</span>
+                                </div>
+                                <div class="text-lg font-bold font-mono text-slate-900 tracking-tight">
+                                    42 <span class="text-xs font-normal text-slate-500">releases/wk</span>
+                                </div>
+                                <div class="mt-3 text-[9px] font-mono text-slate-500 flex justify-between">
+                                    <span>Rollback Rate: <strong class="text-slate-800">0.01%</strong></span>
+                                </div>
+                            </div>
 
-        <!-- SLIDE 2: CLOUD MIGRATION & DEVSECOPS PIPELINE -->
-        <div id="slide-2" class="telemetry-slide transition-opacity duration-700 opacity-0 absolute top-0 left-0 w-full glass-card rounded-2xl p-6 border border-white/90 shadow-2xl backdrop-blur-xl pointer-events-none">
-            <div class="flex items-center justify-between pb-4 border-b border-slate-200/60 font-mono text-[11px]">
-                <div class="flex items-center space-x-2">
-                    <span class="relative flex h-2 w-2">
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-koopCyan"></span>
-                    </span>
-                    <span class="font-bold text-slate-800 tracking-tight">CICD_ENGINE // STACK_DEPLOY</span>
-                </div>
-                <div class="flex items-center space-x-2 text-[10px] text-slate-400 uppercase tracking-wider">
-                    <span class="px-2 py-0.5 rounded bg-blue-50/80 text-koopBlue font-semibold border border-blue-100">Zero Downtime</span>
-                    <span>Hybrid Multi-Cloud</span>
-                </div>
-            </div>
+                            <div class="p-3.5 rounded-xl bg-white/70 border border-slate-100/80 shadow-sm">
+                                <div class="flex items-center justify-between text-[10px] font-mono text-slate-400 mb-1">
+                                    <span>IAC CONVERGENCE</span>
+                                    <span class="text-koopBlue font-bold">SYNCED</span>
+                                </div>
+                                <div class="text-lg font-bold font-mono text-slate-900 tracking-tight">
+                                    100<span class="text-xs font-normal text-slate-500">%</span>
+                                </div>
+                                <div class="mt-3 text-[9px] font-mono text-slate-500 flex justify-between">
+                                    <span>Immutable Enclaves: <strong class="text-koopBlue">Active</strong></span>
+                                </div>
+                            </div>
+                        </div>
 
-            <div class="grid grid-cols-2 gap-3.5 my-4">
-                <div class="p-3.5 rounded-xl bg-white/70 border border-slate-100/80 shadow-sm">
-                    <div class="flex items-center justify-between text-[10px] font-mono text-slate-400 mb-1">
-                        <span>DEPLOY VELOCITY</span>
-                        <span class="text-emerald-600 font-bold">14.2x</span>
-                    </div>
-                    <div class="text-xl font-bold font-mono text-slate-900 tracking-tight">
-                        42 <span class="text-xs font-normal text-slate-500">releases/wk</span>
-                    </div>
-                    <div class="mt-3 text-[9px] font-mono text-slate-500 flex justify-between">
-                        <span>Rollback Rate: <strong class="text-slate-800">0.01%</strong></span>
-                    </div>
-                </div>
+                        <div class="p-3.5 rounded-xl bg-slate-900 text-slate-100 font-mono text-xs shadow-inner space-y-2.5">
+                            <div class="flex items-center justify-between text-[10px] text-slate-400 border-b border-slate-800 pb-1.5">
+                                <span class="flex items-center gap-1 text-cyan-400">DEVSECOPS GATEWAY</span>
+                                <span class="text-emerald-400">PASSED (NIST 800-53)</span>
+                            </div>
+                            <div class="space-y-1.5 pt-0.5">
+                                <div class="flex items-center justify-between text-[11px]">
+                                    <span class="text-slate-300">Container Image Scan</span>
+                                    <span class="text-emerald-400 font-semibold">0 CVEs Critical</span>
+                                </div>
+                                <div class="flex items-center justify-between text-[11px]">
+                                    <span class="text-slate-300">mTLS Mesh Handshake</span>
+                                    <span class="text-cyan-300 font-semibold">0.8ms</span>
+                                </div>
+                                <div class="flex items-center justify-between text-[11px]">
+                                    <span class="text-slate-300">Cloud Formation Drift</span>
+                                    <span class="text-emerald-400 font-semibold">0.00%</span>
+                                </div>
+                            </div>
+                        </div>
 
-                <div class="p-3.5 rounded-xl bg-white/70 border border-slate-100/80 shadow-sm">
-                    <div class="flex items-center justify-between text-[10px] font-mono text-slate-400 mb-1">
-                        <span>IAC CONVERGENCE</span>
-                        <span class="text-koopBlue font-bold">SYNCED</span>
+                        <div class="absolute -bottom-3 -right-3 px-3 py-1.5 bg-white rounded-lg shadow-lg border border-slate-100 flex items-center space-x-2 font-mono text-[10px] font-bold text-slate-800">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                            <span>FEDRAMP ALIGNED</span>
+                        </div>
                     </div>
-                    <div class="text-xl font-bold font-mono text-slate-900 tracking-tight">
-                        100<span class="text-xs font-normal text-slate-500">%</span>
-                    </div>
-                    <div class="mt-3 text-[9px] font-mono text-slate-500 flex justify-between">
-                        <span>Immutable Enclaves: <strong class="text-koopBlue">Active</strong></span>
-                    </div>
-                </div>
-            </div>
 
-            <div class="p-3.5 rounded-xl bg-slate-900 text-slate-100 font-mono text-xs shadow-inner space-y-2.5">
-                <div class="flex items-center justify-between text-[10px] text-slate-400 border-b border-slate-800 pb-1.5">
-                    <span class="flex items-center gap-1 text-cyan-400">DEVSECOPS GATEWAY</span>
-                    <span class="text-emerald-400">PASSED (NIST 800-53)</span>
-                </div>
-                <div class="space-y-1.5 pt-0.5">
-                    <div class="flex items-center justify-between text-[11px]">
-                        <span class="text-slate-300">Container Image Scan</span>
-                        <span class="text-emerald-400 font-semibold">0 CVEs Critical</span>
-                    </div>
-                    <div class="flex items-center justify-between text-[11px]">
-                        <span class="text-slate-300">mTLS Mesh Handshake</span>
-                        <span class="text-cyan-300 font-semibold">0.8ms</span>
-                    </div>
-                    <div class="flex items-center justify-between text-[11px]">
-                        <span class="text-slate-300">Cloud Formation Drift</span>
-                        <span class="text-emerald-400 font-semibold">0.00%</span>
-                    </div>
-                </div>
-            </div>
+                    <!-- SLIDE 3: ENTERPRISE AI & ESG / SUSTAINABILITY -->
+                    <div id="slide-3" class="telemetry-slide transition-opacity duration-700 opacity-0 absolute top-0 left-0 w-full glass-card rounded-2xl p-6 border border-white/90 shadow-2xl backdrop-blur-xl pointer-events-none">
+                        <div class="flex items-center justify-between pb-4 border-b border-slate-200/60 font-mono text-[11px]">
+                            <div class="flex items-center space-x-2">
+                                <span class="relative flex h-2 w-2">
+                                    <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                                </span>
+                                <span class="font-bold text-slate-800 tracking-tight">ESG_CORE // GREEN_COMPUTE</span>
+                            </div>
+                            <div class="flex items-center space-x-2 text-[10px] text-slate-400 uppercase tracking-wider">
+                                <span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 font-semibold border border-emerald-200">Carbon Guard</span>
+                                <span>v3.8</span>
+                            </div>
+                        </div>
 
-            <div class="absolute -bottom-3 -right-3 px-3 py-1.5 bg-white rounded-lg shadow-lg border border-slate-100 flex items-center space-x-2 font-mono text-[10px] font-bold text-slate-800">
-                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-                <span>FEDRAMP ALIGNED</span>
-            </div>
-        </div>
+                        <div class="grid grid-cols-2 gap-3.5 my-4">
+                            <div class="p-3.5 rounded-xl bg-white/70 border border-slate-100/80 shadow-sm">
+                                <div class="flex items-center justify-between text-[10px] font-mono text-slate-400 mb-1">
+                                    <span>PUE METRIC</span>
+                                    <span class="text-emerald-600 font-bold">-22.6%</span>
+                                </div>
+                                <div class="text-lg font-bold font-mono text-slate-900 tracking-tight">
+                                    1.14 <span class="text-xs font-normal text-slate-500">target</span>
+                                </div>
+                                <div class="mt-3 text-[9px] font-mono text-slate-500 flex justify-between">
+                                    <span>Embodied Carbon: <strong class="text-slate-800">Tracked</strong></span>
+                                </div>
+                            </div>
 
-        <!-- SLIDE 3: ENTERPRISE AI & ESG / SUSTAINABILITY -->
-        <div id="slide-3" class="telemetry-slide transition-opacity duration-700 opacity-0 absolute top-0 left-0 w-full glass-card rounded-2xl p-6 border border-white/90 shadow-2xl backdrop-blur-xl pointer-events-none">
-            <div class="flex items-center justify-between pb-4 border-b border-slate-200/60 font-mono text-[11px]">
-                <div class="flex items-center space-x-2">
-                    <span class="relative flex h-2 w-2">
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                    </span>
-                    <span class="font-bold text-slate-800 tracking-tight">ESG_CORE // GREEN_COMPUTE</span>
-                </div>
-                <div class="flex items-center space-x-2 text-[10px] text-slate-400 uppercase tracking-wider">
-                    <span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 font-semibold border border-emerald-200">Carbon Guard</span>
-                    <span>v3.8</span>
-                </div>
-            </div>
+                            <div class="p-3.5 rounded-xl bg-white/70 border border-slate-100/80 shadow-sm">
+                                <div class="flex items-center justify-between text-[10px] font-mono text-slate-400 mb-1">
+                                    <span>AI GOVERNANCE</span>
+                                    <span class="text-koopBlue font-bold">100%</span>
+                                </div>
+                                <div class="text-lg font-bold font-mono text-slate-900 tracking-tight">
+                                    Zero <span class="text-xs font-normal text-slate-500">Bias Drift</span>
+                                </div>
+                                <div class="mt-3 text-[9px] font-mono text-slate-500 flex justify-between">
+                                    <span>Audited Inference: <strong class="text-koopBlue">Enabled</strong></span>
+                                </div>
+                            </div>
+                        </div>
 
-            <div class="grid grid-cols-2 gap-3.5 my-4">
-                <div class="p-3.5 rounded-xl bg-white/70 border border-slate-100/80 shadow-sm">
-                    <div class="flex items-center justify-between text-[10px] font-mono text-slate-400 mb-1">
-                        <span>PUE METRIC</span>
-                        <span class="text-emerald-600 font-bold">-22.6%</span>
-                    </div>
-                    <div class="text-xl font-bold font-mono text-slate-900 tracking-tight">
-                        1.14 <span class="text-xs font-normal text-slate-500">target</span>
-                    </div>
-                    <div class="mt-3 text-[9px] font-mono text-slate-500 flex justify-between">
-                        <span>Embodied Carbon: <strong class="text-slate-800">Tracked</strong></span>
-                    </div>
-                </div>
+                        <div class="p-3.5 rounded-xl bg-slate-900 text-slate-100 font-mono text-xs shadow-inner space-y-2.5">
+                            <div class="flex items-center justify-between text-[10px] text-slate-400 border-b border-slate-800 pb-1.5">
+                                <span class="flex items-center gap-1 text-emerald-400">COMPLIANCE &amp; AUDIT MATRIX</span>
+                                <span class="text-emerald-400">VERIFIED</span>
+                            </div>
+                            <div class="space-y-1.5 pt-0.5">
+                                <div class="flex items-center justify-between text-[11px]">
+                                    <span class="text-slate-300">Model Lineage Tracking</span>
+                                    <span class="text-cyan-300 font-semibold">Immutable / Cryptographic</span>
+                                </div>
+                                <div class="flex items-center justify-between text-[11px]">
+                                    <span class="text-slate-300">Compute Energy Index</span>
+                                    <span class="text-emerald-400 font-semibold">Optimal Low-Carbon</span>
+                                </div>
+                                <div class="flex items-center justify-between text-[11px]">
+                                    <span class="text-slate-300">Workforce Skill Alignment</span>
+                                    <span class="text-cyan-300 font-semibold">96.4% Readiness</span>
+                                </div>
+                            </div>
+                        </div>
 
-                <div class="p-3.5 rounded-xl bg-white/70 border border-slate-100/80 shadow-sm">
-                    <div class="flex items-center justify-between text-[10px] font-mono text-slate-400 mb-1">
-                        <span>AI GOVERNANCE</span>
-                        <span class="text-koopBlue font-bold">100%</span>
+                        <div class="absolute -bottom-3 -right-3 px-3 py-1.5 bg-white rounded-lg shadow-lg border border-slate-100 flex items-center space-x-2 font-mono text-[10px] font-bold text-slate-800">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                            <span>ESG AUDIT READY</span>
+                        </div>
                     </div>
-                    <div class="text-xl font-bold font-mono text-slate-900 tracking-tight">
-                        Zero <span class="text-xs font-normal text-slate-500">Bias Drift</span>
-                    </div>
-                    <div class="mt-3 text-[9px] font-mono text-slate-500 flex justify-between">
-                        <span>Audited Inference: <strong class="text-koopBlue">Enabled</strong></span>
-                    </div>
-                </div>
-            </div>
 
-            <div class="p-3.5 rounded-xl bg-slate-900 text-slate-100 font-mono text-xs shadow-inner space-y-2.5">
-                <div class="flex items-center justify-between text-[10px] text-slate-400 border-b border-slate-800 pb-1.5">
-                    <span class="flex items-center gap-1 text-emerald-400">COMPLIANCE &amp; AUDIT MATRIX</span>
-                    <span class="text-emerald-400">VERIFIED</span>
-                </div>
-                <div class="space-y-1.5 pt-0.5">
-                    <div class="flex items-center justify-between text-[11px]">
-                        <span class="text-slate-300">Model Lineage Tracking</span>
-                        <span class="text-cyan-300 font-semibold">Immutable / Cryptographic</span>
-                    </div>
-                    <div class="flex items-center justify-between text-[11px]">
-                        <span class="text-slate-300">Compute Energy Index</span>
-                        <span class="text-emerald-400 font-semibold">Optimal Low-Carbon</span>
-                    </div>
-                    <div class="flex items-center justify-between text-[11px]">
-                        <span class="text-slate-300">Workforce Skill Alignment</span>
-                        <span class="text-cyan-300 font-semibold">96.4% Readiness</span>
+                    <!-- CAROUSEL DOTS -->
+                    <div class="flex justify-center items-center space-x-2 mt-6">
+                        <button onclick="setSlide(0)" id="dot-0" class="w-6 h-1.5 rounded-full bg-koopBlue transition-all duration-300"></button>
+                        <button onclick="setSlide(1)" id="dot-1" class="w-2 h-1.5 rounded-full bg-slate-300 hover:bg-slate-400 transition-all duration-300"></button>
+                        <button onclick="setSlide(2)" id="dot-2" class="w-2 h-1.5 rounded-full bg-slate-300 hover:bg-slate-400 transition-all duration-300"></button>
                     </div>
                 </div>
-            </div>
-
-            <div class="absolute -bottom-3 -right-3 px-3 py-1.5 bg-white rounded-lg shadow-lg border border-slate-100 flex items-center space-x-2 font-mono text-[10px] font-bold text-slate-800">
-                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-                <span>ESG AUDIT READY</span>
-            </div>
-        </div>
-
-        <!-- CAROUSEL DOT INDICATORS -->
-        <div class="flex justify-center items-center space-x-2 mt-6">
-            <button onclick="setSlide(0)" id="dot-0" class="w-6 h-1.5 rounded-full bg-koopBlue transition-all duration-300"></button>
-            <button onclick="setSlide(1)" id="dot-1" class="w-2 h-1.5 rounded-full bg-slate-300 hover:bg-slate-400 transition-all duration-300"></button>
-            <button onclick="setSlide(2)" id="dot-2" class="w-2 h-1.5 rounded-full bg-slate-300 hover:bg-slate-400 transition-all duration-300"></button>
-        </div>
-
-    </div>
-</div>
-
-<!-- CAROUSEL ROTATION SCRIPT -->
-<script>
-    let activeIndex = 0;
-    const slides = [document.getElementById('slide-1'), document.getElementById('slide-2'), document.getElementById('slide-3')];
-    const dots = [document.getElementById('dot-0'), document.getElementById('dot-1'), document.getElementById('dot-2')];
-
-    function setSlide(index) {
-        activeIndex = index;
-        slides.forEach((slide, i) => {
-            if (i === index) {
-                slide.classList.remove('opacity-0', 'pointer-events-none');
-                slide.classList.add('opacity-100', 'relative');
-                slide.classList.remove('absolute');
-                dots[i].classList.remove('w-2', 'bg-slate-300');
-                dots[i].classList.add('w-6', 'bg-koopBlue');
-            } else {
-                slide.classList.remove('opacity-100', 'relative');
-                slide.classList.add('opacity-0', 'pointer-events-none', 'absolute');
-                dots[i].classList.remove('w-6', 'bg-koopBlue');
-                dots[i].classList.add('w-2', 'bg-slate-300');
-            }
-        });
-    }
-
-    setInterval(() => {
-        const nextIndex = (activeIndex + 1) % slides.length;
-        setSlide(nextIndex);
-    }, 6000);
-</script>
-
-    </div>
-</section>
-
-
-
-<section class="w-full py-20 px-6 relative z-10">
-    <div class="max-w-6xl mx-auto">
-
-        <!-- TITLE + SUBTITLE -->
-        <div class="text-center mb-16 max-w-3xl mx-auto">
-            <h2 class="text-3xl font-extrabold text-slate-900 tracking-tight">Core Capabilities</h2>
-            <p class="text-slate-500 mt-4 text-base leading-relaxed">
-                End-to-end technical excellence designed to drive modernization, security, and scale across the enterprise.
-            </p>
-        </div>
-
-        <!-- STAGGERED GRID -->
-        <!-- pb-24 handles the overflow from the translated columns on large screens -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:pb-24">
-
-            <!-- CARD 1: Normal -->
-            <div class="glass-card p-8 rounded-2xl transition-transform duration-300 hover:-translate-y-2 group">
-                <div class="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center mb-6 text-koopBlue group-hover:bg-koopBlue group-hover:text-white transition-colors">
-                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg>
-                </div>
-                <h3 class="text-[13px] font-bold text-slate-900 mb-3 uppercase tracking-widest">Data &amp; Architecture</h3>
-                <p class="text-sm text-slate-600 font-mono leading-relaxed">Advanced analytics, machine learning pipelines, enterprise data architecture, and predictive modeling.</p>
-            </div>
-
-            <!-- CARD 2: Staggered Down -->
-            <div class="glass-card p-8 rounded-2xl transition-transform duration-300 hover:-translate-y-2 lg:translate-y-12 group">
-                <div class="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center mb-6 text-koopBlue group-hover:bg-koopBlue group-hover:text-white transition-colors">
-                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path></svg>
-                </div>
-                <h3 class="text-[13px] font-bold text-slate-900 mb-3 uppercase tracking-widest">Cloud &amp; Infrastructure</h3>
-                <p class="text-sm text-slate-600 font-mono leading-relaxed">Cloud modernization, hybrid architectures, DevSecOps automation, and zero-downtime migrations.</p>
-            </div>
-
-            <!-- CARD 3: Staggered Further Down -->
-            <div class="glass-card p-8 rounded-2xl transition-transform duration-300 hover:-translate-y-2 lg:translate-y-24 group">
-                <div class="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center mb-6 text-koopBlue group-hover:bg-koopBlue group-hover:text-white transition-colors">
-                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                </div>
-                <h3 class="text-[13px] font-bold text-slate-900 mb-3 uppercase tracking-widest">Technology Transformation</h3>
-                <p class="text-sm text-slate-600 font-mono leading-relaxed">Legacy modernization, distributed systems engineering, ERP alignment, and API ecosystem integration.</p>
-            </div>
-
-            <!-- CARD 4: Normal -->
-            <div class="glass-card p-8 rounded-2xl transition-transform duration-300 hover:-translate-y-2 group">
-                <div class="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center mb-6 text-koopBlue group-hover:bg-koopBlue group-hover:text-white transition-colors">
-                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-                </div>
-                <h3 class="text-[13px] font-bold text-slate-900 mb-3 uppercase tracking-widest">Cybersecurity &amp; Governance</h3>
-                <p class="text-sm text-slate-600 font-mono leading-relaxed">Threat defense, zero-trust network design, security automation, and regulatory compliance frameworks.</p>
-            </div>
-
-            <!-- CARD 5: Staggered Down -->
-            <div class="glass-card p-8 rounded-2xl transition-transform duration-300 hover:-translate-y-2 lg:translate-y-12 group">
-                <div class="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center mb-6 text-koopBlue group-hover:bg-koopBlue group-hover:text-white transition-colors">
-                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
-                </div>
-                <h3 class="text-[13px] font-bold text-slate-900 mb-3 uppercase tracking-widest">Digital Eng &amp; Manufacturing </h3>
-                <p class="text-sm text-slate-600 font-mono leading-relaxed">Industrial IoT, systems automation, edge computing, and digital twin implementations.</p>
-            </div>
-
-            <!-- CARD 6: Staggered Further Down -->
-            <div class="glass-card p-8 rounded-2xl transition-transform duration-300 hover:-translate-y-2 lg:translate-y-24 group">
-                <div class="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center mb-6 text-koopBlue group-hover:bg-koopBlue group-hover:text-white transition-colors">
-                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                </div>
-                <h3 class="text-[13px] font-bold text-slate-900 mb-3 uppercase tracking-widest">Managed Delivery &amp; Services</h3>
-                <p class="text-sm text-slate-600 font-mono leading-relaxed">Continuous operations support, platform maintenance, and SLA-backed infrastructure management.</p>
-            </div>
-
-            <!-- CARD 7: Normal -->
-            <div class="glass-card p-8 rounded-2xl transition-transform duration-300 hover:-translate-y-2 group">
-                <div class="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center mb-6 text-koopBlue group-hover:bg-koopBlue group-hover:text-white transition-colors">
-                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-                </div>
-                <h3 class="text-[13px] font-bold text-slate-900 mb-3 uppercase tracking-widest">Strategic Advisory &amp; Supply Chain</h3>
-                <p class="text-sm text-slate-600 font-mono leading-relaxed">Operating model design, technology roadmaps, logistics optimization, and vendor ecosystem enablement.</p>
-            </div>
-
-            <!-- CARD 8: Staggered Down -->
-            <div class="glass-card p-8 rounded-2xl transition-transform duration-300 hover:-translate-y-2 lg:translate-y-12 group">
-                <div class="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center mb-6 text-koopBlue group-hover:bg-koopBlue group-hover:text-white transition-colors">
-                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"></path></svg>
-                </div>
-                <h3 class="text-[13px] font-bold text-slate-900 mb-3 uppercase tracking-widest">Customer &amp;  Commerce Solutions</h3>
-                <p class="text-sm text-slate-600 font-mono leading-relaxed">Omnichannel customer platforms, digital sales enablement, and service automation.</p>
-            </div>
-
-            <!-- CARD 9: Staggered Further Down -->
-            <div class="glass-card p-8 rounded-2xl transition-transform duration-300 hover:-translate-y-2 lg:translate-y-24 group">
-                <div class="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center mb-6 text-koopBlue group-hover:bg-koopBlue group-hover:text-white transition-colors">
-                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
-                </div>
-                <h3 class="text-[13px] font-bold text-slate-900 mb-3 uppercase tracking-widest">Sustainable Ops &amp; Learning</h3>
-                <p class="text-sm text-slate-600 font-mono leading-relaxed">Green computing strategies, ESG compliance workflows, and enterprise technical upskilling strategies.
-				</p>
             </div>
 
         </div>
-    </div>
-</section>
+    </section>
 
-
-  <section class="w-full bg-transparent border-t border-slate-200 py-20 px-6">
-
-    <div class="max-w-6xl mx-auto">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold text-slate-900 tracking-tight">Industries Served</h2>
-        </div>
-
-        <!-- MATCHES IDENTIFIERS STYLE -->
-        <div class="bg-white/70 p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200">
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
-
-                <div>
-                    <h3 class="text-sm font-bold text-slate-900 mb-3 border-b border-slate-100 pb-2 flex items-center">
-                        <span class="w-2 h-2 rounded-full bg-koopCyan mr-2"></span> Public Sector &amp; Defense
-                    </h3>
-                    <p class="text-sm text-slate-600">Aerospace &amp; Defense, U.S. Federal Government, Public Service</p>
-                </div>
-
-                <div>
-                    <h3 class="text-sm font-bold text-slate-900 mb-3 border-b border-slate-100 pb-2 flex items-center">
-                        <span class="w-2 h-2 rounded-full bg-koopCyan mr-2"></span> Financial &amp; Corporate Services
-                    </h3>
-                    <p class="text-sm text-slate-600">Banking, Insurance, Capital Markets</p>
-                </div>
-
-                <div>
-                    <h3 class="text-sm font-bold text-slate-900 mb-3 border-b border-slate-100 pb-2 flex items-center">
-                        <span class="w-2 h-2 rounded-full bg-koopCyan mr-2"></span> Industrial &amp; Infrastructure
-                    </h3>
-                    <p class="text-sm text-slate-600">Energy, Utilities, Industrial Manufacturing, Automotive</p>
-                </div>
-
-                <div>
-                    <h3 class="text-sm font-bold text-slate-900 mb-3 border-b border-slate-100 pb-2 flex items-center">
-                        <span class="w-2 h-2 rounded-full bg-koopCyan mr-2"></span> State &amp; Local Government
-                    </h3>
-                    <p class="text-sm text-slate-600">State Agencies, Municipalities, Higher Education, K-12</p>
-                </div>
-
-                <div>
-                    <h3 class="text-sm font-bold text-slate-900 mb-3 border-b border-slate-100 pb-2 flex items-center">
-                        <span class="w-2 h-2 rounded-full bg-koopCyan mr-2"></span> Technology &amp; Consumer
-                    </h3>
-                    <p class="text-sm text-slate-600">High Tech, Software &amp; Platforms, Retail, Consumer Goods</p>
-                </div>
-
-                <div>
-                    <h3 class="text-sm font-bold text-slate-900 mb-3 border-b border-slate-100 pb-2 flex items-center">
-                        <span class="w-2 h-2 rounded-full bg-koopCyan mr-2"></span> Healthcare &amp; Life Sciences
-                    </h3>
-                    <p class="text-sm text-slate-600">Health Systems, Digital Health Platforms</p>
-                </div>
-
-            </div>
-
-        </div>
-        <!-- END MATCHED CARD -->
-
-    </div>
-</section>
-
-
-   <section class="w-full bg-transparent border-t border-slate-200 py-16 px-6 flex-grow">
-
+    <!-- CORE CAPABILITIES SECTION -->
+    <section id="capabilities" class="w-full py-24 px-6 relative z-10 border-t border-slate-200/60 bg-gradient-to-b from-transparent to-slate-100/60">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-2xl font-bold text-slate-900 mb-8 text-center tracking-tight">Company Identifiers</h2>
-            
-          
-                
-				<div class="bg-white/70 p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200 grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12">
+            <div class="text-center mb-16 max-w-3xl mx-auto">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Core Capabilities</h2>
+                <p class="text-slate-500 mt-4 text-xs sm:text-sm leading-relaxed">
+                    End-to-end technical excellence designed to drive modernization, security, and scale across the enterprise.
+                </p>
+            </div>
 
-				
-				
-				
-                <div class="md:col-span-4 lg:col-span-3 md:border-r md:border-slate-100 md:pr-8">
-                    <h3 class="text-base font-bold text-slate-900 mb-4 border-b border-slate-100 pb-2">Core Credentials</h3>
-                    
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:pb-24">
+                <!-- CARD 1 -->
+                <div class="glass-card p-8 rounded-2xl transition-transform duration-300 hover:-translate-y-2 group">
+                    <div class="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center mb-6 text-koopBlue group-hover:bg-koopBlue group-hover:text-white transition-colors">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg>
+                    </div>
+                    <h3 class="text-xs font-bold text-slate-900 mb-3 uppercase tracking-wider">Data &amp; Architecture</h3>
+                    <p class="text-xs text-slate-600 font-mono leading-relaxed">Advanced analytics, machine learning pipelines, enterprise data architecture, and predictive modeling.</p>
+                </div>
+
+                <!-- CARD 2 -->
+                <div class="glass-card p-8 rounded-2xl transition-transform duration-300 hover:-translate-y-2 lg:translate-y-12 group">
+                    <div class="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center mb-6 text-koopBlue group-hover:bg-koopBlue group-hover:text-white transition-colors">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path></svg>
+                    </div>
+                    <h3 class="text-xs font-bold text-slate-900 mb-3 uppercase tracking-wider">Cloud &amp; Infrastructure</h3>
+                    <p class="text-xs text-slate-600 font-mono leading-relaxed">Cloud modernization, hybrid architectures, DevSecOps automation, and zero-downtime migrations.</p>
+                </div>
+
+                <!-- CARD 3 -->
+                <div class="glass-card p-8 rounded-2xl transition-transform duration-300 hover:-translate-y-2 lg:translate-y-24 group">
+                    <div class="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center mb-6 text-koopBlue group-hover:bg-koopBlue group-hover:text-white transition-colors">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h3 class="text-xs font-bold text-slate-900 mb-3 uppercase tracking-wider">Technology Transformation</h3>
+                    <p class="text-xs text-slate-600 font-mono leading-relaxed">Legacy modernization, distributed systems engineering, ERP alignment, and API ecosystem integration.</p>
+                </div>
+
+                <!-- CARD 4 -->
+                <div class="glass-card p-8 rounded-2xl transition-transform duration-300 hover:-translate-y-2 group">
+                    <div class="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center mb-6 text-koopBlue group-hover:bg-koopBlue group-hover:text-white transition-colors">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                    </div>
+                    <h3 class="text-xs font-bold text-slate-900 mb-3 uppercase tracking-wider">Cybersecurity &amp; Governance</h3>
+                    <p class="text-xs text-slate-600 font-mono leading-relaxed">Threat defense, zero-trust network design, security automation, and regulatory compliance frameworks.</p>
+                </div>
+
+                <!-- CARD 5 -->
+                <div class="glass-card p-8 rounded-2xl transition-transform duration-300 hover:-translate-y-2 lg:translate-y-12 group">
+                    <div class="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center mb-6 text-koopBlue group-hover:bg-koopBlue group-hover:text-white transition-colors">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                    </div>
+                    <h3 class="text-xs font-bold text-slate-900 mb-3 uppercase tracking-wider">Digital Eng &amp; Manufacturing </h3>
+                    <p class="text-xs text-slate-600 font-mono leading-relaxed">Industrial IoT, systems automation, edge computing, and digital twin implementations.</p>
+                </div>
+
+                <!-- CARD 6 -->
+                <div class="glass-card p-8 rounded-2xl transition-transform duration-300 hover:-translate-y-2 lg:translate-y-24 group">
+                    <div class="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center mb-6 text-koopBlue group-hover:bg-koopBlue group-hover:text-white transition-colors">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xs font-bold text-slate-900 mb-3 uppercase tracking-wider">Managed Delivery &amp; Services</h3>
+                    <p class="text-xs text-slate-600 font-mono leading-relaxed">Continuous operations support, platform maintenance, and SLA-backed infrastructure management.</p>
+                </div>
+
+                <!-- CARD 7 -->
+                <div class="glass-card p-8 rounded-2xl transition-transform duration-300 hover:-translate-y-2 group">
+                    <div class="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center mb-6 text-koopBlue group-hover:bg-koopBlue group-hover:text-white transition-colors">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                    </div>
+                    <h3 class="text-xs font-bold text-slate-900 mb-3 uppercase tracking-wider">Strategic Advisory &amp; Supply Chain</h3>
+                    <p class="text-xs text-slate-600 font-mono leading-relaxed">Operating model design, technology roadmaps, logistics optimization, and vendor ecosystem enablement.</p>
+                </div>
+
+                <!-- CARD 8 -->
+                <div class="glass-card p-8 rounded-2xl transition-transform duration-300 hover:-translate-y-2 lg:translate-y-12 group">
+                    <div class="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center mb-6 text-koopBlue group-hover:bg-koopBlue group-hover:text-white transition-colors">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"></path></svg>
+                    </div>
+                    <h3 class="text-xs font-bold text-slate-900 mb-3 uppercase tracking-wider">Customer &amp; Commerce Solutions</h3>
+                    <p class="text-xs text-slate-600 font-mono leading-relaxed">Omnichannel customer platforms, digital sales enablement, and service automation.</p>
+                </div>
+
+                <!-- CARD 9 -->
+                <div class="glass-card p-8 rounded-2xl transition-transform duration-300 hover:-translate-y-2 lg:translate-y-24 group">
+                    <div class="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center mb-6 text-koopBlue group-hover:bg-koopBlue group-hover:text-white transition-colors">
+                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+                    </div>
+                    <h3 class="text-xs font-bold text-slate-900 mb-3 uppercase tracking-wider">Sustainable Ops &amp; Learning</h3>
+                    <p class="text-xs text-slate-600 font-mono leading-relaxed">Green computing strategies, ESG compliance workflows, and enterprise technical upskilling strategies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INDUSTRIES SERVED SECTION -->
+    <section id="industries" class="w-full bg-white/60 border-t border-slate-200 py-20 px-6 backdrop-blur-md">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">Industries Served</h2>
+            </div>
+
+            <div class="bg-white/80 p-8 sm:p-10 rounded-2xl shadow-sm border border-slate-200">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
+                    <div>
+                        <h3 class="text-xs sm:text-sm font-bold text-slate-900 mb-3 border-b border-slate-100 pb-2 flex items-center">
+                            <span class="w-2 h-2 rounded-full bg-koopCyan mr-2"></span> Public Sector &amp; Defense
+                        </h3>
+                        <p class="text-xs text-slate-600">Aerospace &amp; Defense, U.S. Federal Government, Public Service</p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xs sm:text-sm font-bold text-slate-900 mb-3 border-b border-slate-100 pb-2 flex items-center">
+                            <span class="w-2 h-2 rounded-full bg-koopCyan mr-2"></span> Financial &amp; Corporate Services
+                        </h3>
+                        <p class="text-xs text-slate-600">Banking, Insurance, Capital Markets</p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xs sm:text-sm font-bold text-slate-900 mb-3 border-b border-slate-100 pb-2 flex items-center">
+                            <span class="w-2 h-2 rounded-full bg-koopCyan mr-2"></span> Industrial &amp; Infrastructure
+                        </h3>
+                        <p class="text-xs text-slate-600">Energy, Utilities, Industrial Manufacturing, Automotive</p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xs sm:text-sm font-bold text-slate-900 mb-3 border-b border-slate-100 pb-2 flex items-center">
+                            <span class="w-2 h-2 rounded-full bg-koopCyan mr-2"></span> State &amp; Local Government
+                        </h3>
+                        <p class="text-xs text-slate-600">State Agencies, Municipalities, Higher Education, K-12</p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xs sm:text-sm font-bold text-slate-900 mb-3 border-b border-slate-100 pb-2 flex items-center">
+                            <span class="w-2 h-2 rounded-full bg-koopCyan mr-2"></span> Technology &amp; Consumer
+                        </h3>
+                        <p class="text-xs text-slate-600">High Tech, Software &amp; Platforms, Retail, Consumer Goods</p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xs sm:text-sm font-bold text-slate-900 mb-3 border-b border-slate-100 pb-2 flex items-center">
+                            <span class="w-2 h-2 rounded-full bg-koopCyan mr-2"></span> Healthcare &amp; Life Sciences
+                        </h3>
+                        <p class="text-xs text-slate-600">Health Systems, Digital Health Platforms</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPANY IDENTIFIERS (DARK CONTRAST SECTION) -->
+    <section id="identifiers" class="w-full bg-slate-950 py-20 px-6 text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-koopBlue/10 via-transparent to-koopCyan/5 pointer-events-none"></div>
+        <div class="max-w-6xl mx-auto relative z-10">
+            <h2 class="text-2xl font-bold text-white mb-10 text-center tracking-tight">Company Identifiers</h2>
+            
+            <div class="dark-glass-card p-6 sm:p-10 rounded-2xl grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12">
+                
+                <div class="md:col-span-4 lg:col-span-3 md:border-r md:border-slate-800 md:pr-8">
+                    <h3 class="text-sm font-bold text-slate-100 mb-4 border-b border-slate-800 pb-2">Core Credentials</h3>
                     <ul class="space-y-4">
                         <li>
-                            <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-0.5">Unique Entity ID (UEI)</span>
-                            <span class="text-sm font-semibold text-slate-800 font-mono">PZS2S9ZA1AK6</span>
+                            <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-0.5">Unique Entity ID (UEI)</span>
+                            <span class="text-xs sm:text-sm font-semibold text-cyan-400 font-mono tracking-wide">PZS2S9ZA1AK6</span>
                         </li>
                         <li>
-                            <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-0.5">CAGE Code</span>
-                            <span class="text-sm font-semibold text-slate-800 font-mono">22YR7</span>
+                            <span class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-0.5">CAGE Code</span>
+                            <span class="text-xs sm:text-sm font-semibold text-cyan-400 font-mono tracking-wide">22YR7</span>
                         </li>
                     </ul>
                 </div>
 
                 <div class="md:col-span-8 lg:col-span-9">
-                    <h3 class="text-base font-bold text-slate-900 mb-4 border-b border-slate-100 pb-2">NAICS Codes</h3>
-                    
+                    <h3 class="text-sm font-bold text-slate-100 mb-4 border-b border-slate-800 pb-2">NAICS Codes</h3>
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10">
                         <div>
-                            <h4 class="text-[11px] font-bold text-koopBlue mb-3 uppercase tracking-wider">Technology &amp; Computing</h4>
-                            <ul class="text-xs text-slate-700 space-y-2">
+                            <h4 class="text-[10px] font-bold text-koopCyan mb-3 uppercase tracking-wider">Technology &amp; Computing</h4>
+                            <ul class="text-xs text-slate-300 space-y-2.5">
                                 <li class="flex items-start leading-tight">
-                                    <strong class="text-slate-900 font-mono mr-2 w-12 shrink-0">541519</strong> 
-                                    <span>Other Computer Related Services <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[9px] font-bold bg-blue-50 text-koopBlue uppercase ml-1 translate-y-[-1px]">Primary</span></span>
+                                    <strong class="text-white font-mono mr-2 w-12 shrink-0">541519</strong> 
+                                    <span>Other Computer Related Services <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[9px] font-bold bg-koopBlue/30 text-cyan-300 uppercase ml-1 border border-koopCyan/30">Primary</span></span>
                                 </li>
                                 <li class="flex items-start leading-tight">
-                                    <strong class="text-slate-900 font-mono mr-2 w-12 shrink-0">541511</strong> 
+                                    <strong class="text-white font-mono mr-2 w-12 shrink-0">541511</strong> 
                                     <span>Custom Computer Programming Services</span>
                                 </li>
                                 <li class="flex items-start leading-tight">
-                                    <strong class="text-slate-900 font-mono mr-2 w-12 shrink-0">541512</strong> 
+                                    <strong class="text-white font-mono mr-2 w-12 shrink-0">541512</strong> 
                                     <span>Computer Systems Design Services</span>
                                 </li>
                             </ul>
                         </div>
-
-                      
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- NEW CONTACT FORM SECTION -->
-    <section id="contact" class="w-full bg-transparent border-t border-slate-200 py-16 px-6">
-        <div class="max-w-2xl mx-auto">
-            <h2 class="text-2xl font-bold text-slate-900 mb-8 text-center tracking-tight">Get in Touch</h2>
+    <!-- CENTERED INITIATE ENGAGEMENT CONTACT SECTION -->
+    <section id="contact" class="w-full py-20 px-6 relative z-10 border-t border-slate-200">
+        <div class="max-w-3xl mx-auto">
             
-            <div class="bg-white/70 p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200">
-                <!-- Replace the action URL with your unique endpoint -->
-                <form action="https://formspree.io/f/mqpzjwav" method="POST" class="space-y-6">
-                 
-                    <div>
-                        <label for="name" class="block text-sm font-bold text-slate-700 mb-2">Full Name</label>
-                        <input type="text" id="name" name="name" required placeholder="Jane Doe" class="w-full p-3 border border-slate-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-koopBlue focus:border-transparent text-sm">
+            <div class="text-center mb-10">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Contact Us</h2>
+                <p class="text-slate-500 mt-2 text-xs sm:text-sm">Direct channel for prime contracting, technical consulting, and architecture inquiries.</p>
+            </div>
+
+            <div class="glass-card p-6 sm:p-10 rounded-2xl border border-slate-200 shadow-xl">
+                <!-- Replace YOUR_ENDPOINT_ID with your Formspree/Web3Forms ID -->
+                <form action="https://formspree.io/f/mqpzjwav" method="POST" class="space-y-4">
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="name" class="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1.5">Full Name</label>
+                            <input type="text" id="name" name="name" required placeholder="Jane Doe" class="w-full p-3 border border-slate-200 rounded-lg bg-white text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-koopBlue/50 transition-all">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1.5">Email Address</label>
+                            <input type="email" id="email" name="email" required placeholder="jane@example.com" class="w-full p-3 border border-slate-200 rounded-lg bg-white text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-koopBlue/50 transition-all">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="company" class="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1.5">Company / Agency</label>
+                            <input type="text" id="company" name="company" placeholder="Optional" class="w-full p-3 border border-slate-200 rounded-lg bg-white text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-koopBlue/50 transition-all">
+                        </div>
+                        <div>
+                            <label for="interest" class="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1.5">Area of Interest</label>
+                            <select id="interest" name="interest" class="w-full p-3 border border-slate-200 rounded-lg bg-white text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-koopBlue/50 transition-all font-sans">
+                                <option value="General Inquiry">General Inquiry</option>
+                                <option value="Federal Teaming">Federal Contracting &amp; Teaming (SDVOSB)</option>
+                                <option value="Cloud Architecture">Cloud Modernization &amp; Architecture</option>
+                                <option value="Data Engineering">Data Engineering, Analytics &amp; AI</option>
+                                <option value="Green Computing & ESG">Green Computing &amp; ESG Compliance</option>
+                                <option value="Technical Upskilling">Enterprise Technical Upskilling</option>
+                            </select>
+                        </div>
                     </div>
 
                     <div>
-                        <label for="email" class="block text-sm font-bold text-slate-700 mb-2">Email Address</label>
-                        <input type="email" id="email" name="email" required placeholder="jane@example.com" class="w-full p-3 border border-slate-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-koopBlue focus:border-transparent text-sm">
+                        <label for="message" class="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1.5">Project Scope / Message</label>
+                        <textarea id="message" name="message" rows="4" required placeholder="Outline your requirements or teaming proposal..." class="w-full p-3 border border-slate-200 rounded-lg bg-white text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-koopBlue/50 transition-all resize-y"></textarea>
                     </div>
 
-                    <div>
-                        <label for="company" class="block text-sm font-bold text-slate-700 mb-2">Company / Organization</label>
-                        <input type="text" id="company" name="company" placeholder="Optional" class="w-full p-3 border border-slate-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-koopBlue focus:border-transparent text-sm">
-                    </div>
-
-                    <div>
-                        <label for="interest" class="block text-sm font-bold text-slate-700 mb-2">Area of Interest</label>
-                        <select id="interest" name="interest" class="w-full p-3 border border-slate-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-koopBlue focus:border-transparent text-sm">
-                            <option value="General Inquiry">General Inquiry</option>
-                            <option value="Federal Teaming">Federal Contracting & Teaming (SDVOSB)</option>
-                            <option value="Cloud Architecture">Cloud Modernization & Architecture</option>
-                            <option value="Data Engineering">Data Engineering, Analytics & AI</option>
-                            <option value="Green Computing & ESG">Green Computing & ESG Compliance</option>
-                            <option value="Technical Upskilling">Enterprise Technical Upskilling</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <label for="message" class="block text-sm font-bold text-slate-700 mb-2">Project Details or Message</label>
-                        <textarea id="message" name="message" rows="5" required placeholder="How can we help?" class="w-full p-3 border border-slate-300 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-koopBlue focus:border-transparent text-sm resize-y"></textarea>
-                    </div>
-
-                    <button type="submit" class="w-full bg-koopBlue hover:bg-slate-900 text-white font-bold py-3 px-4 rounded-md transition-colors duration-300 text-sm shadow-sm">
-                        Send Message
+                    <button type="submit" class="w-full bg-koopBlue hover:bg-slate-900 text-white font-bold py-3.5 px-4 rounded-lg transition-colors duration-300 text-xs sm:text-sm shadow-md flex items-center justify-center space-x-2">
+                        <span>Send</span>
+                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                     </button>
                 </form>
+
+                <!-- FOOTER TELEMETRY & DISCRETE EMAIL FALLBACK -->
+                <div class="mt-6 pt-5 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-400 font-mono gap-2">
+                    <div class="flex items-center gap-1.5">
+                        
+                    </div>
+                    <a href="mailto:contact@koopsolutions.com" class="inline-flex items-center gap-1.5 text-slate-500 hover:text-koopBlue transition-colors">
+                        <svg class="w-3.5 h-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                        <span>Contact@KoopSolutions.com</span>
+                    </a>
+                </div>
             </div>
+
         </div>
     </section>
 
-    <footer class="border-t border-slate-200 bg-white/80 py-8 px-6 text-xs text-slate-500 mt-auto">
-
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-200 bg-white/80 py-8 px-6 text-[11px] text-slate-500 mt-auto">
         <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-center text-center">
             <div>&copy; 2026 Koop Solutions. All rights reserved. &bull; Service-Disabled Veteran-Owned Small Business (Coming Soon)</div>
         </div>
     </footer>
 
-<script>
-    const fallbackPaths = [
-        'images/G.png',
-        'G.png',
-        'New%20folder%20(2)/G.png',
-        'New folder (2)/G.png'
-    ];
-    let currentFallbackIndex = 0;
+    <!-- DYNAMIC FLOATING BACK TO TOP BUTTON -->
+    <button id="backToTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-8 right-8 z-50 p-3 rounded-full bg-slate-900/80 hover:bg-koopBlue text-white shadow-xl backdrop-blur-md border border-white/20 transition-all duration-300 opacity-0 pointer-events-none translate-y-4">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+        </svg>
+    </button>
 
-    function handleImageFallback(imgElement) {
-        currentFallbackIndex++;
-        if (currentFallbackIndex < fallbackPaths.length) {
-            imgElement.src = fallbackPaths[currentFallbackIndex];
-        } else {
-            imgElement.style.display = 'none';
-            document.getElementById('imagePlaceholder').classList.remove('hidden');
-            document.getElementById('imagePlaceholder').classList.add('flex');
+    <!-- SCRIPTS -->
+    <script>
+        // Rotating Console Logic
+        let activeIndex = 0;
+        const slides = [document.getElementById('slide-1'), document.getElementById('slide-2'), document.getElementById('slide-3')];
+        const dots = [document.getElementById('dot-0'), document.getElementById('dot-1'), document.getElementById('dot-2')];
+
+        function setSlide(index) {
+            activeIndex = index;
+            slides.forEach((slide, i) => {
+                if (i === index) {
+                    slide.classList.remove('opacity-0', 'pointer-events-none');
+                    slide.classList.add('opacity-100', 'relative');
+                    slide.classList.remove('absolute');
+                    dots[i].classList.remove('w-2', 'bg-slate-300');
+                    dots[i].classList.add('w-6', 'bg-koopBlue');
+                } else {
+                    slide.classList.remove('opacity-100', 'relative');
+                    slide.classList.add('opacity-0', 'pointer-events-none', 'absolute');
+                    dots[i].classList.remove('w-6', 'bg-koopBlue');
+                    dots[i].classList.add('w-2', 'bg-slate-300');
+                }
+            });
         }
-    }
-</script>
 
+        setInterval(() => {
+            const nextIndex = (activeIndex + 1) % slides.length;
+            setSlide(nextIndex);
+        }, 6000);
+
+        // Hamburger Drawer Toggle Logic
+        function toggleMenu() {
+            const dropdown = document.getElementById('navDropdown');
+            const line1 = document.getElementById('line1');
+            const line2 = document.getElementById('line2');
+            const line3 = document.getElementById('line3');
+            const isHidden = dropdown.classList.contains('hidden');
+
+            if (isHidden) {
+                dropdown.classList.remove('hidden');
+                line1.classList.add('rotate-45', 'translate-y-1.5');
+                line2.classList.add('opacity-0');
+                line3.classList.add('-rotate-45', '-translate-y-1.5');
+            } else {
+                dropdown.classList.add('hidden');
+                line1.classList.remove('rotate-45', 'translate-y-1.5');
+                line2.classList.remove('opacity-0');
+                line3.classList.remove('-rotate-45', '-translate-y-1.5');
+            }
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (event) => {
+            const dropdown = document.getElementById('navDropdown');
+            const toggleBtn = document.getElementById('menuToggleBtn');
+            if (!dropdown.classList.contains('hidden') && !toggleBtn.contains(event.target) && !dropdown.contains(event.target)) {
+                toggleMenu();
+            }
+        });
+
+        // Dynamic Back to Top Trigger
+        const backToTopBtn = document.getElementById('backToTopBtn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                backToTopBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+                backToTopBtn.classList.add('opacity-100', 'translate-y-0');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+                backToTopBtn.classList.remove('opacity-100', 'translate-y-0');
+            }
+        });
+
+        // Logo Fallback Handler
+        function handleLogoFallback(imgElement) {
+            imgElement.style.display = 'none';
+            document.getElementById('headerLogoFallback').classList.remove('hidden');
+            document.getElementById('headerLogoFallback').classList.add('flex');
+        }
+    </script>
 </body>
 </html>
