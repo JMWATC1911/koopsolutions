@@ -196,161 +196,297 @@
     </div>
 </section>
 
+<!-- KOOP TELEMETRY DASHBOARD (Unified + PMP + Scrum + AI + Call Center) -->
+<section id="telemetry" class="w-full bg-white/60 border-t border-slate-200 py-16 px-6 backdrop-blur-md">
+  <div class="max-w-7xl mx-auto">
 
-
-<!-- MISSION PERFORMANCE TELEMETRY DASHBOARD -->
-<section class="py-16 bg-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <h2 class="text-2xl font-semibold text-gray-900 mb-6">
-      Mission Performance Telemetry Dashboard (Illustrative Capability)
+    <!-- Section Title -->
+    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight text-center mb-12">
+      Mission Performance Telemetry
     </h2>
-    <p class="text-gray-600 text-sm mb-10">
-      Representative metrics Koop Solutions can surface across mission operations, DevOps, MLOps, AI edge hardware, and delivery governance.
-    </p>
 
+    <!-- DASHBOARD GRID -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
 
-      <!-- Mission Ops Cards -->
-      <div class="bg-gray-100 rounded-xl p-4 shadow-sm border border-gray-200">
-        <h3 class="text-sm font-semibold text-gray-900 mb-2">Mission Readiness Index</h3>
-        <p class="text-2xl font-bold text-blue-600 mb-1">94%</p>
-        <p class="text-xs text-gray-600">Composite score across infrastructure, staffing, and data availability.</p>
+      <!-- ORIGINAL KOOP SIGNATURE METRICS -->
+      <div class="bg-gray-100 rounded-xl p-6 shadow-md border border-gray-200">
+        <h4 class="text-gray-900 text-sm font-semibold mb-1">Disciplined Execution</h4>
+        <p class="text-koopBlue text-2xl font-bold mb-1">98.4%</p>
+        <p class="text-gray-600 text-xs">Precision delivery across mission-critical systems.</p>
       </div>
 
-      <div class="bg-gray-100 rounded-xl p-4 shadow-sm border border-gray-200">
-        <h3 class="text-sm font-semibold text-gray-900 mb-2">Operational Uptime</h3>
-        <p class="text-2xl font-bold text-blue-600 mb-1">99.97%</p>
-        <p class="text-xs text-gray-600">Rolling 30‑day uptime across mission‑critical services.</p>
+      <div class="bg-gray-100 rounded-xl p-6 shadow-md border border-gray-200">
+        <h4 class="text-gray-900 text-sm font-semibold mb-1">Mission Alignment</h4>
+        <p class="text-koopBlue text-2xl font-bold mb-1">96.7%</p>
+        <p class="text-gray-600 text-xs">Architectures mapped directly to operational objectives.</p>
       </div>
 
-      <div class="bg-gray-100 rounded-xl p-4 shadow-sm border border-gray-200">
-        <h3 class="text-sm font-semibold text-gray-900 mb-2">Incident Response Time</h3>
-        <p class="text-2xl font-bold text-blue-600 mb-1">7.4 min</p>
-        <p class="text-xs text-gray-600">Median time from alert to triage.</p>
+      <div class="bg-gray-100 rounded-xl p-6 shadow-md border border-gray-200">
+        <h4 class="text-gray-900 text-sm font-semibold mb-1">Verifiable Reliability</h4>
+        <p class="text-koopBlue text-2xl font-bold mb-1">99.992%</p>
+        <p class="text-gray-600 text-xs">Measured resilience across integrated platforms.</p>
       </div>
 
-      <!-- DevOps Cards -->
-      <div class="bg-gray-100 rounded-xl p-4 shadow-sm border border-gray-200">
-        <h3 class="text-sm font-semibold text-gray-900 mb-2">Deployment Frequency</h3>
-        <p class="text-2xl font-bold text-blue-600 mb-1">18 / week</p>
-        <p class="text-xs text-gray-600">Production deployments across mission services.</p>
+      <div class="bg-gray-100 rounded-xl p-6 shadow-md border border-gray-200">
+        <h4 class="text-gray-900 text-sm font-semibold mb-1">Acquisition Readiness</h4>
+        <p class="text-koopBlue text-2xl font-bold mb-1">94.3%</p>
+        <p class="text-gray-600 text-xs">Compliance and documentation completeness.</p>
       </div>
 
-      <div class="bg-gray-100 rounded-xl p-4 shadow-sm border border-gray-200">
-        <h3 class="text-sm font-semibold text-gray-900 mb-2">Change Failure Rate</h3>
-        <p class="text-2xl font-bold text-blue-600 mb-1">2.3%</p>
-        <p class="text-xs text-gray-600">Percentage of changes requiring rollback or hotfix.</p>
-      </div>
+      <!-- COMPOSITE CARD: Mission System Health -->
+      <div class="bg-gray-100 rounded-xl p-6 shadow-md border border-gray-200">
+        <h4 class="text-gray-900 text-sm font-semibold mb-3">Mission System Health</h4>
 
-      <div class="bg-gray-100 rounded-xl p-4 shadow-sm border border-gray-200">
-        <h3 class="text-sm font-semibold text-gray-900 mb-2">MTTR (Recovery)</h3>
-        <p class="text-2xl font-bold text-blue-600 mb-1">11.2 min</p>
-        <p class="text-xs text-gray-600">Mean time to restore service after incident.</p>
-      </div>
-
-      <!-- MLOps Cards -->
-      <div class="bg-gray-100 rounded-xl p-4 shadow-sm border border-gray-200">
-        <h3 class="text-sm font-semibold text-gray-900 mb-2">Model Drift Score</h3>
-        <p class="text-2xl font-bold text-blue-600 mb-1">0.18</p>
-        <p class="text-xs text-gray-600">Distribution shift vs. baseline over last 14 days.</p>
-      </div>
-
-      <div class="bg-gray-100 rounded-xl p-4 shadow-sm border border-gray-200">
-        <h3 class="text-sm font-semibold text-gray-900 mb-2">Inference Latency</h3>
-        <p class="text-2xl font-bold text-blue-600 mb-1">12.6 ms</p>
-        <p class="text-xs text-gray-600">Median end‑to‑end inference time for mission models.</p>
-      </div>
-
-      <div class="bg-gray-100 rounded-xl p-4 shadow-sm border border-gray-200">
-        <h3 class="text-sm font-semibold text-gray-900 mb-2">Model Accuracy</h3>
-        <p class="text-2xl font-bold text-blue-600 mb-1">97.3%</p>
-        <p class="text-xs text-gray-600">Production performance on mission‑critical classification tasks.</p>
-      </div>
-
-      <!-- AI Edge Hardware Fleet Cards -->
-      <div class="bg-gray-100 rounded-xl p-4 shadow-sm border border-gray-200">
-        <h3 class="text-xs font-semibold text-gray-500 mb-1">Device: NVIDIA Jetson Orin NX</h3>
-        <p class="text-sm font-semibold text-gray-900 mb-1">GPU Utilization</p>
-        <p class="text-2xl font-bold text-blue-600 mb-1">72%</p>
-        <p class="text-xs text-gray-600">Thermal: 61°C · Power: 14.2W · Firmware: Compliant</p>
-      </div>
-
-      <div class="bg-gray-100 rounded-xl p-4 shadow-sm border border-gray-200">
-        <h3 class="text-xs font-semibold text-gray-500 mb-1">Device: Dell Edge Gateway 5200</h3>
-        <p class="text-sm font-semibold text-gray-900 mb-1">CPU Load</p>
-        <p class="text-2xl font-bold text-blue-600 mb-1">54%</p>
-        <p class="text-xs text-gray-600">Memory: 63% · Network Stability: 99.97% · TPM: Verified</p>
-      </div>
-
-      <div class="bg-gray-100 rounded-xl p-4 shadow-sm border border-gray-200">
-        <h3 class="text-xs font-semibold text-gray-500 mb-1">Device: HPE Edgeline EL300</h3>
-        <p class="text-sm font-semibold text-gray-900 mb-1">TPU Utilization</p>
-        <p class="text-2xl font-bold text-blue-600 mb-1">48%</p>
-        <p class="text-xs text-gray-600">Thermal: 57°C · Power: 18.1W · Secure Boot: Enabled</p>
-      </div>
-
-      <!-- Jira / Scrum / PMP Cards -->
-      <div class="bg-gray-100 rounded-xl p-4 shadow-sm border border-gray-200">
-        <h3 class="text-sm font-semibold text-gray-900 mb-2">Jira Sprint Velocity</h3>
-        <p class="text-2xl font-bold text-blue-600 mb-1">42 pts</p>
-        <p class="text-xs text-gray-600">Average completed per sprint across mission teams.</p>
-      </div>
-
-      <div class="bg-gray-100 rounded-xl p-4 shadow-sm border border-gray-200">
-        <h3 class="text-sm font-semibold text-gray-900 mb-2">Scrum Commitment Reliability</h3>
-        <p class="text-2xl font-bold text-blue-600 mb-1">96%</p>
-        <p class="text-xs text-gray-600">Planned vs. delivered work per sprint.</p>
-      </div>
-
-      <div class="bg-gray-100 rounded-xl p-4 shadow-sm border border-gray-200">
-        <h3 class="text-sm font-semibold text-gray-900 mb-2">PMP Schedule Variance</h3>
-        <p class="text-2xl font-bold text-blue-600 mb-1">+4.2%</p>
-        <p class="text-xs text-gray-600">Earned value vs. planned value across active programs.</p>
-      </div>
-
-      <!-- NEW MODEL WORKLOAD & TOKEN USAGE CARD -->
-      <div class="bg-gray-100 rounded-xl p-4 shadow-sm border border-gray-200">
-        <h3 class="text-sm font-semibold text-gray-900 mb-2">Model Workload & Token Usage</h3>
-
-        <div class="space-y-2 text-xs text-gray-600">
-          <div class="flex justify-between">
-            <span class="font-medium text-gray-700">GPT‑4o Jobs</span>
-            <span class="text-blue-600 font-bold">128 runs</span>
-          </div>
-          <div class="flex justify-between">
-            <span class="font-medium text-gray-700">GPT‑4o Tokens</span>
-            <span class="text-blue-600 font-bold">3.2M tokens</span>
-          </div>
-
-          <div class="flex justify-between pt-1">
-            <span class="font-medium text-gray-700">Claude 3.5 Jobs</span>
-            <span class="text-blue-600 font-bold">64 runs</span>
-          </div>
-          <div class="flex justify-between">
-            <span class="font-medium text-gray-700">Claude Tokens</span>
-            <span class="text-blue-600 font-bold">1.1M tokens</span>
-          </div>
-
-          <div class="flex justify-between pt-1">
-            <span class="font-medium text-gray-700">Llama 3 Jobs</span>
-            <span class="text-blue-600 font-bold">47 runs</span>
-          </div>
-          <div class="flex justify-between">
-            <span class="font-medium text-gray-700">Llama Tokens</span>
-            <span class="text-blue-600 font-bold">860k tokens</span>
-          </div>
+        <div class="mb-3">
+          <p class="text-koopBlue text-xl font-bold">99.982%</p>
+          <p class="text-gray-600 text-xs">Operational Uptime</p>
         </div>
 
-        <p class="text-[10px] text-gray-500 mt-3">
-          Aggregated workload distribution across mission‑aligned AI models.
-        </p>
+        <div class="mb-3">
+          <p class="text-koopBlue text-xl font-bold">14.2 min</p>
+          <p class="text-gray-600 text-xs">Incident Response Time</p>
+        </div>
+
+        <div>
+          <p class="text-koopBlue text-xl font-bold">87%</p>
+          <p class="text-gray-600 text-xs">Zero Trust Compliance</p>
+        </div>
       </div>
+
+      <!-- COMPOSITE CARD: Platform Velocity & Stability -->
+      <div class="bg-gray-100 rounded-xl p-6 shadow-md border border-gray-200">
+        <h4 class="text-gray-900 text-sm font-semibold mb-3">Platform Velocity & Stability</h4>
+
+        <div class="mb-3">
+          <p class="text-koopBlue text-xl font-bold">41/day</p>
+          <p class="text-gray-600 text-xs">Deployment Frequency</p>
+        </div>
+
+        <div class="mb-3">
+          <p class="text-koopBlue text-xl font-bold">1.7%</p>
+          <p class="text-gray-600 text-xs">Change Failure Rate</p>
+        </div>
+
+        <div>
+          <p class="text-koopBlue text-xl font-bold">22 min</p>
+          <p class="text-gray-600 text-xs">MTTR</p>
+        </div>
+      </div>
+
+      <!-- COMPOSITE CARD: Industrial Operations Efficiency -->
+      <div class="bg-gray-100 rounded-xl p-6 shadow-md border border-gray-200">
+        <h4 class="text-gray-900 text-sm font-semibold mb-3">Industrial Operations Efficiency</h4>
+
+        <div class="mb-3">
+          <p class="text-koopBlue text-xl font-bold">97.8%</p>
+          <p class="text-gray-600 text-xs">Sensor Reliability</p>
+        </div>
+
+        <div class="mb-3">
+          <p class="text-koopBlue text-xl font-bold">92.1%</p>
+          <p class="text-gray-600 text-xs">Predictive Maintenance Accuracy</p>
+        </div>
+
+        <div>
+          <p class="text-koopBlue text-xl font-bold">14.7%</p>
+          <p class="text-gray-600 text-xs">Energy Optimization</p>
+        </div>
+      </div>
+
+ <!-- COMPOSITE CARD: AI Workload & Cost Efficiency -->
+<div class="bg-gray-100 rounded-xl p-6 shadow-md border border-gray-200">
+  <h4 class="text-gray-900 text-sm font-semibold mb-3">AI Workload & Cost Efficiency</h4>
+
+  <div class="mb-3">
+    <p class="text-koopBlue text-xl font-bold">14.2M/day</p>
+    <p class="text-gray-600 text-xs">Token Usage</p>
+  </div>
+
+  <div class="mb-3">
+    <p class="text-koopBlue text-xl font-bold">$0.00019</p>
+    <p class="text-gray-600 text-xs">Cost‑per‑Inference</p>
+  </div>
+
+  <div class="mb-4">
+    <p class="text-koopBlue text-xl font-bold">0.8%</p>
+    <p class="text-gray-600 text-xs">Model Drift</p>
+  </div>
+
+  <div>
+    <p class="text-gray-900 text-sm font-semibold mb-1">Top 3 Models Used</p>
+    <ul class="text-gray-600 text-xs space-y-1">
+      <li>• GPT‑4o (High‑accuracy reasoning)</li>
+      <li>• Claude 3.5 Sonnet (Structured analysis)</li>
+      <li>• Llama 3 70B (Cost‑optimized inference)</li>
+    </ul>
+  </div>
+</div>
+
+
+
+      <!-- COMPOSITE CARD: Clinical System Reliability -->
+      <div class="bg-gray-100 rounded-xl p-6 shadow-md border border-gray-200">
+        <h4 class="text-gray-900 text-sm font-semibold mb-3">Clinical System Reliability</h4>
+
+        <div class="mb-3">
+          <p class="text-koopBlue text-xl font-bold">99.976%</p>
+          <p class="text-gray-600 text-xs">System Uptime</p>
+        </div>
+
+        <div class="mb-3">
+          <p class="text-koopBlue text-xl font-bold">112 ms</p>
+          <p class="text-gray-600 text-xs">EHR Latency</p>
+        </div>
+
+        <div>
+          <p class="text-koopBlue text-xl font-bold">98.2%</p>
+          <p class="text-gray-600 text-xs">PHI Compliance</p>
+        </div>
+      </div>
+
+      <!-- COMPOSITE CARD: Financial Stability & Risk Posture -->
+      <div class="bg-gray-100 rounded-xl p-6 shadow-md border border-gray-200">
+        <h4 class="text-gray-900 text-sm font-semibold mb-3">Financial Stability & Risk Posture</h4>
+
+        <div class="mb-3">
+          <p class="text-koopBlue text-xl font-bold">182k tx/sec</p>
+          <p class="text-gray-600 text-xs">Throughput</p>
+        </div>
+
+        <div class="mb-3">
+          <p class="text-koopBlue text-xl font-bold">41 ms</p>
+          <p class="text-gray-600 text-xs">Latency p99</p>
+        </div>
+
+        <div>
+          <p class="text-koopBlue text-xl font-bold">98.7%</p>
+          <p class="text-gray-600 text-xs">Fraud Accuracy</p>
+        </div>
+      </div>
+
+      <!-- COMPOSITE CARD: Public Service Performance -->
+      <div class="bg-gray-100 rounded-xl p-6 shadow-md border border-gray-200">
+        <h4 class="text-gray-900 text-sm font-semibold mb-3">Public Service Performance</h4>
+
+        <div class="mb-3">
+          <p class="text-koopBlue text-xl font-bold">99.94%</p>
+          <p class="text-gray-600 text-xs">Citizen Service Uptime</p>
+        </div>
+
+        <div class="mb-3">
+          <p class="text-koopBlue text-xl font-bold">7.1 min</p>
+          <p class="text-gray-600 text-xs">Public Safety Response</p>
+        </div>
+
+        <div>
+          <p class="text-koopBlue text-xl font-bold">89%</p>
+          <p class="text-gray-600 text-xs">Municipal Data Quality</p>
+        </div>
+      </div>
+
+      <!-- COMPOSITE CARD: Data Integrity & Governance -->
+      <div class="bg-gray-100 rounded-xl p-6 shadow-md border border-gray-200">
+        <h4 class="text-gray-900 text-sm font-semibold mb-3">Data Integrity & Governance</h4>
+
+        <div class="mb-3">
+          <p class="text-koopBlue text-xl font-bold">93%</p>
+          <p class="text-gray-600 text-xs">Lineage Completeness</p>
+        </div>
+
+        <div class="mb-3">
+          <p class="text-koopBlue text-xl font-bold">94%</p>
+          <p class="text-gray-600 text-xs">Telemetry Coverage</p>
+        </div>
+
+        <div>
+          <p class="text-koopBlue text-xl font-bold">96%</p>
+          <p class="text-gray-600 text-xs">Compliance Coverage</p>
+        </div>
+      </div>
+
+      <!-- NEW COMPOSITE CARD: PMP Governance -->
+      <div class="bg-gray-100 rounded-xl p-6 shadow-md border border-gray-200">
+        <h4 class="text-gray-900 text-sm font-semibold mb-3">PMP Governance</h4>
+
+        <div class="mb-3">
+          <p class="text-koopBlue text-xl font-bold">+4.2%</p>
+          <p class="text-gray-600 text-xs">Schedule Variance (SV)</p>
+        </div>
+
+        <div class="mb-3">
+          <p class="text-koopBlue text-xl font-bold">+2.8%</p>
+          <p class="text-gray-600 text-xs">Cost Variance (CV)</p>
+        </div>
+
+        <div>
+          <p class="text-koopBlue text-xl font-bold">$1.2M</p>
+          <p class="text-gray-600 text-xs">Earned Value (EV)</p>
+        </div>
+      </div>
+
+      <!-- NEW COMPOSITE CARD: Scrum Delivery -->
+      <div class="bg-gray-100 rounded-xl p-6 shadow-md border border-gray-200">
+        <h4 class="text-gray-900 text-sm font-semibold mb-3">Scrum Delivery</h4>
+
+        <div class="mb-3">
+          <p class="text-koopBlue text-xl font-bold">91%</p>
+          <p class="text-gray-600 text-xs">Burndown Accuracy</p>
+        </div>
+
+        <div class="mb-3">
+          <p class="text-koopBlue text-xl font-bold">96%</p>
+          <p class="text-gray-600 text-xs">Commitment Reliability</p>
+        </div>
+
+        <div>
+          <p class="text-koopBlue text-xl font-bold">2.4 days</p>
+          <p class="text-gray-600 text-xs">Cycle Time</p>
+        </div>
+      </div>
+
+      <!-- NEW COMPOSITE CARD: Call Center Operations -->
+      <div class="bg-gray-100 rounded-xl p-6 shadow-md border border-gray-200">
+        <h4 class="text-gray-900 text-sm font-semibold mb-3">Call Center Operations</h4>
+
+        <div class="mb-3">
+          <p class="text-koopBlue text-xl font-bold">92%</p>
+          <p class="text-gray-600 text-xs">First Call Resolution</p>
+        </div>
+
+        <div class="mb-3">
+          <p class="text-koopBlue text-xl font-bold">38 sec</p>
+          <p class="text-gray-600 text-xs">Average Speed of Answer</p>
+        </div>
+
+        <div>
+          <p class="text-koopBlue text-xl font-bold">4.7/5</p>
+          <p class="text-gray-600 text-xs">Customer Satisfaction (CSAT)</p>
+        </div>
+      </div>
+	  
+ <!-- COMPOSITE CARD: Fleet Vehicle Telemetry -->
+<div class="bg-gray-100 rounded-xl p-6 shadow-md border border-gray-200">
+  <h4 class="text-gray-900 text-sm font-semibold mb-3">Fleet Vehicle Telemetry</h4>
+
+  <div class="mb-3">
+    <p class="text-koopBlue text-xl font-bold">93.6%</p>
+    <p class="text-gray-600 text-xs">Fleet Availability</p>
+  </div>
+
+  <div class="mb-3">
+    <p class="text-koopBlue text-xl font-bold">18.4 MPG</p>
+    <p class="text-gray-600 text-xs">Average Fuel Efficiency</p>
+  </div>
+
+  <div>
+    <p class="text-koopBlue text-xl font-bold">88%</p>
+    <p class="text-gray-600 text-xs">Maintenance Compliance</p>
+  </div>
+</div>
 
     </div>
   </div>
 </section>
-
-
 
 
 
