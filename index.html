@@ -286,6 +286,29 @@ p{margin:0}
   padding:.28rem .6rem;border-radius:.35rem;
 }
 
+/* ---------- partner tiles ---------- */
+.partner-grid{display:grid;gap:1rem;grid-template-columns:repeat(2,1fr)}
+@media (min-width:640px){.partner-grid{grid-template-columns:repeat(3,1fr)}}
+@media (min-width:1024px){.partner-grid{grid-template-columns:repeat(6,1fr)}}
+.partner{
+  aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.7rem;
+  border-radius:1.1rem;text-decoration:none;text-align:center;padding:1rem;
+  background:rgba(255,255,255,.66);border:1px solid var(--line);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  transition:all .28s var(--ease);
+}
+.partner:hover{transform:translateY(-4px);border-color:rgba(0,85,165,.35);box-shadow:0 18px 44px -18px rgba(0,85,165,.22);background:rgba(255,255,255,.95)}
+.partner-logo{width:3rem;height:3rem;display:flex;align-items:center;justify-content:center}
+.partner-logo img{max-width:2.6rem;max-height:2.6rem;width:auto;height:auto;object-fit:contain;transition:transform .28s var(--ease)}
+.partner:hover .partner-logo img{transform:scale(1.12)}
+.partner-fallback{
+  display:none;width:2.6rem;height:2.6rem;border-radius:.7rem;align-items:center;justify-content:center;
+  font-family:var(--font-display);font-weight:800;font-size:1.15rem;color:#fff;
+  background:linear-gradient(135deg,var(--blue),var(--cyan));
+}
+.partner-name{font-family:var(--font-display);font-size:.72rem;font-weight:700;color:var(--ink);letter-spacing:.02em;transition:color .2s}
+.partner:hover .partner-name{color:var(--blue)}
+
 /* ---------- contact ---------- */
 .contact-card{
   max-width:44rem;margin:0 auto;border-radius:1.4rem;padding:2.5rem 1.75rem;
@@ -391,8 +414,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       <a href="#capabilities">Capabilities</a>
       <a href="#industries">Industries</a>
       <a href="#delivery">Delivery</a>
-      <a href="#partners">Partners</a>
       <a href="#identifiers">Identifiers</a>
+      <a href="#partners">Partners</a>
     </nav>
 
     <a href="#contact" class="btn btn-primary btn-nav nav-cta">
@@ -408,8 +431,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <a href="#capabilities">Capabilities</a>
         <a href="#industries">Industries</a>
         <a href="#delivery">Delivery Framework</a>
-        <a href="#partners">Partners</a>
         <a href="#identifiers">Identifiers</a>
+        <a href="#partners">Partners</a>
         <a href="#contact" class="menu-cta"><span>Contact Us</span><svg style="width:1rem;height:1rem" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
       </div>
     </div>
@@ -420,7 +443,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 <!-- HERO -->
 <section class="hero">
   <div class="wrap">
-   
     <h1 class="reveal reveal-d1">Engineering Clarity in<br><span class="grad">Complex Environments.</span></h1>
     <div class="hero-copy reveal reveal-d2">
       <p>Koop Solutions delivers modernization with precision. We integrate cloud, data, and enterprise systems into cohesive architectures that perform reliably at scale — without disruption, noise, or unnecessary complexity.</p>
@@ -432,13 +454,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <span>Initiate Engagement</span>
         <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
       </a>
-  
     </div>
     <div class="hero-creds reveal reveal-d3">
       <div class="cred"><span class="k">UEI</span><span class="v">PZS2S9ZA1AK6</span></div>
       <div class="cred"><span class="k">CAGE</span><span class="v">22YR7</span></div>
       <div class="cred"><span class="k">Primary NAICS</span><span class="v">541519</span></div>
-      <div class="cred"><span class="k">Status</span><span class="v">SDVOSB</span></div>
+      <div class="cred"><span class="k">Status</span><span class="v">SDVOSB(Pending)</span></div>
     </div>
   </div>
 </section>
@@ -611,6 +632,43 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   </div>
 </section>
 
+<!-- PARTNERS -->
+<section id="partners" class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Technology Ecosystem</span>
+      <h2>Our Partners</h2>
+      <p>Platform alliances powering our cloud, data, and infrastructure delivery.</p>
+    </div>
+    <div class="partner-grid reveal">
+      <a class="partner" href="https://aws.amazon.com" target="_blank" rel="noopener noreferrer">
+        <span class="partner-logo"><img src="aws.svg" alt="Amazon Web Services logo" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="partner-fallback">A</span></span>
+        <span class="partner-name">Amazon</span>
+      </a>
+      <a class="partner" href="https://www.databricks.com" target="_blank" rel="noopener noreferrer">
+        <span class="partner-logo"><img src="databricks.svg" alt="Databricks logo" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="partner-fallback">D</span></span>
+        <span class="partner-name">Databricks</span>
+      </a>
+      <a class="partner" href="https://www.dell.com" target="_blank" rel="noopener noreferrer">
+        <span class="partner-logo"><img src="dell.svg" alt="Dell Technologies logo" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="partner-fallback">D</span></span>
+        <span class="partner-name">Dell</span>
+      </a>
+      <a class="partner" href="https://cloud.google.com" target="_blank" rel="noopener noreferrer">
+        <span class="partner-logo"><img src="google.svg" alt="Google Cloud logo" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="partner-fallback">G</span></span>
+        <span class="partner-name">Google</span>
+      </a>
+      <a class="partner" href="https://azure.microsoft.com" target="_blank" rel="noopener noreferrer">
+        <span class="partner-logo"><img src="microsoft.svg" alt="Microsoft Azure logo" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="partner-fallback">M</span></span>
+        <span class="partner-name">Microsoft</span>
+      </a>
+      <a class="partner" href="https://www.snowflake.com" target="_blank" rel="noopener noreferrer">
+        <span class="partner-logo"><img src="snowflake.svg" alt="Snowflake logo" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="partner-fallback">S</span></span>
+        <span class="partner-name">Snowflake</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section id="contact" class="section">
   <div class="wrap">
@@ -666,7 +724,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 </main>
 
 <footer>
-    &copy; 2026 Koop Solutions. All rights reserved.
+  &copy; 2026 Koop Solutions. All rights reserved.
 </footer>
 
 <button id="toTop" aria-label="Back to top">
@@ -812,7 +870,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   }
   var posBuf=buf(gl.ARRAY_BUFFER,verts,Float32Array);
   var uvBuf=buf(gl.ARRAY_BUFFER,uvs,Float32Array);
-  var idxBuf=buf(gl.ELEMENT_ARRAY_BUFFER,idx,Uint16Array); /* max vertex index 9880 < 65536 */
+  var idxBuf=buf(gl.ELEMENT_ARRAY_BUFFER,idx,Uint16Array);
   var idxType=gl.UNSIGNED_SHORT;
 
   var aPos=gl.getAttribLocation(prog,'aPos'),aUv=gl.getAttribLocation(prog,'aUv');
@@ -874,7 +932,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   function frame(now){
     raf=null;
     resize();
-    var t=(now-start)*0.00028; /* ultra-slow ambient drift */
+    var t=(now-start)*0.00028;
     gl.clear(gl.COLOR_BUFFER_BIT);
     gl.uniformMatrix4fv(U.uProj,false,proj);
     gl.uniformMatrix4fv(U.uView,false,view);
@@ -897,7 +955,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     playing=!document.hidden;
     if(playing&&!reduced&&raf===null)raf=requestAnimationFrame(frame);
   });
-  raf=requestAnimationFrame(frame); /* renders once even when reduced-motion */
+  raf=requestAnimationFrame(frame);
 })();
 </script>
 
