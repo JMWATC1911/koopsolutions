@@ -1,727 +1,907 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Koop Solutions</title>
-    
-    <link rel="icon" type="image/png" href="images/g.png">
-    <link rel="apple-touch-icon" href="images/g.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Koop Solutions</title>
 
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://koopsolutions.com">
-    <meta property="og:title" content="Koop Solutions">
-    <meta property="og:description" content="Engineering clarity in complex environments across modern data architecture, cloud engineering, and enterprise systems.">
-    <meta property="og:image" content="https://koopsolutions.com/images/g.png">
-    <meta property="og:image:secure_url" content="https://koopsolutions.com/images/g.png">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
+<link rel="icon" type="image/png" href="images/G.png">
+<link rel="apple-touch-icon" href="images/G.png">
 
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Koop Solutions">
-    <meta name="twitter:description" content="Engineering clarity in complex environments across modern data architecture, cloud engineering, and enterprise systems.">
-    <meta name="twitter:image" content="https://koopsolutions.com/images/g.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://koopsolutions.com">
+<meta property="og:title" content="Koop Solutions">
+<meta property="og:description" content="Engineering clarity in complex environments across modern data architecture, cloud engineering, and enterprise systems.">
+<meta property="og:image" content="https://koopsolutions.com/images/G.png">
+<meta property="og:image:secure_url" content="https://koopsolutions.com/images/G.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Koop Solutions">
+<meta name="twitter:description" content="Engineering clarity in complex environments across modern data architecture, cloud engineering, and enterprise systems.">
+<meta name="twitter:image" content="https://koopsolutions.com/images/G.png">
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        koopBlue: '#0055a5',
-                        koopCyan: '#00a4e4',
-                        blueprintBg: '#f8fafc',	
-                    },
-                    fontFamily: {
-                        sans: ['Verdana', 'Geneva', 'Tahoma', 'sans-serif'],
-                        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
-                    }
-                }
-            }
-        }
-    </script>
-	
-	<style>
-        body {
-            font-family: 'Verdana', 'Geneva', 'Tahoma', sans-serif;
-            background-color: #fafbfc;
-            background-image: 
-                linear-gradient(rgba(0, 85, 165, 0.04) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 85, 165, 0.04) 1px, transparent 1px);
-            background-size: 40px 40px;
-            background-position: center center;
-            background-attachment: fixed;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
 
-        .glass-card {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.95);
-            box-shadow: 0 10px 35px -10px rgba(0, 0, 0, 0.05);
-        }
+<style>
+:root{
+  --blue:#0055a5;
+  --cyan:#00a4e4;
+  --navy:#06254a;
+  --ink:#0c1a2e;
+  --muted:#4b5b73;
+  --faint:#7d8da6;
+  --line:#dbe4f0;
+  --ground:#ffffff;
+  --panel:#f5f9fd;
+  --glass:rgba(255,255,255,.74);
+  --glass-line:rgba(255,255,255,.92);
+  --shadow:0 24px 60px -24px rgba(0,55,120,.16);
+  --font-display:'Archivo',-apple-system,'Segoe UI',Verdana,sans-serif;
+  --font-body:'Public Sans',-apple-system,'Segoe UI',Verdana,sans-serif;
+  --font-mono:'IBM Plex Mono',ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;padding:0;
+  font-family:var(--font-body);
+  background:var(--ground);
+  color:var(--ink);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+::selection{background:var(--blue);color:#fff}
+section[id]{scroll-margin-top:7.5rem}
 
-        .dark-glass-card {
-            background: rgba(15, 23, 42, 0.9);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.4);
-        }
-    </style>
+/* ---------- wave canvas ---------- */
+#wave-canvas{
+  position:fixed;inset:0;width:100%;height:100%;
+  z-index:0;pointer-events:none;display:block;
+}
+/* static fallback if WebGL is unavailable */
+#wave-fallback{
+  position:fixed;left:0;right:0;bottom:0;height:42vh;z-index:0;pointer-events:none;display:none;
+  background:
+    radial-gradient(120% 90% at 50% 115%, rgba(0,164,228,.34), rgba(0,85,165,.22) 45%, rgba(255,255,255,0) 72%);
+}
+#wave-veil{
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:linear-gradient(180deg,#fff 0%,#fff 30%,rgba(255,255,255,.72) 50%,rgba(255,255,255,.18) 68%,rgba(255,255,255,0) 82%);
+}
+.no-webgl #wave-canvas{display:none}
+.no-webgl #wave-fallback{display:block}
+
+/* everything above the wave */
+.site{position:relative;z-index:1}
+
+/* ---------- typography ---------- */
+h1,h2,h3{font-family:var(--font-display);margin:0;text-wrap:balance}
+p{margin:0}
+.eyebrow{
+  font-family:var(--font-display);
+  font-size:.6875rem;font-weight:700;
+  letter-spacing:.22em;text-transform:uppercase;
+  color:var(--blue);
+}
+.section-head{max-width:40rem;margin:0 auto 3rem;text-align:center}
+.section-head .eyebrow{display:block;margin-bottom:.9rem}
+.section-head h2{font-size:clamp(1.75rem,3.4vw,2.5rem);font-weight:700;letter-spacing:-.02em;line-height:1.12}
+.section-head p{margin-top:1rem;color:var(--muted);font-size:.9688rem;line-height:1.65}
+
+/* ---------- shell ---------- */
+.wrap{max-width:72rem;margin:0 auto;padding:0 1.5rem}
+
+/* ---------- nav ---------- */
+.nav-shell{position:sticky;top:1rem;z-index:50;width:100%;padding:0 1rem}
+.nav-island{
+  max-width:72rem;margin:0 auto;height:4.25rem;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 1.1rem 0 1.35rem;border-radius:1.15rem;
+  background:var(--glass);
+  backdrop-filter:blur(22px) saturate(170%);
+  -webkit-backdrop-filter:blur(22px) saturate(170%);
+  border:1px solid var(--glass-line);
+  box-shadow:0 14px 40px -16px rgba(0,55,120,.18);
+}
+.brand{display:flex;align-items:center;gap:.55rem;text-decoration:none;color:var(--ink)}
+.brand-img{height:2.35rem;width:auto;object-fit:contain}
+@media (max-width:640px){.brand-img{height:1.9rem}}
+.brand-fallback{display:none;align-items:center;gap:.55rem}
+.brand-mark{display:flex;align-items:baseline;font-family:var(--font-display);font-weight:800;font-size:1.35rem;letter-spacing:-.01em;line-height:1}
+.brand-mark .inf{width:2.05em;height:1em;margin:0 .06em;transform:translateY(.12em)}
+.brand-sub{font-family:var(--font-display);font-weight:600;font-size:1.02rem;letter-spacing:.01em;color:var(--ink)}
+@media (max-width:400px){.brand-sub{display:none}}
+
+.nav-tabs{display:none;align-items:center;gap:.15rem;padding:.22rem;border-radius:.85rem;background:rgba(240,246,252,.72);border:1px solid rgba(203,213,225,.55)}
+@media (min-width:880px){.nav-tabs{display:flex}}
+.nav-tabs a{
+  font-family:var(--font-display);font-size:.75rem;font-weight:600;letter-spacing:.02em;
+  color:#44546c;text-decoration:none;padding:.5rem .85rem;border-radius:.6rem;
+  transition:all .2s var(--ease);white-space:nowrap;
+}
+.nav-tabs a:hover{color:var(--blue);background:rgba(255,255,255,.95);box-shadow:0 2px 8px rgba(0,0,0,.05)}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+  font-family:var(--font-display);font-weight:700;font-size:.75rem;
+  letter-spacing:.09em;text-transform:uppercase;text-decoration:none;
+  border-radius:.8rem;transition:all .22s var(--ease);cursor:pointer;
+}
+.btn svg{width:.95rem;height:.95rem;transition:transform .22s var(--ease)}
+.btn:hover svg{transform:translateX(3px)}
+.btn-primary{background:var(--blue);color:#fff;padding:.85rem 1.6rem;box-shadow:0 10px 24px -10px rgba(0,85,165,.55)}
+.btn-primary:hover{background:var(--navy)}
+.btn-ghost{color:var(--ink);padding:.85rem 1.35rem;border:1px solid var(--line);background:rgba(255,255,255,.6)}
+.btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
+.btn-nav{padding:.6rem 1.15rem;font-size:.7rem}
+.nav-cta{display:none}
+@media (min-width:880px){.nav-cta{display:inline-flex}}
+
+/* mobile menu */
+.menu-btn{display:flex;align-items:center;justify-content:center;padding:.65rem;border-radius:.7rem;background:rgba(255,255,255,.85);border:1px solid rgba(203,213,225,.8);cursor:pointer;box-shadow:0 2px 6px rgba(0,0,0,.04)}
+@media (min-width:880px){.menu-wrap{display:none}}
+.menu-btn span{display:block;width:1.15rem;height:2px;background:var(--ink);border-radius:99px;transition:all .3s var(--ease)}
+.menu-btn span+span{margin-top:4px}
+.menu-btn.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.menu-btn.open span:nth-child(2){opacity:0}
+.menu-btn.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.menu-wrap{position:relative}
+.menu-panel{
+  position:absolute;right:0;top:calc(100% + .8rem);width:14.5rem;
+  background:rgba(255,255,255,.94);backdrop-filter:blur(22px) saturate(170%);-webkit-backdrop-filter:blur(22px) saturate(170%);
+  border:1px solid var(--glass-line);border-radius:1rem;box-shadow:var(--shadow);
+  padding:.5rem;display:none;
+}
+.menu-panel.open{display:block}
+.menu-panel a{display:block;padding:.7rem 1rem;border-radius:.7rem;font-family:var(--font-display);font-size:.78rem;font-weight:600;color:#3d4d66;text-decoration:none;transition:all .18s var(--ease)}
+.menu-panel a:hover{background:rgba(255,255,255,.9);color:var(--blue)}
+.menu-panel .menu-cta{margin-top:.35rem;background:var(--blue);color:#fff;display:flex;justify-content:space-between;align-items:center}
+.menu-panel .menu-cta:hover{background:var(--navy);color:#fff}
+
+/* ---------- hero ---------- */
+.hero{padding:6.5rem 0 5.5rem}
+@media (max-width:640px){.hero{padding:4.5rem 0 4rem}}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:.55rem;
+  font-family:var(--font-display);font-size:.6563rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--blue);padding:.5rem .95rem;border-radius:99px;
+  border:1px solid rgba(0,85,165,.22);background:rgba(0,120,200,.05);
+}
+.hero-tag .dot{width:6px;height:6px;border-radius:99px;background:var(--cyan);box-shadow:0 0 0 3px rgba(0,164,228,.18)}
+.hero h1{
+  margin-top:1.6rem;
+  font-size:clamp(2.5rem,6vw,4.35rem);
+  font-weight:800;letter-spacing:-.03em;line-height:1.04;
+}
+.hero h1 .grad{
+  background:linear-gradient(92deg,var(--blue) 10%,var(--cyan) 85%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero-copy{max-width:38rem;margin-top:1.75rem;display:grid;gap:1.05rem}
+.hero-copy p{font-size:.9688rem;line-height:1.7;color:var(--muted)}
+.hero-copy strong{color:var(--ink);font-weight:600}
+.hero-ctas{margin-top:2.3rem;display:flex;flex-wrap:wrap;gap:.9rem}
+.hero-creds{
+  margin-top:3.2rem;display:flex;flex-wrap:wrap;gap:.6rem 2.2rem;
+  padding-top:1.6rem;border-top:1px solid var(--line);
+}
+.cred{display:flex;flex-direction:column;gap:.3rem}
+.cred .k{font-family:var(--font-display);font-size:.625rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--faint)}
+.cred .v{font-family:var(--font-mono);font-size:.85rem;font-weight:600;color:var(--blue);letter-spacing:.04em}
+
+/* ---------- generic section ---------- */
+.section{padding:4.5rem 0}
+.section-rule{border-top:1px solid var(--line)}
+
+/* ---------- capability cards ---------- */
+.cap-grid{display:grid;gap:1rem;grid-template-columns:1fr}
+@media (min-width:640px){.cap-grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1024px){.cap-grid{grid-template-columns:repeat(3,1fr)}}
+.cap{
+  position:relative;padding:1.6rem 1.5rem 1.7rem;border-radius:1.1rem;
+  background:rgba(255,255,255,.66);border:1px solid var(--line);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  transition:all .28s var(--ease);
+}
+.cap:hover{transform:translateY(-4px);border-color:rgba(0,85,165,.35);box-shadow:0 18px 44px -18px rgba(0,85,165,.22);background:rgba(255,255,255,.92)}
+.cap-ico{
+  width:2.5rem;height:2.5rem;border-radius:.7rem;margin-bottom:1.05rem;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--blue);background:rgba(0,120,200,.07);border:1px solid rgba(0,85,165,.16);
+  transition:all .28s var(--ease);
+}
+.cap:hover .cap-ico{background:var(--blue);color:#fff;border-color:var(--blue)}
+.cap-ico svg{width:1.2rem;height:1.2rem}
+.cap h3{font-size:.8125rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin-bottom:.55rem;line-height:1.4}
+.cap p{font-size:.8438rem;line-height:1.62;color:var(--muted)}
+
+/* ---------- industries ---------- */
+.ind-grid{display:grid;grid-template-columns:1fr;border-top:1px solid var(--line)}
+@media (min-width:768px){.ind-grid{grid-template-columns:repeat(2,1fr)}}
+.ind{
+  display:flex;gap:1.15rem;align-items:flex-start;
+  padding:1.55rem 1.25rem;border-bottom:1px solid var(--line);
+  transition:background .25s var(--ease);
+}
+@media (min-width:768px){
+  .ind:nth-child(odd){border-right:1px solid var(--line)}
+}
+.ind:hover{background:rgba(0,120,200,.035)}
+.ind-ico{flex-shrink:0;width:2.1rem;height:2.1rem;border-radius:.6rem;display:flex;align-items:center;justify-content:center;color:var(--cyan);background:rgba(0,164,228,.09)}
+.ind-ico svg{width:1.1rem;height:1.1rem}
+.ind h3{font-size:.8125rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;margin-bottom:.4rem}
+.ind p{font-size:.8438rem;color:var(--muted);line-height:1.6}
+
+/* ---------- delivery ---------- */
+.del-grid{display:grid;gap:1rem;grid-template-columns:1fr}
+@media (min-width:640px){.del-grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1024px){.del-grid{grid-template-columns:repeat(4,1fr)}}
+.del{
+  padding:1.7rem 1.4rem;border-radius:1.1rem;text-align:center;
+  background:rgba(255,255,255,.66);border:1px solid var(--line);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  transition:all .28s var(--ease);
+}
+.del:hover{transform:translateY(-4px);box-shadow:0 18px 44px -18px rgba(0,85,165,.2);background:rgba(255,255,255,.92)}
+.del svg{width:3.4rem;height:3.4rem;margin-bottom:1rem}
+.del h3{font-size:.8125rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;margin-bottom:.55rem}
+.del p{font-size:.8438rem;color:var(--muted);line-height:1.62}
+
+/* ---------- identifiers (dark panel) ---------- */
+.idpanel{
+  border-radius:1.4rem;overflow:hidden;position:relative;
+  background:linear-gradient(145deg,#07305f 0%,var(--navy) 55%,#041a36 100%);
+  color:#dce8f6;box-shadow:0 30px 70px -28px rgba(4,26,54,.55);
+}
+.idpanel::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(80% 120% at 85% -10%, rgba(0,164,228,.22), transparent 55%);
+}
+.idpanel-inner{position:relative;z-index:1;padding:3rem 2rem}
+@media (min-width:768px){.idpanel-inner{padding:3.5rem 3rem}}
+.idpanel .eyebrow{color:var(--cyan)}
+.idpanel h2{color:#fff;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;letter-spacing:-.02em;margin-top:.9rem}
+.id-grid{display:grid;gap:2.5rem;margin-top:2.6rem;grid-template-columns:1fr}
+@media (min-width:900px){.id-grid{grid-template-columns:5fr 7fr;gap:3.5rem}}
+.id-label{font-family:var(--font-display);font-size:.625rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#7fa8cd;margin-bottom:.45rem}
+.id-code{
+  font-family:var(--font-mono);font-weight:600;font-size:1.05rem;letter-spacing:.08em;color:#fff;
+  background:rgba(0,164,228,.12);border:1px solid rgba(0,164,228,.3);
+  padding:.55rem .9rem;border-radius:.6rem;display:inline-block;
+}
+.id-item+.id-item{margin-top:1.5rem}
+.naics{border-top:1px solid rgba(127,168,205,.25)}
+.naics-row{display:flex;align-items:center;gap:1rem;padding:1rem .25rem;border-bottom:1px solid rgba(127,168,205,.18);font-size:.875rem}
+.naics-row .code{font-family:var(--font-mono);font-weight:600;color:var(--cyan);letter-spacing:.06em;flex-shrink:0}
+.naics-row .desc{color:#c3d6ea;line-height:1.5}
+.naics-row .pill{
+  margin-left:auto;flex-shrink:0;font-family:var(--font-display);font-size:.5938rem;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;color:#04223f;background:var(--cyan);
+  padding:.28rem .6rem;border-radius:.35rem;
+}
+
+/* ---------- contact ---------- */
+.contact-card{
+  max-width:44rem;margin:0 auto;border-radius:1.4rem;padding:2.5rem 1.75rem;
+  background:var(--glass);border:1px solid var(--glass-line);
+  backdrop-filter:blur(24px) saturate(160%);-webkit-backdrop-filter:blur(24px) saturate(160%);
+  box-shadow:var(--shadow);
+}
+@media (min-width:640px){.contact-card{padding:3rem}}
+.form-grid{display:grid;gap:1.1rem;grid-template-columns:1fr}
+@media (min-width:560px){.form-grid{grid-template-columns:1fr 1fr}}
+.field{display:flex;flex-direction:column;gap:.5rem}
+.field.full{grid-column:1/-1}
+.field label{font-family:var(--font-display);font-size:.6563rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#3d4d66}
+.field input,.field select,.field textarea{
+  font-family:var(--font-body);font-size:.875rem;color:var(--ink);
+  padding:.8rem .95rem;border-radius:.75rem;
+  background:rgba(255,255,255,.78);border:1px solid rgba(190,205,225,.9);
+  transition:all .2s var(--ease);width:100%;
+}
+.field textarea{resize:vertical;min-height:7rem}
+.field input:focus,.field select:focus,.field textarea:focus{
+  outline:none;background:#fff;border-color:var(--blue);
+  box-shadow:0 0 0 3px rgba(0,85,165,.14);
+}
+.field ::placeholder{color:#9aa9bf}
+.form-submit{grid-column:1/-1;width:100%;border:none;font-size:.8125rem;padding:1rem}
+.contact-alt{
+  margin-top:1.75rem;padding-top:1.4rem;border-top:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;
+}
+.contact-alt a{display:inline-flex;align-items:center;gap:.5rem;font-size:.8125rem;font-weight:500;color:var(--muted);text-decoration:none;transition:color .2s}
+.contact-alt a:hover{color:var(--blue)}
+.contact-alt svg{width:1rem;height:1rem;color:#9aa9bf}
+
+/* ---------- footer ---------- */
+footer{
+  position:relative;z-index:1;margin-top:2rem;
+  border-top:1px solid rgba(255,255,255,.55);
+  background:rgba(255,255,255,.7);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  padding:2rem 1.5rem;text-align:center;
+  font-size:.75rem;color:var(--faint);line-height:1.7;
+}
+footer .foot-mark{display:flex;justify-content:center;margin-bottom:.7rem}
+
+/* ---------- back to top ---------- */
+#toTop{
+  position:fixed;bottom:2rem;right:2rem;z-index:60;
+  width:2.9rem;height:2.9rem;border-radius:99px;border:1px solid rgba(255,255,255,.25);
+  background:rgba(6,37,74,.85);color:#fff;cursor:pointer;
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 12px 30px -10px rgba(4,26,54,.5);
+  opacity:0;pointer-events:none;transform:translateY(10px);
+  transition:all .3s var(--ease);
+}
+#toTop.show{opacity:1;pointer-events:auto;transform:translateY(0)}
+#toTop:hover{background:var(--blue)}
+#toTop svg{width:1.1rem;height:1.1rem}
+
+/* ---------- reveal on scroll ---------- */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.reveal-d1{transition-delay:.08s}.reveal-d2{transition-delay:.16s}.reveal-d3{transition-delay:.24s}
+
+/* focus visibility */
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  *{animation-duration:.01ms !important;transition-duration:.01ms !important}
+}
+</style>
 </head>
 
-<body class="text-slate-950 min-h-screen flex flex-col font-sans selection:bg-koopBlue selection:text-white relative">
+<body>
 
-    <!-- STICKY NAVIGATION HEADER -->
-    <header class="w-full border-b border-slate-200/60 bg-white/85 backdrop-blur-md sticky top-0 z-50 transition-all duration-300">
-        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-            
-            <a href="#" class="flex items-center">
-                <img 
-                    id="headerLogo"
-                    src="images/main_logo_copilot.png" 
-                    alt="Koop Solutions Logo" 
-                    class="h-10 sm:h-12 w-auto object-contain"
-                    onerror="handleLogoFallback(this)"
-                >
-                <div id="headerLogoFallback" class="hidden text-xl font-bold tracking-tight text-slate-900 items-center">
-                    K<span class="text-koopBlue text-3xl px-0.5 inline-flex items-center">&infin;</span>P
-                    <span class="ml-1.5 text-slate-900 font-semibold">Solutions</span>
-                </div>
-            </a>
-           
-            <!-- ICON-ONLY HAMBURGER TRIGGER & DROPDOWN -->
-            <div class="relative">
-                <button 
-                    id="menuToggleBtn" 
-                    onclick="toggleMenu()" 
-                    aria-label="Toggle navigation menu"
-                    class="p-3 rounded-lg bg-white/90 hover:bg-slate-100 border border-slate-200 shadow-sm transition-all duration-200 focus:outline-none flex items-center justify-center"
-                >
-                    <div class="w-5 h-4 flex flex-col justify-between items-center">
-                        <span id="line1" class="w-full h-0.5 bg-slate-800 rounded-full transition-all duration-300 transform origin-center"></span>
-                        <span id="line2" class="w-full h-0.5 bg-slate-800 rounded-full transition-all duration-300"></span>
-                        <span id="line3" class="w-full h-0.5 bg-slate-800 rounded-full transition-all duration-300 transform origin-center"></span>
-                    </div>
-                </button>
+<canvas id="wave-canvas" aria-hidden="true"></canvas>
+<div id="wave-fallback" aria-hidden="true"></div>
+<div id="wave-veil" aria-hidden="true"></div>
 
-                <!-- DROPDOWN PANEL -->
-                <div 
-                    id="navDropdown" 
-                    class="hidden absolute right-0 mt-3 w-56 glass-card rounded-xl border border-slate-200/90 shadow-2xl p-2 z-50 backdrop-blur-xl transition-all duration-200 origin-top-right"
-                >
-                    <a href="#capabilities" onclick="toggleMenu()" class="block px-4 py-2.5 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100/80 hover:text-koopBlue transition-colors">
-                        Capabilities
-                    </a>
-                    
-                    <a href="#industries" onclick="toggleMenu()" class="block px-4 py-2.5 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100/80 hover:text-koopBlue transition-colors">
-                        Industries
-                    </a>
-                    
-                    <a href="#delivery" onclick="toggleMenu()" class="block px-4 py-2.5 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100/80 hover:text-koopBlue transition-colors">
-                        Delivery Framework
-                    </a>
+<!-- shared infinity-gradient defs -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="infGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0055a5"/>
+      <stop offset="100%" stop-color="#00a4e4"/>
+    </linearGradient>
+  </defs>
+</svg>
 
-                    <a href="#identifiers" onclick="toggleMenu()" class="block px-4 py-2.5 rounded-lg text-xs font-semibold text-slate-700 hover:bg-slate-100/80 hover:text-koopBlue transition-colors">
-                        Identifiers
-                    </a>
-                    
-                    <div class="my-1 border-t border-slate-100"></div>
-                    
-                    <a href="#contact" onclick="toggleMenu()" class="flex items-center justify-between px-4 py-2.5 rounded-lg text-xs font-bold text-white bg-koopBlue hover:bg-slate-900 transition-colors shadow-sm">
-                        <span>Contact Us</span>
-                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
+<div class="site">
 
-        </div>
-    </header>
+<div class="nav-shell">
+  <header class="nav-island">
+    <a href="#" class="brand" aria-label="Koop Solutions home">
+      <img class="brand-img" src="images/main_logo_copilot.png" alt="Koop Solutions" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <span class="brand-fallback"><span class="brand-mark">K<svg class="inf" viewBox="0 0 48 24" fill="none" aria-hidden="true"><path class="inf-path" d="M24 12 C24 5.4 14 5.4 14 12 C14 18.6 24 18.6 24 12 C24 5.4 34 5.4 34 12 C34 18.6 24 18.6 24 12 Z" stroke="url(#infGrad)" stroke-width="3.4" stroke-linecap="round"/></svg>P</span>
+      <span class="brand-sub">Solutions</span></span>
+    </a>
 
-  <!-- HERO SECTION -->
-<section class="w-full pt-8 pb-8 sm:py-16 lg:py-24 px-6">
-    <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-        
-        <!-- TEXT COLUMN -->
-        <div class="lg:col-span-7 space-y-6 max-w-3xl">
+    <nav class="nav-tabs" aria-label="Primary">
+      <a href="#capabilities">Capabilities</a>
+      <a href="#industries">Industries</a>
+      <a href="#delivery">Delivery</a>
+      <a href="#partners">Partners</a>
+      <a href="#identifiers">Identifiers</a>
+    </nav>
 
-            <!-- CORNY PILL REMOVED -->
+    <a href="#contact" class="btn btn-primary btn-nav nav-cta">
+      <span>Contact</span>
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+    </a>
 
-            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-                Engineering Clarity in <br class="hidden sm:inline" />
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-koopBlue to-koopCyan">
-                    Complex Environments.
-                </span>
-            </h1>
-
-            <p class="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-               Koop Solutions delivers modernization with precision. We integrate cloud, data, and enterprise systems into cohesive 
-               architectures that perform reliably at scale — without disruption, noise, or unnecessary complexity.
-            </p>
-            
-            <p class="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-               As a Service‑Disabled Veteran‑Owned firm, our discipline shows up in how we build: clean execution, rigorous integration,
-               and solutions engineered to last. We bridge legacy environments to future‑state platforms with a modern, enterprise-grade approach that meets the expectations of federal agencies, commercial enterprises, and state organizations alike.
-            </p>
-
-            <p class="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-               Our work is defined by technical excellence, not technical theatrics — systems that are fast, secure, resilient, and ready for mission-critical operations.
-            </p>
-
-            <!-- CALL TO ACTION -->
-            <div class="pt-2 flex flex-col sm:flex-row gap-3.5">
-                <a href="#contact" class="inline-flex items-center justify-center px-6 py-3 rounded-lg text-xs font-bold uppercase tracking-wider text-white bg-koopBlue hover:bg-slate-900 transition-colors shadow-sm">
-                    <span>Initiate Engagement</span>
-                    <svg class="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-                    </svg>
-                </a>
-            </div>
-        </div>
-
-        <!-- RIGHT-SIDE COLOR ACCENT (LIGHTER VERSION) -->
-        <div class="lg:col-span-5 relative flex items-center justify-center pointer-events-none">
-            <div class="absolute inset-0 flex items-center justify-center">
-                <div class="w-80 h-80 
-                            bg-gradient-to-br from-koopBlue/20 to-koopCyan/25
-                            rounded-full blur-3xl opacity-80 translate-x-10 translate-y-6">
-                </div>
-            </div>
-        </div>
-
+    <div class="menu-wrap">
+      <button id="menuBtn" class="menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+        <div><span></span><span></span><span></span></div>
+      </button>
+      <div id="menuPanel" class="menu-panel">
+        <a href="#capabilities">Capabilities</a>
+        <a href="#industries">Industries</a>
+        <a href="#delivery">Delivery Framework</a>
+        <a href="#partners">Partners</a>
+        <a href="#identifiers">Identifiers</a>
+        <a href="#contact" class="menu-cta"><span>Contact Us</span><svg style="width:1rem;height:1rem" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
+      </div>
     </div>
-</section>
+  </header>
+</div>
 
-
-
-    <!-- CORE CAPABILITIES SECTION -->
-    <section id="capabilities" class="w-full pt-10 pb-16 sm:py-20 lg:py-24 px-6 relative z-10 border-t border-slate-200/60 bg-gradient-to-b from-transparent to-slate-100/60">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-12 sm:mb-16 max-w-3xl mx-auto">
-                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Core Capabilities</h2>
-                <p class="text-slate-500 mt-3 text-sm sm:text-base leading-relaxed">
-                    End-to-end technical excellence designed to drive modernization, security, and scale across the enterprise.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:pb-24">
-                
-                <!-- CARD 1 (Normal Stagger) -->
-                <div>
-                    <div class="glass-card p-6 sm:p-8 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group">
-                        <div class="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center mb-6 text-koopBlue group-hover:bg-koopBlue group-hover:text-white transition-colors">
-                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg>
-                        </div>
-                        <h3 class="text-xs font-bold text-slate-900 mb-3 uppercase tracking-wider">Data &amp; Architecture</h3>
-                        <p class="text-sm text-slate-600 leading-relaxed">Advanced analytics, machine learning pipelines, enterprise data architecture, and predictive modeling.</p>
-                    </div>
-                </div>
-
-                <!-- CARD 2 (Stagger 12) -->
-                <div class="lg:translate-y-12">
-                    <div class="glass-card p-6 sm:p-8 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group">
-                        <div class="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center mb-6 text-koopBlue group-hover:bg-koopBlue group-hover:text-white transition-colors">
-                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path></svg>
-                        </div>
-                        <h3 class="text-xs font-bold text-slate-900 mb-3 uppercase tracking-wider">Cloud &amp; Infrastructure</h3>
-                        <p class="text-sm text-slate-600 leading-relaxed">Cloud modernization, hybrid architectures, DevSecOps automation, and zero-downtime migrations.</p>
-                    </div>
-                </div>
-
-                <!-- CARD 3 (Stagger 24) -->
-                <div class="lg:translate-y-24">
-                    <div class="glass-card p-6 sm:p-8 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group">
-                        <div class="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center mb-6 text-koopBlue group-hover:bg-koopBlue group-hover:text-white transition-colors">
-                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                        </div>
-                        <h3 class="text-xs font-bold text-slate-900 mb-3 uppercase tracking-wider">Technology Transformation</h3>
-                        <p class="text-sm text-slate-600 leading-relaxed">Legacy modernization, distributed systems engineering, ERP alignment, and API ecosystem integration.</p>
-                    </div>
-                </div>
-
-                <!-- CARD 4 (Normal Stagger) -->
-                <div>
-                    <div class="glass-card p-6 sm:p-8 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group">
-                        <div class="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center mb-6 text-koopBlue group-hover:bg-koopBlue group-hover:text-white transition-colors">
-                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-                        </div>
-                        <h3 class="text-xs font-bold text-slate-900 mb-3 uppercase tracking-wider">Cybersecurity &amp; Governance</h3>
-                        <p class="text-sm text-slate-600 leading-relaxed">Threat defense, zero-trust network design, security automation, and regulatory compliance frameworks.</p>
-                    </div>
-                </div>
-
-                <!-- CARD 5 (Stagger 12) -->
-                <div class="lg:translate-y-12">
-                    <div class="glass-card p-6 sm:p-8 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group">
-                        <div class="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center mb-6 text-koopBlue group-hover:bg-koopBlue group-hover:text-white transition-colors">
-                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
-                        </div>
-                        <h3 class="text-xs font-bold text-slate-900 mb-3 uppercase tracking-wider">Digital Eng &amp; Manufacturing </h3>
-                        <p class="text-sm text-slate-600 leading-relaxed">Industrial IoT, systems automation, edge computing, and digital twin implementations.</p>
-                    </div>
-                </div>
-
-                <!-- CARD 6 (Stagger 24) -->
-                <div class="lg:translate-y-24">
-                    <div class="glass-card p-6 sm:p-8 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group">
-                        <div class="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center mb-6 text-koopBlue group-hover:bg-koopBlue group-hover:text-white transition-colors">
-                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                        </div>
-                        <h3 class="text-xs font-bold text-slate-900 mb-3 uppercase tracking-wider">Managed Delivery &amp; Services</h3>
-                        <p class="text-sm text-slate-600 leading-relaxed">Continuous operations support, platform maintenance, and SLA-backed infrastructure management.</p>
-                    </div>
-                </div>
-
-                <!-- CARD 7 (Normal Stagger) -->
-                <div>
-                    <div class="glass-card p-6 sm:p-8 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group">
-                        <div class="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center mb-6 text-koopBlue group-hover:bg-koopBlue group-hover:text-white transition-colors">
-                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-                        </div>
-                        <h3 class="text-xs font-bold text-slate-900 mb-3 uppercase tracking-wider">Strategic Advisory &amp; Supply Chain</h3>
-                        <p class="text-sm text-slate-600 leading-relaxed">Operating model design, technology roadmaps, logistics optimization, and vendor ecosystem enablement.</p>
-                    </div>
-                </div>
-
-                <!-- CARD 8 (Stagger 12) -->
-                <div class="lg:translate-y-12">
-                    <div class="glass-card p-6 sm:p-8 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group">
-                        <div class="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center mb-6 text-koopBlue group-hover:bg-koopBlue group-hover:text-white transition-colors">
-                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"></path></svg>
-                        </div>
-                        <h3 class="text-xs font-bold text-slate-900 mb-3 uppercase tracking-wider">Customer &amp; Commerce Solutions</h3>
-                        <p class="text-sm text-slate-600 leading-relaxed">Omnichannel customer platforms, digital sales enablement, and service automation.</p>
-                    </div>
-                </div>
-
-                <!-- CARD 9 (Stagger 24) -->
-                <div class="lg:translate-y-24">
-                    <div class="glass-card p-6 sm:p-8 rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group">
-                        <div class="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center mb-6 text-koopBlue group-hover:bg-koopBlue group-hover:text-white transition-colors">
-                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
-                        </div>
-                        <h3 class="text-xs font-bold text-slate-900 mb-3 uppercase tracking-wider">Sustainable Ops &amp; Learning</h3>
-                        <p class="text-sm text-slate-600 leading-relaxed">Green computing strategies, ESG compliance workflows, and enterprise technical upskilling strategies.</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- INDUSTRIES SERVED SECTION (UPDATED ICONS) -->
-<section id="industries" class="w-full bg-white/60 border-t border-slate-200 py-16 sm:py-20 px-6 backdrop-blur-md">
-    <div class="max-w-6xl mx-auto">
-        
-        <div class="text-center mb-12">
-            <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-                Industries Served
-            </h2>
-        </div>
-
-        <div class="bg-white/80 p-6 sm:p-10 rounded-2xl shadow-sm border border-slate-200">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
-
-                <!-- Public Sector & Defense -->
-                <div>
-                    <h3 class="text-xs font-bold text-slate-900 mb-3 border-b border-slate-100 pb-2 flex items-center uppercase tracking-wider">
-                        <svg class="w-4 h-4 text-koopCyan mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path d="M12 2L3 6v6c0 5 3.5 9.5 9 10 5.5-.5 9-5 9-10V6l-9-4z"/>
-                        </svg>
-                        Public Sector &amp; Defense
-                    </h3>
-                    <p class="text-sm text-slate-600 leading-relaxed">
-                        Aerospace &amp; Defense, U.S. Federal Government, Public Service
-                    </p>
-                </div>
-
-                <!-- Financial & Corporate Services -->
-                <div>
-                    <h3 class="text-xs font-bold text-slate-900 mb-3 border-b border-slate-100 pb-2 flex items-center uppercase tracking-wider">
-                        <svg class="w-4 h-4 text-koopCyan mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path d="M3 10h18M3 6h18M3 14h18M3 18h18"/>
-                        </svg>
-                        Financial &amp; Corporate Services
-                    </h3>
-                    <p class="text-sm text-slate-600 leading-relaxed">
-                        Banking, Insurance, Capital Markets
-                    </p>
-                </div>
-
-                <!-- Industrial & Infrastructure -->
-                <div>
-                    <h3 class="text-xs font-bold text-slate-900 mb-3 border-b border-slate-100 pb-2 flex items-center uppercase tracking-wider">
-                        <svg class="w-4 h-4 text-koopCyan mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path d="M4 4h16v6H4zM4 14h16v6H4z"/>
-                        </svg>
-                        Industrial &amp; Infrastructure
-                    </h3>
-                    <p class="text-sm text-slate-600 leading-relaxed">
-                        Energy, Utilities, Industrial Manufacturing, Automotive
-                    </p>
-                </div>
-
-                <!-- State & Local Government -->
-                <div>
-                    <h3 class="text-xs font-bold text-slate-900 mb-3 border-b border-slate-100 pb-2 flex items-center uppercase tracking-wider">
-                        <svg class="w-4 h-4 text-koopCyan mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path d="M12 2l7 4v6c0 5-3.5 9.5-7 10-3.5-.5-7-5-7-10V6l7-4z"/>
-                        </svg>
-                        State &amp; Local Government
-                    </h3>
-                    <p class="text-sm text-slate-600 leading-relaxed">
-                        State Agencies, Municipalities, Higher Education, K‑12
-                    </p>
-                </div>
-
-                <!-- Technology & Consumer -->
-                <div>
-                    <h3 class="text-xs font-bold text-slate-900 mb-3 border-b border-slate-100 pb-2 flex items-center uppercase tracking-wider">
-                        <svg class="w-4 h-4 text-koopCyan mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <circle cx="12" cy="12" r="9"/>
-                            <path d="M12 7v5l3 3"/>
-                        </svg>
-                        Technology &amp; Consumer
-                    </h3>
-                    <p class="text-sm text-slate-600 leading-relaxed">
-                        High Tech, Software &amp; Platforms, Retail, Consumer Goods
-                    </p>
-                </div>
-
-                <!-- Healthcare & Life Sciences -->
-                <div>
-                    <h3 class="text-xs font-bold text-slate-900 mb-3 border-b border-slate-100 pb-2 flex items-center uppercase tracking-wider">
-                        <svg class="w-4 h-4 text-koopCyan mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path d="M12 2v20M2 12h20"/>
-                        </svg>
-                        Healthcare &amp; Life Sciences
-                    </h3>
-                    <p class="text-sm text-slate-600 leading-relaxed">
-                        Health Systems, Digital Health Platforms
-                    </p>
-                </div>
-
-            </div>
-        </div>
+<main>
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+   
+    <h1 class="reveal reveal-d1">Engineering Clarity in<br><span class="grad">Complex Environments.</span></h1>
+    <div class="hero-copy reveal reveal-d2">
+      <p>Koop Solutions delivers modernization with precision. We integrate cloud, data, and enterprise systems into cohesive architectures that perform reliably at scale — without disruption, noise, or unnecessary complexity.</p>
+      <p>As a Service-Disabled Veteran-Owned firm, our discipline shows up in how we build: <strong>clean execution, rigorous integration, and solutions engineered to last.</strong> We bridge legacy environments to future-state platforms for federal agencies, commercial enterprises, and state organizations alike.</p>
+      <p>Our work is defined by technical excellence, not technical theatrics — systems that are fast, secure, resilient, and ready for mission-critical operations.</p>
     </div>
-</section>
-
-
-
-   <!-- DELIVERY FRAMEWORK SECTION -->
-<section id="delivery" class="w-full bg-white/60 border-t border-slate-200 py-16 sm:py-20 px-6 backdrop-blur-md">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-    <!-- Section Title -->
-    <h2 class="text-2xl font-semibold text-slate-900 mb-12 text-center">
-      Delivery Framework
-    </h2>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-
-      <!-- Disciplined Execution -->
-      <div class="text-center bg-gray-100 rounded-xl p-6 shadow-md border border-gray-200">
-        <div class="mb-4 flex justify-center">
-          <svg width="64" height="64" viewBox="0 0 64 64" fill="none"
-               xmlns="http://www.w3.org/2000/svg">
-            <rect x="2" y="2" width="60" height="60" rx="16" fill="#F3F4F6"/>
-            <path d="M32 14L20 20V30C20 38 25 45 32 48C39 45 44 38 44 30V20L32 14Z"
-                  stroke="#1A73E8" stroke-width="2" fill="none"/>
-            <path d="M26 32L30 36L38 28" stroke="#00C6D7" stroke-width="2" stroke-linecap="round"/>
-            <path d="M22 40H42" stroke="#1A73E8" stroke-width="2" stroke-linecap="round"
-                  stroke-dasharray="4 3"/>
-          </svg>
-        </div>
-        <h3 class="text-gray-900 text-lg font-semibold mb-2">Disciplined Execution</h3>
-        <p class="text-gray-600 text-sm leading-relaxed">
-          Predictable delivery models built around rigorous sprint velocity, risk mitigation, and zero pipeline regressions.
-        </p>
-      </div>
-
-      <!-- Mission Alignment -->
-      <div class="text-center bg-gray-100 rounded-xl p-6 shadow-md border border-gray-200">
-        <div class="mb-4 flex justify-center">
-          <svg width="64" height="64" viewBox="0 0 64 64" fill="none"
-               xmlns="http://www.w3.org/2000/svg">
-            <rect x="2" y="2" width="60" height="60" rx="16" fill="#F3F4F6"/>
-            <circle cx="32" cy="32" r="12" stroke="#1A73E8" stroke-width="2"/>
-            <circle cx="32" cy="32" r="4" fill="#00C6D7"/>
-            <path d="M32 20V12" stroke="#1A73E8" stroke-width="2" stroke-linecap="round"/>
-            <path d="M32 52V44" stroke="#1A73E8" stroke-width="2" stroke-linecap="round"/>
-            <path d="M20 32H12" stroke="#1A73E8" stroke-width="2" stroke-linecap="round"/>
-            <path d="M52 32H44" stroke="#1A73E8" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <h3 class="text-gray-900 text-lg font-semibold mb-2">Mission Alignment</h3>
-        <p class="text-gray-600 text-sm leading-relaxed">
-          Architecture decisions calibrated to strategic outcomes, eliminating technical debt and premature lock‑in.
-        </p>
-      </div>
-
-      <!-- Verifiable Reliability -->
-      <div class="text-center bg-gray-100 rounded-xl p-6 shadow-md border border-gray-200">
-        <div class="mb-4 flex justify-center">
-          <svg width="64" height="64" viewBox="0 0 64 64" fill="none"
-               xmlns="http://www.w3.org/2000/svg">
-            <rect x="2" y="2" width="60" height="60" rx="16" fill="#F3F4F6"/>
-            <path d="M18 40C20 30 28 24 36 24C44 24 52 30 54 40"
-                  stroke="#1A73E8" stroke-width="2" stroke-linecap="round"/>
-            <circle cx="36" cy="24" r="3" fill="#00C6D7"/>
-            <circle cx="36" cy="24" r="10" stroke="rgba(26,115,232,0.4)" stroke-width="1"
-                    stroke-dasharray="4 3"/>
-          </svg>
-        </div>
-        <h3 class="text-gray-900 text-lg font-semibold mb-2">Verifiable Reliability</h3>
-        <p class="text-gray-600 text-sm leading-relaxed">
-          Automated telemetry, continuous compliance checks, and SLA‑backed infrastructure governance built into every tier.
-        </p>
-      </div>
-
-      <!-- Acquisition Readiness -->
-      <div class="text-center bg-gray-100 rounded-xl p-6 shadow-md border border-gray-200">
-        <div class="mb-4 flex justify-center">
-          <svg width="64" height="64" viewBox="0 0 64 64" fill="none"
-               xmlns="http://www.w3.org/2000/svg">
-            <rect x="2" y="2" width="60" height="60" rx="16" fill="#F3F4F6"/>
-            <rect x="18" y="16" width="20" height="28" rx="2"
-                  stroke="#1A73E8" stroke-width="2" fill="none"/>
-            <path d="M20 22H34" stroke="#1A73E8" stroke-width="1.5"/>
-            <path d="M20 26H30" stroke="#1A73E8" stroke-width="1.5"/>
-            <path d="M20 30H28" stroke="#1A73E8" stroke-width="1.5"/>
-            <path d="M46 36L48 40L52 40L49 42L50 46L46 44L42 46L43 42L40 40L44 40L46 36Z"
-                  fill="#00C6D7"/>
-          </svg>
-        </div>
-        <h3 class="text-gray-900 text-lg font-semibold mb-2">Acquisition Readiness</h3>
-        <p class="text-gray-600 text-sm leading-relaxed">
-          Full familiarity with prime partnering mechanisms, subcontracting standards, and federal compliance matrices.
-        </p>
-      </div>
-
+    <div class="hero-ctas reveal reveal-d3">
+      <a href="#contact" class="btn btn-primary">
+        <span>Initiate Engagement</span>
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+      </a>
+  
+    </div>
+    <div class="hero-creds reveal reveal-d3">
+      <div class="cred"><span class="k">UEI</span><span class="v">PZS2S9ZA1AK6</span></div>
+      <div class="cred"><span class="k">CAGE</span><span class="v">22YR7</span></div>
+      <div class="cred"><span class="k">Primary NAICS</span><span class="v">541519</span></div>
+      <div class="cred"><span class="k">Status</span><span class="v">SDVOSB</span></div>
     </div>
   </div>
 </section>
 
+<!-- CAPABILITIES -->
+<section id="capabilities" class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Core Capabilities</span>
+      <h2>End-to-end technical excellence</h2>
+      <p>Designed to drive modernization, security, and scale across the enterprise.</p>
+    </div>
+    <div class="cap-grid">
+      <div class="cap reveal">
+        <div class="cap-ico"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/></svg></div>
+        <h3>Data &amp; Architecture</h3>
+        <p>Advanced analytics, machine learning pipelines, enterprise data architecture, and predictive modeling.</p>
+      </div>
+      <div class="cap reveal reveal-d1">
+        <div class="cap-ico"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg></div>
+        <h3>Cloud &amp; Infrastructure</h3>
+        <p>Cloud modernization, hybrid architectures, DevSecOps automation, and zero-downtime migrations.</p>
+      </div>
+      <div class="cap reveal reveal-d2">
+        <div class="cap-ico"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg></div>
+        <h3>Technology Transformation</h3>
+        <p>Legacy modernization, distributed systems engineering, ERP alignment, and API ecosystem integration.</p>
+      </div>
+      <div class="cap reveal">
+        <div class="cap-ico"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg></div>
+        <h3>Cybersecurity &amp; Governance</h3>
+        <p>Threat defense, zero-trust network design, security automation, and regulatory compliance frameworks.</p>
+      </div>
+      <div class="cap reveal reveal-d1">
+        <div class="cap-ico"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg></div>
+        <h3>Digital Eng &amp; Manufacturing</h3>
+        <p>Industrial IoT, systems automation, edge computing, and digital twin implementations.</p>
+      </div>
+      <div class="cap reveal reveal-d2">
+        <div class="cap-ico"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
+        <h3>Managed Delivery &amp; Services</h3>
+        <p>Continuous operations support, platform maintenance, and SLA-backed infrastructure management.</p>
+      </div>
+      <div class="cap reveal">
+        <div class="cap-ico"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></div>
+        <h3>Strategic Advisory &amp; Supply Chain</h3>
+        <p>Operating model design, technology roadmaps, logistics optimization, and vendor ecosystem enablement.</p>
+      </div>
+      <div class="cap reveal reveal-d1">
+        <div class="cap-ico"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"/></svg></div>
+        <h3>Customer &amp; Commerce</h3>
+        <p>Omnichannel customer platforms, digital sales enablement, and service automation systems.</p>
+      </div>
+      <div class="cap reveal reveal-d2">
+        <div class="cap-ico"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg></div>
+        <h3>Sustainable Ops &amp; Learning</h3>
+        <p>Green computing strategies, ESG compliance workflows, and enterprise technical upskilling.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-	
-	
+<!-- INDUSTRIES -->
+<section id="industries" class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Industries Served</span>
+      <h2>Where our systems operate</h2>
+    </div>
+    <div class="ind-grid reveal">
+      <div class="ind">
+        <div class="ind-ico"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L3 6v6c0 5 3.5 9.5 9 10 5.5-.5 9-5 9-10V6l-9-4z"/></svg></div>
+        <div><h3>Public Sector &amp; Defense</h3><p>Aerospace &amp; Defense, U.S. Federal Government, Public Service</p></div>
+      </div>
+      <div class="ind">
+        <div class="ind-ico"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 10h18M3 6h18M3 14h18M3 18h18"/></svg></div>
+        <div><h3>Financial &amp; Corporate</h3><p>Banking, Insurance, Capital Markets, Asset Management</p></div>
+      </div>
+      <div class="ind">
+        <div class="ind-ico"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16v6H4zM4 14h16v6H4z"/></svg></div>
+        <div><h3>Industrial &amp; Infrastructure</h3><p>Energy, Utilities, Industrial Manufacturing, Automotive</p></div>
+      </div>
+      <div class="ind">
+        <div class="ind-ico"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l7 4v6c0 5-3.5 9.5-7 10-3.5-.5-7-5-7-10V6l7-4z"/></svg></div>
+        <div><h3>State &amp; Local Government</h3><p>State Agencies, Municipalities, Higher Education, K-12</p></div>
+      </div>
+      <div class="ind">
+        <div class="ind-ico"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <div><h3>Technology &amp; Consumer</h3><p>High Tech, Software Platforms, Retail, Consumer Systems</p></div>
+      </div>
+      <div class="ind">
+        <div class="ind-ico"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v20M2 12h20"/></svg></div>
+        <div><h3>Healthcare &amp; Life Sciences</h3><p>Health Systems, Digital Health Platforms, Biotech Data</p></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- COMPANY IDENTIFIERS (DARK CONTRAST SECTION) -->
-    <section id="identifiers" class="w-full bg-slate-950 py-16 sm:py-20 px-6 text-white relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-br from-koopBlue/10 via-transparent to-koopCyan/5 pointer-events-none"></div>
-        <div class="max-w-6xl mx-auto relative z-10">
-            <h2 class="text-2xl sm:text-3xl font-bold text-white mb-10 text-center tracking-tight">Company Identifiers</h2>
-            
-            <div class="dark-glass-card p-6 sm:p-10 rounded-2xl grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12">
-                
-                <div class="md:col-span-4 lg:col-span-3 md:border-r md:border-slate-800 md:pr-8">
-                    <h3 class="text-xs font-bold text-slate-100 mb-4 border-b border-slate-800 pb-2 uppercase tracking-wider">Core Credentials</h3>
-                    <ul class="space-y-4">
-                        <li>
-                            <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">Unique Entity ID (UEI)</span>
-                            <span class="text-sm font-semibold text-cyan-400 font-mono tracking-wide">PZS2S9ZA1AK6</span>
-                        </li>
-                        <li>
-                            <span class="block text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">CAGE Code</span>
-                            <span class="text-sm font-semibold text-cyan-400 font-mono tracking-wide">22YR7</span>
-                        </li>
-                    </ul>
-                </div>
+<!-- DELIVERY -->
+<section id="delivery" class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Delivery Framework</span>
+      <h2>How disciplined delivery works</h2>
+    </div>
+    <div class="del-grid">
+      <div class="del reveal">
+        <svg viewBox="0 0 64 64" fill="none"><rect x="2" y="2" width="60" height="60" rx="16" fill="#eef4fb"/><path d="M32 14L20 20V30C20 38 25 45 32 48C39 45 44 38 44 30V20L32 14Z" stroke="#0055a5" stroke-width="2" fill="none"/><path d="M26 32L30 36L38 28" stroke="#00a4e4" stroke-width="2" stroke-linecap="round"/><path d="M22 40H42" stroke="#0055a5" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 3"/></svg>
+        <h3>Disciplined Execution</h3>
+        <p>Predictable delivery models built around rigorous sprint velocity, risk mitigation, and zero pipeline regressions.</p>
+      </div>
+      <div class="del reveal reveal-d1">
+        <svg viewBox="0 0 64 64" fill="none"><rect x="2" y="2" width="60" height="60" rx="16" fill="#eef4fb"/><circle cx="32" cy="32" r="12" stroke="#0055a5" stroke-width="2"/><circle cx="32" cy="32" r="4" fill="#00a4e4"/><path d="M32 20V12" stroke="#0055a5" stroke-width="2" stroke-linecap="round"/><path d="M32 52V44" stroke="#0055a5" stroke-width="2" stroke-linecap="round"/><path d="M20 32H12" stroke="#0055a5" stroke-width="2" stroke-linecap="round"/><path d="M52 32H44" stroke="#0055a5" stroke-width="2" stroke-linecap="round"/></svg>
+        <h3>Mission Alignment</h3>
+        <p>Architecture decisions calibrated to strategic outcomes, eliminating technical debt and premature lock-in.</p>
+      </div>
+      <div class="del reveal reveal-d2">
+        <svg viewBox="0 0 64 64" fill="none"><rect x="2" y="2" width="60" height="60" rx="16" fill="#eef4fb"/><path d="M18 40C20 30 28 24 36 24C44 24 52 30 54 40" stroke="#0055a5" stroke-width="2" stroke-linecap="round"/><circle cx="36" cy="24" r="3" fill="#00a4e4"/><circle cx="36" cy="24" r="10" stroke="rgba(0,85,165,0.4)" stroke-width="1" stroke-dasharray="4 3"/></svg>
+        <h3>Verifiable Reliability</h3>
+        <p>Automated telemetry, continuous compliance checks, and SLA-backed governance built into every tier.</p>
+      </div>
+      <div class="del reveal reveal-d3">
+        <svg viewBox="0 0 64 64" fill="none"><rect x="2" y="2" width="60" height="60" rx="16" fill="#eef4fb"/><rect x="18" y="16" width="20" height="28" rx="2" stroke="#0055a5" stroke-width="2" fill="none"/><path d="M20 22H34" stroke="#0055a5" stroke-width="1.5"/><path d="M20 26H30" stroke="#0055a5" stroke-width="1.5"/><path d="M20 30H28" stroke="#0055a5" stroke-width="1.5"/><path d="M46 36L48 40L52 40L49 42L50 46L46 44L42 46L43 42L40 40L44 40L46 36Z" fill="#00a4e4"/></svg>
+        <h3>Acquisition Readiness</h3>
+        <p>Complete familiarity with prime partnering mechanisms, subcontracting standards, and federal matrices.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-                <div class="md:col-span-8 lg:col-span-9">
-                    <h3 class="text-xs font-bold text-slate-100 mb-4 border-b border-slate-800 pb-2 uppercase tracking-wider">NAICS Codes</h3>
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10">
-                        <div>
-                            <h4 class="text-[11px] font-bold text-koopCyan mb-3 uppercase tracking-wider">Technology &amp; Computing</h4>
-                            <ul class="text-sm text-slate-300 space-y-3">
-                                <li class="flex items-start leading-snug">
-                                    <strong class="text-white font-mono mr-3 shrink-0">541519</strong> 
-                                    <span>Other Computer Related Services <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold bg-koopBlue/40 text-cyan-300 uppercase ml-1.5 border border-koopCyan/30">Primary</span></span>
-                                </li>
-                                <li class="flex items-start leading-snug">
-                                    <strong class="text-white font-mono mr-3 shrink-0">541511</strong> 
-                                    <span>Custom Computer Programming Services</span>
-                                </li>
-                                <li class="flex items-start leading-snug">
-                                    <strong class="text-white font-mono mr-3 shrink-0">541512</strong> 
-                                    <span>Computer Systems Design Services</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
+<!-- IDENTIFIERS -->
+<section id="identifiers" class="section">
+  <div class="wrap">
+    <div class="idpanel reveal">
+      <div class="idpanel-inner">
+        <span class="eyebrow">Federal Registry</span>
+        <h2>Company Identifiers</h2>
+        <div class="id-grid">
+          <div>
+            <div class="id-item">
+              <div class="id-label">Unique Entity ID (UEI)</div>
+              <span class="id-code">PZS2S9ZA1AK6</span>
             </div>
-        </div>
-    </section>
-
-    <!-- CENTERED INITIATE ENGAGEMENT CONTACT SECTION -->
-    <section id="contact" class="w-full py-16 sm:py-20 px-6 relative z-10 border-t border-slate-200">
-        <div class="max-w-3xl mx-auto">
-            
-            <div class="text-center mb-10">
-                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Initiate Engagement</h2>
-                <p class="text-slate-500 mt-2 text-sm leading-relaxed">Direct channel for prime contracting, technical consulting, and architecture inquiries.</p>
+            <div class="id-item">
+              <div class="id-label">CAGE Code</div>
+              <span class="id-code">22YR7</span>
             </div>
-
-            <div class="glass-card p-6 sm:p-10 rounded-2xl border border-slate-200 shadow-xl">
-                <!-- Replace YOUR_ENDPOINT_ID with your Formspree/Web3Forms ID -->
-                <form action="https://formspree.io/f/YOUR_ENDPOINT_ID" method="POST" class="space-y-5">
-                    
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                            <label for="name" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Full Name</label>
-                            <input type="text" id="name" name="name" required placeholder="Jane Doe" class="w-full p-3 border border-slate-200 rounded-lg bg-white text-sm focus:outline-none focus:ring-2 focus:ring-koopBlue/50 transition-all">
-                        </div>
-                        <div>
-                            <label for="email" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Email Address</label>
-                            <input type="email" id="email" name="email" required placeholder="jane@example.com" class="w-full p-3 border border-slate-200 rounded-lg bg-white text-sm focus:outline-none focus:ring-2 focus:ring-koopBlue/50 transition-all">
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                            <label for="company" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Company / Agency</label>
-                            <input type="text" id="company" name="company" placeholder="Optional" class="w-full p-3 border border-slate-200 rounded-lg bg-white text-sm focus:outline-none focus:ring-2 focus:ring-koopBlue/50 transition-all">
-                        </div>
-                        <div>
-                            <label for="interest" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Area of Interest</label>
-                            <select id="interest" name="interest" class="w-full p-3 border border-slate-200 rounded-lg bg-white text-sm focus:outline-none focus:ring-2 focus:ring-koopBlue/50 transition-all font-sans">
-                                <option value="Capabilities Statement Request">Capabilities Statement Request</option>
-								<option value="General Inquiry">General Inquiry</option>
-                                <option value="Federal Teaming">Federal Contracting &amp; Teaming (SDVOSB)</option>
-                                <option value="Cloud Architecture">Cloud Modernization &amp; Architecture</option>
-                                <option value="Data Engineering">Data Engineering, Analytics &amp; AI</option>
-                                <option value="Green Computing & ESG">Green Computing &amp; ESG Compliance</option>
-                                <option value="Technical Upskilling">Enterprise Technical Upskilling</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label for="message" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Project Scope / Message</label>
-                        <textarea id="message" name="message" rows="4" required placeholder="Outline your requirements or teaming proposal..." class="w-full p-3 border border-slate-200 rounded-lg bg-white text-sm focus:outline-none focus:ring-2 focus:ring-koopBlue/50 transition-all resize-y"></textarea>
-                    </div>
-
-                    <button type="submit" class="w-full bg-koopBlue hover:bg-slate-900 text-white font-bold py-3.5 px-4 rounded-lg transition-colors duration-300 text-sm shadow-md flex items-center justify-center space-x-2">
-                        <span>Send</span>
-                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                    </button>
-                </form>
-
-                <!-- FOOTER TELEMETRY & DISCRETE EMAIL FALLBACK -->
-                <div class="mt-6 pt-5 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-2">
-                    <div class="flex items-center gap-2">
-                        
-                    </div>
-                    <a href="mailto:contact@koopsolutions.com" class="inline-flex items-center gap-2 text-slate-600 hover:text-koopBlue transition-colors font-medium">
-                        <svg class="w-4 h-4 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                        </svg>
-                        <span>Contact@KoopSolutions.com</span>
-                    </a>
-                </div>
+          </div>
+          <div>
+            <div class="id-label" style="margin-bottom:.8rem">NAICS Codes — Technology &amp; Computing</div>
+            <div class="naics">
+              <div class="naics-row">
+                <span class="code">541519</span>
+                <span class="desc">Other Computer Related Services</span>
+                <span class="pill">Primary</span>
+              </div>
+              <div class="naics-row">
+                <span class="code">541511</span>
+                <span class="desc">Custom Computer Programming Services</span>
+              </div>
+              <div class="naics-row">
+                <span class="code">541512</span>
+                <span class="desc">Computer Systems Design Services</span>
+              </div>
             </div>
-
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- FOOTER -->
-    <footer class="border-t border-slate-200 bg-white/80 py-8 px-6 text-xs text-slate-500 mt-auto">
-        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-center text-center">
-            <div>&copy; 2026 Koop Solutions. All rights reserved. &bull; Service-Disabled Veteran-Owned Small Business (Coming Soon)</div>
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Contact</span>
+      <h2>Initiate Engagement</h2>
+      <p>Direct channel for prime contracting, technical consulting, and architecture inquiries.</p>
+    </div>
+    <div class="contact-card reveal">
+      <form action="https://formspree.io/f/YOUR_ENDPOINT_ID" method="POST" class="form-grid">
+        <div class="field">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required placeholder="Jane Doe">
         </div>
-    </footer>
+        <div class="field">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required placeholder="jane@example.com">
+        </div>
+        <div class="field">
+          <label for="company">Company / Agency</label>
+          <input type="text" id="company" name="company" placeholder="Optional">
+        </div>
+        <div class="field">
+          <label for="interest">Area of Interest</label>
+          <select id="interest" name="interest">
+            <option value="Capabilities Statement Request">Capabilities Statement Request</option>
+            <option value="General Inquiry">General Inquiry</option>
+            <option value="Federal Teaming">Federal Contracting &amp; Teaming (SDVOSB)</option>
+            <option value="Cloud Architecture">Cloud Modernization &amp; Architecture</option>
+            <option value="Data Engineering">Data Engineering, Analytics &amp; AI</option>
+            <option value="Green Computing & ESG">Green Computing &amp; ESG Compliance</option>
+            <option value="Technical Upskilling">Enterprise Technical Upskilling</option>
+          </select>
+        </div>
+        <div class="field full">
+          <label for="message">Project Scope / Message</label>
+          <textarea id="message" name="message" rows="4" required placeholder="Outline your requirements or teaming proposal..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary form-submit">
+          <span>Submit Inquiry</span>
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </button>
+      </form>
+      <div class="contact-alt">
+        <a href="mailto:contact@koopsolutions.com">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          <span>Contact@KoopSolutions.com</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
 
-    <!-- DYNAMIC FLOATING BACK TO TOP BUTTON -->
-    <button id="backToTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-8 right-8 z-50 p-3 rounded-full bg-slate-900/80 hover:bg-koopBlue text-white shadow-xl backdrop-blur-md border border-white/20 transition-all duration-300 opacity-0 pointer-events-none translate-y-4">
-        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
-        </svg>
-    </button>
+<footer>
+    &copy; 2026 Koop Solutions. All rights reserved.
+</footer>
 
-    <!-- SCRIPTS -->
-    <script>
-        // Rotating Console Logic
-        let activeIndex = 0;
-        const slides = [document.getElementById('slide-1'), document.getElementById('slide-2'), document.getElementById('slide-3')];
-        const dots = [document.getElementById('dot-0'), document.getElementById('dot-1'), document.getElementById('dot-2')];
+<button id="toTop" aria-label="Back to top">
+  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
+</button>
 
-        function setSlide(index) {
-            activeIndex = index;
-            slides.forEach((slide, i) => {
-                if (i === index) {
-                    slide.classList.remove('opacity-0', 'pointer-events-none');
-                    slide.classList.add('opacity-100', 'relative');
-                    slide.classList.remove('absolute');
-                    dots[i].classList.remove('w-2', 'bg-slate-300');
-                    dots[i].classList.add('w-6', 'bg-koopBlue');
-                } else {
-                    slide.classList.remove('opacity-100', 'relative');
-                    slide.classList.add('opacity-0', 'pointer-events-none', 'absolute');
-                    dots[i].classList.remove('w-6', 'bg-koopBlue');
-                    dots[i].classList.add('w-2', 'bg-slate-300');
-                }
-            });
-        }
+<script>
+/* ============ UI ============ */
+(function(){
+  var btn=document.getElementById('menuBtn'),panel=document.getElementById('menuPanel');
+  function setMenu(open){
+    panel.classList.toggle('open',open);
+    btn.classList.toggle('open',open);
+    btn.setAttribute('aria-expanded',open?'true':'false');
+  }
+  btn.addEventListener('click',function(e){e.stopPropagation();setMenu(!panel.classList.contains('open'));});
+  document.addEventListener('click',function(e){
+    if(panel.classList.contains('open')&&!panel.contains(e.target)&&!btn.contains(e.target))setMenu(false);
+  });
+  panel.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setMenu(false);});});
 
-        setInterval(() => {
-            const nextIndex = (activeIndex + 1) % slides.length;
-            setSlide(nextIndex);
-        }, 6000);
+  var toTop=document.getElementById('toTop');
+  toTop.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+  window.addEventListener('scroll',function(){toTop.classList.toggle('show',window.scrollY>400);},{passive:true});
 
-        // Hamburger Drawer Toggle Logic
-        function toggleMenu() {
-            const dropdown = document.getElementById('navDropdown');
-            const line1 = document.getElementById('line1');
-            const line2 = document.getElementById('line2');
-            const line3 = document.getElementById('line3');
-            const isHidden = dropdown.classList.contains('hidden');
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});
+  },{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+})();
 
-            if (isHidden) {
-                dropdown.classList.remove('hidden');
-                line1.classList.add('rotate-45', 'translate-y-1.5');
-                line2.classList.add('opacity-0');
-                line3.classList.add('-rotate-45', '-translate-y-1.5');
-            } else {
-                dropdown.classList.add('hidden');
-                line1.classList.remove('rotate-45', 'translate-y-1.5');
-                line2.classList.remove('opacity-0');
-                line3.classList.remove('-rotate-45', '-translate-y-1.5');
-            }
-        }
+/* ============ Liquid-glass ribbon wave (WebGL, dependency-free) ============ */
+(function(){
+  var canvas=document.getElementById('wave-canvas');
+  var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var gl=null;
+  try{
+    gl=canvas.getContext('webgl',{alpha:true,antialias:true,premultipliedAlpha:true,powerPreference:'low-power'})
+      ||canvas.getContext('experimental-webgl',{alpha:true,antialias:true});
+  }catch(e){}
+  if(!gl){document.documentElement.classList.add('no-webgl');return;}
 
-        // Close dropdown when clicking outside
-        document.addEventListener('click', (event) => {
-            const dropdown = document.getElementById('navDropdown');
-            const toggleBtn = document.getElementById('menuToggleBtn');
-            if (!dropdown.classList.contains('hidden') && !toggleBtn.contains(event.target) && !dropdown.contains(event.target)) {
-                toggleMenu();
-            }
-        });
+  var NOISE=
+    'vec3 permute(vec3 x){return mod(((x*34.0)+1.0)*x,289.0);}\n'+
+    'float snoise(vec2 v){\n'+
+    '  const vec4 C=vec4(0.211324865405187,0.366025403784439,-0.577350269189626,0.024390243902439);\n'+
+    '  vec2 i=floor(v+dot(v,C.yy));vec2 x0=v-i+dot(i,C.xx);\n'+
+    '  vec2 i1=(x0.x>x0.y)?vec2(1.0,0.0):vec2(0.0,1.0);\n'+
+    '  vec4 x12=x0.xyxy+C.xxzz;x12.xy-=i1;i=mod(i,289.0);\n'+
+    '  vec3 p=permute(permute(i.y+vec3(0.0,i1.y,1.0))+i.x+vec3(0.0,i1.x,1.0));\n'+
+    '  vec3 m=max(0.5-vec3(dot(x0,x0),dot(x12.xy,x12.xy),dot(x12.zw,x12.zw)),0.0);\n'+
+    '  m=m*m;m=m*m;\n'+
+    '  vec3 x=2.0*fract(p*C.www)-1.0;vec3 h=abs(x)-0.5;vec3 ox=floor(x+0.5);vec3 a0=x-ox;\n'+
+    '  m*=1.79284291400159-0.85373472095314*(a0*a0+h*h);\n'+
+    '  vec3 g;g.x=a0.x*x0.x+h.x*x0.y;g.yz=a0.yz*x12.xz+h.yz*x12.yw;\n'+
+    '  return 130.0*dot(m,g);}\n';
 
-        // Dynamic Back to Top Trigger
-        const backToTopBtn = document.getElementById('backToTopBtn');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 400) {
-                backToTopBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
-                backToTopBtn.classList.add('opacity-100', 'translate-y-0');
-            } else {
-                backToTopBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
-                backToTopBtn.classList.remove('opacity-100', 'translate-y-0');
-            }
-        });
+  var VERT=NOISE+
+    'attribute vec2 aPos;attribute vec2 aUv;\n'+
+    'uniform mat4 uProj,uView;\n'+
+    'uniform float uTime,uPhase,uAmp,uYOff,uZOff;\n'+
+    'varying vec2 vUv;varying vec3 vNormal;varying vec3 vWorld;varying float vH;\n'+
+    'float surf(vec2 p,float t){\n'+
+    '  float h=0.0;\n'+
+    '  h+=sin(p.x*0.30+t*0.55+uPhase+p.y*0.22)*0.55;\n'+
+    '  h+=sin(p.x*0.16-t*0.38+1.7+uPhase)*0.85;\n'+
+    '  h+=sin(p.x*0.52+p.y*0.55+t*0.8+uPhase*2.0)*0.20;\n'+
+    '  h+=snoise(vec2(p.x*0.10+t*0.06,p.y*0.28+uPhase))*0.55;\n'+
+    '  h+=snoise(vec2(p.x*0.30-t*0.05,p.y*0.55))*0.18;\n'+
+    '  return h;}\n'+
+    'void main(){\n'+
+    '  vUv=aUv;\n'+
+    '  float t=uTime;\n'+
+    '  float h=surf(aPos,t);\n'+
+    '  float e=0.14;\n'+
+    '  float hx=surf(aPos+vec2(e,0.0),t);\n'+
+    '  float hz=surf(aPos+vec2(0.0,e),t);\n'+
+    '  vH=h*uAmp;\n'+
+    '  vec3 world=vec3(aPos.x,h*uAmp+uYOff,aPos.y+uZOff);\n'+
+    '  vNormal=normalize(vec3(-(hx-h)/e*uAmp,1.0,-(hz-h)/e*uAmp));\n'+
+    '  vWorld=world;\n'+
+    '  gl_Position=uProj*uView*vec4(world,1.0);}\n';
 
-        // Logo Fallback Handler
-        function handleLogoFallback(imgElement) {
-            imgElement.style.display = 'none';
-            document.getElementById('headerLogoFallback').classList.remove('hidden');
-            document.getElementById('headerLogoFallback').classList.add('flex');
-        }
-    </script>
+  var FRAG=
+    'precision highp float;\n'+NOISE+
+    'uniform float uTime,uOpacity;\n'+
+    'uniform vec3 uColorA,uColorB,uCam;\n'+
+    'varying vec2 vUv;varying vec3 vNormal;varying vec3 vWorld;varying float vH;\n'+
+    'void main(){\n'+
+    '  vec3 N=normalize(vNormal);\n'+
+    '  vec3 V=normalize(uCam-vWorld);\n'+
+    '  if(dot(N,V)<0.0)N=-N;\n'+
+    '  float g=clamp(vUv.x*0.85+vH*0.28+0.08,0.0,1.0);\n'+
+    '  vec3 base=mix(uColorA,uColorB,g);\n'+
+    '  base*=(0.82+0.30*clamp(vH+0.4,0.0,1.0));\n'+
+    '  float fres=pow(1.0-max(dot(N,V),0.0),2.6);\n'+
+    '  vec3 L1=normalize(vec3(-0.45,0.85,0.55));\n'+
+    '  vec3 L2=normalize(vec3(0.65,0.55,0.45));\n'+
+    '  float s1=pow(max(dot(reflect(-L1,N),V),0.0),110.0);\n'+
+    '  float s2=pow(max(dot(reflect(-L2,N),V),0.0),60.0);\n'+
+    '  float ca=snoise(vec2(vUv.x*9.0+uTime*0.12,vUv.y*4.0-uTime*0.07));\n'+
+    '  float caustic=smoothstep(0.55,0.95,ca)*0.10;\n'+
+    '  vec3 col=base+fres*vec3(0.62,0.82,0.98)*0.55+s1*0.95+s2*0.45+caustic;\n'+
+    '  float edge=smoothstep(0.0,0.16,vUv.y)*(1.0-smoothstep(0.84,1.0,vUv.y));\n'+
+    '  float alpha=uOpacity*edge*(0.58+0.42*fres+0.25*(s1+s2));\n'+
+    '  alpha=clamp(alpha,0.0,1.0);\n'+
+    '  gl_FragColor=vec4(col*alpha,alpha);}\n';
+
+  function compile(type,src){
+    var s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);
+    if(!gl.getShaderParameter(s,gl.COMPILE_STATUS)){throw new Error(gl.getShaderInfoLog(s));}
+    return s;
+  }
+  var prog;
+  try{
+    prog=gl.createProgram();
+    gl.attachShader(prog,compile(gl.VERTEX_SHADER,VERT));
+    gl.attachShader(prog,compile(gl.FRAGMENT_SHADER,FRAG));
+    gl.linkProgram(prog);
+    if(!gl.getProgramParameter(prog,gl.LINK_STATUS)){throw new Error(gl.getProgramInfoLog(prog));}
+  }catch(e){document.documentElement.classList.add('no-webgl');return;}
+  gl.useProgram(prog);
+
+  /* ---- grid geometry: x along ribbon, second coord = depth ---- */
+  var COLS=240,ROWS=40,XW=19.0,ZD=2.4;
+  var verts=[],uvs=[],idx=[];
+  for(var r=0;r<=ROWS;r++){
+    for(var c=0;c<=COLS;c++){
+      var u=c/COLS,v=r/ROWS;
+      verts.push(-XW+u*2.0*XW, -ZD+v*2.0*ZD);
+      uvs.push(u,v);
+    }
+  }
+  for(var r2=0;r2<ROWS;r2++){
+    for(var c2=0;c2<COLS;c2++){
+      var a=r2*(COLS+1)+c2,b=a+1,c3=a+COLS+1,d=c3+1;
+      idx.push(a,c3,b, b,c3,d);
+    }
+  }
+  function buf(target,data,Type){
+    var b=gl.createBuffer();gl.bindBuffer(target,b);
+    gl.bufferData(target,new Type(data),gl.STATIC_DRAW);return b;
+  }
+  var posBuf=buf(gl.ARRAY_BUFFER,verts,Float32Array);
+  var uvBuf=buf(gl.ARRAY_BUFFER,uvs,Float32Array);
+  var idxBuf=buf(gl.ELEMENT_ARRAY_BUFFER,idx,Uint16Array); /* max vertex index 9880 < 65536 */
+  var idxType=gl.UNSIGNED_SHORT;
+
+  var aPos=gl.getAttribLocation(prog,'aPos'),aUv=gl.getAttribLocation(prog,'aUv');
+  gl.bindBuffer(gl.ARRAY_BUFFER,posBuf);gl.enableVertexAttribArray(aPos);gl.vertexAttribPointer(aPos,2,gl.FLOAT,false,0,0);
+  gl.bindBuffer(gl.ARRAY_BUFFER,uvBuf);gl.enableVertexAttribArray(aUv);gl.vertexAttribPointer(aUv,2,gl.FLOAT,false,0,0);
+  gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,idxBuf);
+
+  var U={};
+  ['uProj','uView','uTime','uPhase','uAmp','uYOff','uZOff','uOpacity','uColorA','uColorB','uCam']
+    .forEach(function(n){U[n]=gl.getUniformLocation(prog,n);});
+
+  /* ---- tiny mat4 helpers (column-major) ---- */
+  function perspective(fovy,aspect,near,far){
+    var f=1/Math.tan(fovy/2),nf=1/(near-far);
+    return new Float32Array([f/aspect,0,0,0, 0,f,0,0, 0,0,(far+near)*nf,-1, 0,0,2*far*near*nf,0]);
+  }
+  function lookAt(eye,center,up){
+    var zx=eye[0]-center[0],zy=eye[1]-center[1],zz=eye[2]-center[2];
+    var zl=1/Math.hypot(zx,zy,zz);zx*=zl;zy*=zl;zz*=zl;
+    var xx=up[1]*zz-up[2]*zy,xy=up[2]*zx-up[0]*zz,xz=up[0]*zy-up[1]*zx;
+    var xl=1/(Math.hypot(xx,xy,xz)||1);xx*=xl;xy*=xl;xz*=xl;
+    var yx=zy*xz-zz*xy,yy=zz*xx-zx*xz,yz=zx*xy-zy*xx;
+    return new Float32Array([
+      xx,yx,zx,0, xy,yy,zy,0, xz,yz,zz,0,
+      -(xx*eye[0]+xy*eye[1]+xz*eye[2]),
+      -(yx*eye[0]+yy*eye[1]+yz*eye[2]),
+      -(zx*eye[0]+zy*eye[1]+zz*eye[2]),1]);
+  }
+  function hex(h){return [parseInt(h.slice(1,3),16)/255,parseInt(h.slice(3,5),16)/255,parseInt(h.slice(5,7),16)/255];}
+
+  var CAM=[0,1.9,11.5];
+  var view=lookAt(CAM,[0,-2.7,0],[0,1,0]);
+  var proj=perspective(32*Math.PI/180,1,0.1,100);
+
+  var ribbons=[
+    {phase:2.6,amp:0.70,opacity:0.26,yOff:-3.65,zOff:-2.6,speed:0.75,colorA:hex('#4593d2'),colorB:hex('#8fdbf7')},
+    {phase:0.0,amp:0.80,opacity:0.92,yOff:-4.35,zOff: 0.0,speed:1.00,colorA:hex('#0055a5'),colorB:hex('#00a4e4')}
+  ];
+
+  gl.disable(gl.DEPTH_TEST);
+  gl.disable(gl.CULL_FACE);
+  gl.enable(gl.BLEND);
+  gl.blendFunc(gl.ONE,gl.ONE_MINUS_SRC_ALPHA);
+  gl.clearColor(0,0,0,0);
+
+  function resize(){
+    var dpr=Math.min(window.devicePixelRatio||1,2);
+    var w=Math.floor(window.innerWidth*dpr),h=Math.floor(window.innerHeight*dpr);
+    if(canvas.width!==w||canvas.height!==h){
+      canvas.width=w;canvas.height=h;
+      gl.viewport(0,0,w,h);
+      proj=perspective(32*Math.PI/180,w/h,0.1,100);
+    }
+  }
+  window.addEventListener('resize',resize);
+  resize();
+
+  var start=performance.now(),playing=true,raf=null;
+  function frame(now){
+    raf=null;
+    resize();
+    var t=(now-start)*0.00028; /* ultra-slow ambient drift */
+    gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.uniformMatrix4fv(U.uProj,false,proj);
+    gl.uniformMatrix4fv(U.uView,false,view);
+    gl.uniform3f(U.uCam,CAM[0],CAM[1],CAM[2]);
+    for(var i=0;i<ribbons.length;i++){
+      var rb=ribbons[i];
+      gl.uniform1f(U.uTime,t*rb.speed);
+      gl.uniform1f(U.uPhase,rb.phase);
+      gl.uniform1f(U.uAmp,rb.amp);
+      gl.uniform1f(U.uYOff,rb.yOff);
+      gl.uniform1f(U.uZOff,rb.zOff);
+      gl.uniform1f(U.uOpacity,rb.opacity);
+      gl.uniform3f(U.uColorA,rb.colorA[0],rb.colorA[1],rb.colorA[2]);
+      gl.uniform3f(U.uColorB,rb.colorB[0],rb.colorB[1],rb.colorB[2]);
+      gl.drawElements(gl.TRIANGLES,idx.length,idxType,0);
+    }
+    if(playing&&!reduced)raf=requestAnimationFrame(frame);
+  }
+  document.addEventListener('visibilitychange',function(){
+    playing=!document.hidden;
+    if(playing&&!reduced&&raf===null)raf=requestAnimationFrame(frame);
+  });
+  raf=requestAnimationFrame(frame); /* renders once even when reduced-motion */
+})();
+</script>
+
+</div><!-- /.site -->
+
 </body>
 </html>
