@@ -12,7 +12,7 @@
 <meta property="og:url" content="https://koopsolutions.com">
 <meta property="og:title" content="Koop Solutions">
 <meta property="og:description" content="Engineering clarity in complex environments across modern data architecture, cloud engineering, and enterprise systems.">
-<meta property="og:image" content="https://koopsolutions.com/images/koop_solutions_no_sdvosb_wall_logo_resize.jpg>
+<meta property="og:image" content="https://koopsolutions.com/images/koop_solutions_no_sdvosb_wall_logo_resize.jpg">
 <meta property="og:image:secure_url" content="https://koopsolutions.com/images/koop_solutions_no_sdvosb_wall_logo_resize.jpg">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
@@ -57,7 +57,7 @@ body{
   text-rendering:optimizeLegibility;
 }
 ::selection{background:var(--blue);color:#fff}
-section[id]{scroll-margin-top:7.5rem}
+section[id]{scroll-margin-top:5.5rem}
 
 /* ---------- wave canvas ---------- */
 #wave-canvas{
@@ -97,17 +97,31 @@ p{margin:0}
 /* ---------- shell ---------- */
 .wrap{max-width:72rem;margin:0 auto;padding:0 1.5rem}
 
-/* ---------- nav ---------- */
-.nav-shell{position:sticky;top:1rem;z-index:50;width:100%;padding:0 1rem}
+/* ---------- nav (Full-Width Sticky Header) ---------- */
+.nav-shell{
+  position:sticky;
+  top:0;
+  z-index:50;
+  width:100%;
+  padding:0;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(20px) saturate(170%);
+  -webkit-backdrop-filter:blur(20px) saturate(170%);
+  border-bottom:1px solid var(--line);
+  box-shadow:0 4px 20px -8px rgba(0,55,120,.08);
+}
 .nav-island{
-  max-width:72rem;margin:0 auto;height:4.25rem;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 1.1rem 0 1.35rem;border-radius:1.15rem;
-  background:var(--glass);
-  backdrop-filter:blur(22px) saturate(170%);
-  -webkit-backdrop-filter:blur(22px) saturate(170%);
-  border:1px solid var(--glass-line);
-  box-shadow:0 14px 40px -16px rgba(0,55,120,.18);
+  max-width:72rem;
+  margin:0 auto;
+  height:4.5rem;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 1.5rem;
+  border-radius:0;
+  background:transparent;
+  border:none;
+  box-shadow:none;
 }
 .brand{display:flex;align-items:center;gap:.55rem;text-decoration:none;color:var(--ink)}
 .brand-img{height:2.35rem;width:auto;object-fit:contain}
@@ -165,8 +179,8 @@ p{margin:0}
 .menu-panel .menu-cta:hover{background:var(--navy);color:#fff}
 
 /* ---------- hero ---------- */
-.hero{padding:6.5rem 0 5.5rem}
-@media (max-width:640px){.hero{padding:4.5rem 0 4rem}}
+.hero{padding:5.5rem 0 5.5rem}
+@media (max-width:640px){.hero{padding:3.5rem 0 4rem}}
 .hero-tag{
   display:inline-flex;align-items:center;gap:.55rem;
   font-family:var(--font-display);font-size:.6563rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
@@ -718,10 +732,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
             <option value="Capabilities Statement Request">Capabilities Statement Request</option>
             <option value="General Inquiry">General Inquiry</option>
             <option value="Federal Teaming">Federal Contracting &amp; Teaming (SDVOSB)</option>
-            <option value="Cloud Architecture">Cloud Modernization &amp; Architecture</option>
-            <option value="Data Engineering">Data Engineering, Analytics &amp; AI</option>
-            <option value="Green Computing & ESG">Green Computing &amp; ESG Compliance</option>
-            <option value="Technical Upskilling">Enterprise Technical Upskilling</option>
+            <option value="Cloud Modernization &amp; Architecture">Cloud Modernization &amp; Architecture</option>
+            <option value="Data Engineering, Analytics &amp; AI">Data Engineering, Analytics &amp; AI</option>
+            <option value="Green Computing &amp; ESG Compliance">Green Computing &amp; ESG Compliance</option>
+            <option value="Enterprise Technical Upskilling">Enterprise Technical Upskilling</option>
           </select>
         </div>
         <div class="field full">
