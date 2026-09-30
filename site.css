@@ -447,9 +447,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 /* ---------- multi-page additions ---------- */
 .nav-tabs a[aria-current="page"]{color:var(--blue);background:rgba(255,255,255,.95);box-shadow:0 2px 8px rgba(0,0,0,.05)}
 .menu-panel a[aria-current="page"]{color:var(--blue);background:rgba(0,85,165,.07)}
-.page-banner{background:#eef4fb;border-bottom:1px solid var(--line);padding:3.25rem 0 3rem}
-.page-banner h1{margin-top:.7rem;font-size:clamp(2rem,4.2vw,3rem);font-weight:800;letter-spacing:-.025em;line-height:1.1;color:var(--navy)}
-.page-banner .lede{margin-top:1rem;max-width:40rem;color:var(--muted);font-size:1rem;line-height:1.65}
+.page-banner{position:relative;overflow:hidden;background:linear-gradient(120deg,#06254a 0%,#0a3a70 70%,#0b4a8c 100%);padding:3.75rem 0 3.5rem}
+.page-banner .wrap{position:relative;z-index:1}
+.page-banner .eyebrow{color:#5fc3f0}
+.page-banner h1{margin-top:.7rem;font-size:clamp(2rem,4.2vw,3rem);font-weight:800;letter-spacing:-.025em;line-height:1.1;color:#fff}
+.page-banner .lede{margin-top:1rem;max-width:34rem;color:#c3d6ea;font-size:1rem;line-height:1.65}
+.pb-art{position:absolute;right:0;top:0;height:100%;width:60%;z-index:0;pointer-events:none;opacity:.9;-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 38%);mask-image:linear-gradient(90deg,transparent 0%,#000 38%)}
+@media (max-width:640px){.pb-art{width:100%;opacity:.55}}
 .cta{border-top:1px solid var(--line);text-align:center}
 .cta h2{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;letter-spacing:-.02em}
 .cta p{margin:.9rem auto 0;max-width:34rem;color:var(--muted);line-height:1.65}
