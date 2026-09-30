@@ -415,7 +415,7 @@ footer{
 .foot-cols{display:grid;gap:2rem;grid-template-columns:1fr}
 @media (min-width:640px){.foot-cols{grid-template-columns:1fr 1fr}}
 @media (min-width:1000px){.foot-cols{grid-template-columns:1.2fr .9fr 1.5fr 1.1fr}}
-@media (min-width:1200px){.foot-status{white-space:nowrap}.foot-cols{grid-template-columns:max-content 7.5rem 1fr 12.5rem}}
+@media (min-width:1200px){.foot-status{white-space:nowrap}.foot-cols{column-gap:1.5rem;grid-template-columns:max-content 7.5rem 1fr 12.5rem}}
 .foot-cols>div{min-width:0}
 .foot-brand{font-family:var(--font-display);font-weight:800;font-size:1.25rem;color:#fff;margin-bottom:.4rem}
 footer h3{margin:0 0 .7rem;font-family:var(--font-display);font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8fb0d4}
@@ -426,8 +426,9 @@ footer a:hover{color:#fff;text-decoration:underline}
 .foot-status{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .7rem}
 .cert-stamp{display:inline-flex;align-items:center;gap:.35rem;border:1px solid #5aa9ee;color:#fff;background:rgba(90,169,238,.16);font-family:var(--font-display);font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .55rem;border-radius:3px}
 .cert-stamp svg{width:.8rem;height:.8rem}
-.foot-ids li{font-size:.8125rem;line-height:1.5}
-.foot-ids span{display:inline-block;min-width:3.4rem;font-family:var(--font-display);font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8fb0d4}
+.foot-ids li{display:grid;grid-template-columns:3rem 3.6rem 1fr;column-gap:.5rem;align-items:baseline;font-size:.8125rem;line-height:1.5}
+.foot-ids li:not(.naics-li) b{grid-column:2 / -1}
+.foot-ids span{display:block;font-family:var(--font-display);font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8fb0d4}
 .foot-ids b{font-family:var(--font-mono);font-weight:600;color:#fff;letter-spacing:.04em}
 .foot-legal{margin-top:2rem;padding-top:1.25rem;border-top:1px solid rgba(143,176,212,.25);color:#8fb0d4;font-size:.8125rem}
 
