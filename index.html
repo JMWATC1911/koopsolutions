@@ -391,6 +391,16 @@ p{margin:0}
 .contact-split>*{min-width:0}
 .contact-intro h2{margin-top:.9rem;font-size:clamp(1.75rem,3.4vw,2.5rem);font-weight:700;letter-spacing:-.02em;line-height:1.12}
 .contact-intro p{margin-top:1rem;color:var(--muted);font-size:.9688rem;line-height:1.65;max-width:26rem}
+.hp-field{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.form-error{grid-column:1/-1;font-size:.875rem;line-height:1.5;color:#9b1c1c;background:#fdf2f2;border:1px solid #f3c7c7;border-radius:.375rem;padding:.75rem 1rem}
+.form-error a{color:inherit;font-weight:600}
+.form-thanks{background:#fff;border:1px solid var(--line);border-radius:.375rem;padding:2.5rem 2rem}
+.form-thanks[hidden],.form-grid[hidden]{display:none}
+.thanks-mark{width:3rem;height:3rem;border-radius:99px;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem}
+.thanks-mark svg{width:1.4rem;height:1.4rem}
+.form-thanks h3{font-size:1.5rem;font-weight:700;letter-spacing:-.01em;margin-bottom:.6rem}
+.form-thanks p{color:var(--muted);font-size:.9688rem;line-height:1.65;max-width:28rem;margin-bottom:1.5rem}
+.form-submit[disabled]{opacity:.7;cursor:progress}
 .contact-mail{display:inline-block;margin-top:1.4rem;font-family:var(--font-mono);font-size:.875rem;font-weight:600;color:var(--blue);text-decoration:none}
 .contact-mail:hover{text-decoration:underline}
 
@@ -705,7 +715,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       <p>For prime contracting, teaming, technical consulting, and architecture inquiries. We reply within one business day.</p>
       <a class="contact-mail" href="mailto:contact@koopsolutions.com">Contact@KoopSolutions.com</a>
     </div>
-    <form action="https://formspree.io/f/mqpzjwav" method="POST" class="form-grid reveal">
+    <form id="contactForm" action="https://formspree.io/f/mqpzjwav" method="POST" class="form-grid reveal">
       <div class="field">
         <label for="name">Full Name</label>
         <input type="text" id="name" name="name" required placeholder="Jane Doe">
@@ -734,11 +744,19 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <label for="message">Project Scope / Message</label>
         <textarea id="message" name="message" rows="4" required placeholder="Outline your requirements or teaming proposal..."></textarea>
       </div>
+      <input type="text" name="_gotcha" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <p id="formError" class="form-error" role="alert" hidden>Your message could not be sent. Please try again, or email <a href="mailto:contact@koopsolutions.com">Contact@KoopSolutions.com</a>.</p>
       <button type="submit" class="btn btn-primary form-submit">
-        <span>Send Message</span>
+        <span id="submitLabel">Send Message</span>
         <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
       </button>
     </form>
+    <div id="formThanks" class="form-thanks reveal" role="status" tabindex="-1" hidden>
+      <div class="thanks-mark"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4" d="M5 13l4 4L19 7"/></svg></div>
+      <h3>Thank you</h3>
+      <p>Your message has been sent. A member of our team will reply within one business day.</p>
+      <button type="button" id="sendAnother" class="btn btn-ghost">Send another message</button>
+    </div>
   </div>
 </section>
 </main>
@@ -1015,5 +1033,29 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 
 </div><!-- /.site -->
 
+<script>
+/* Contact form: send in the background and show an on-page thank-you */
+(function(){
+  var form=document.getElementById('contactForm');
+  if(!form||!window.fetch)return;
+  var thanks=document.getElementById('formThanks'),err=document.getElementById('formError'),
+      label=document.getElementById('submitLabel'),btn=form.querySelector('button[type="submit"]');
+  form.addEventListener('submit',function(e){
+    if(!form.checkValidity())return;
+    e.preventDefault();
+    err.hidden=true;btn.disabled=true;label.textContent='Sending\u2026';
+    fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}})
+      .then(function(r){
+        if(!r.ok)throw new Error('send failed');
+        form.reset();form.hidden=true;thanks.hidden=false;thanks.classList.add('in');thanks.focus();
+      })
+      .catch(function(){err.hidden=false;})
+      .then(function(){btn.disabled=false;label.textContent='Send Message';});
+  });
+  document.getElementById('sendAnother').addEventListener('click',function(){
+    thanks.hidden=true;form.hidden=false;form.querySelector('input').focus();
+  });
+})();
+</script>
 </body>
 </html>
