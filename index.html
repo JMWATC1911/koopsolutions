@@ -85,7 +85,7 @@ h1,h2,h3{font-family:var(--font-display);margin:0;text-wrap:balance}
 p{margin:0}
 .eyebrow{
   font-family:var(--font-display);
-  font-size:.6875rem;font-weight:700;
+  font-size:.75rem;font-weight:700;
   letter-spacing:.22em;text-transform:uppercase;
   color:var(--blue);
 }
@@ -124,6 +124,9 @@ p{margin:0}
   box-shadow:none;
 }
 .brand{display:flex;align-items:center;gap:.55rem;text-decoration:none;color:var(--ink)}
+.brand-tag{font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#0369a1;white-space:nowrap;line-height:1}
+@media (max-width:640px){.brand-tag{font-size:.5625rem;letter-spacing:.05em}}
+@media (max-width:400px){.brand-tag{letter-spacing:.02em}}
 .brand-img{height:2.35rem;width:auto;object-fit:contain}
 @media (max-width:640px){.brand-img{height:1.9rem}}
 .brand-fallback{display:none;align-items:center;gap:.55rem}
@@ -153,7 +156,7 @@ p{margin:0}
 .btn-primary:hover{background:var(--navy)}
 .btn-ghost{color:var(--ink);padding:.85rem 1.35rem;border:1px solid var(--line);background:rgba(255,255,255,.6)}
 .btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
-.btn-nav{padding:.6rem 1.15rem;font-size:.7rem}
+.btn-nav{padding:.6rem 1.15rem;font-size:.75rem}
 .nav-cta{display:none}
 @media (min-width:880px){.nav-cta{display:inline-flex}}
 
@@ -349,7 +352,7 @@ p{margin:0}
   font-family:var(--font-display);font-weight:800;font-size:1.15rem;color:#fff;
   background:linear-gradient(135deg,var(--blue),var(--cyan));
 }
-.partner-name{font-family:var(--font-display);font-size:.72rem;font-weight:700;color:var(--ink);letter-spacing:.02em;transition:color .2s}
+.partner-name{font-family:var(--font-display);font-size:.75rem;font-weight:700;color:var(--ink);letter-spacing:.02em;transition:color .2s}
 .partner:hover .partner-name{color:var(--blue)}
 
 /* ---------- contact ---------- */
@@ -364,7 +367,7 @@ p{margin:0}
 @media (min-width:560px){.form-grid{grid-template-columns:1fr 1fr}}
 .field{display:flex;flex-direction:column;gap:.5rem}
 .field.full{grid-column:1/-1}
-.field label{font-family:var(--font-display);font-size:.6563rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#3d4d66}
+.field label{font-family:var(--font-display);font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#3d4d66}
 .field input,.field select,.field textarea{
   font-family:var(--font-body);font-size:.875rem;color:var(--ink);
   padding:.8rem .95rem;border-radius:.75rem;
@@ -412,19 +415,20 @@ footer{
 .foot-cols{display:grid;gap:2rem;grid-template-columns:1fr}
 @media (min-width:640px){.foot-cols{grid-template-columns:1fr 1fr}}
 @media (min-width:1000px){.foot-cols{grid-template-columns:1.2fr .9fr 1.5fr 1.1fr}}
-@media (min-width:1200px){.foot-status{white-space:nowrap}.foot-cols{grid-template-columns:max-content 7.5rem 1fr 12.5rem}}
+@media (min-width:1200px){.foot-status{white-space:nowrap}.foot-cols{column-gap:1.5rem;grid-template-columns:max-content 7.5rem 1fr 12.5rem}}
 .foot-cols>div{min-width:0}
 .foot-brand{font-family:var(--font-display);font-weight:800;font-size:1.25rem;color:#fff;margin-bottom:.4rem}
-footer h4{margin:0 0 .7rem;font-family:var(--font-display);font-size:.6875rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8fb0d4}
+footer h3{margin:0 0 .7rem;font-family:var(--font-display);font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8fb0d4}
 footer ul{list-style:none;margin:0;padding:0;display:grid;gap:.4rem}
 footer a{color:#dce8f6;text-decoration:none}
 footer a:hover{color:#fff;text-decoration:underline}
 .foot-mono{font-family:var(--font-mono);font-size:.8125rem;color:#9fc0e3;margin-top:.5rem}
 .foot-status{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .7rem}
-.cert-stamp{display:inline-flex;align-items:center;gap:.35rem;border:1px solid #5aa9ee;color:#fff;background:rgba(90,169,238,.16);font-family:var(--font-display);font-size:.6875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .55rem;border-radius:3px}
+.cert-stamp{display:inline-flex;align-items:center;gap:.35rem;border:1px solid #5aa9ee;color:#fff;background:rgba(90,169,238,.16);font-family:var(--font-display);font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .55rem;border-radius:3px}
 .cert-stamp svg{width:.8rem;height:.8rem}
-.foot-ids li{font-size:.8125rem;line-height:1.5}
-.foot-ids span{display:inline-block;min-width:2.9rem;font-family:var(--font-display);font-size:.625rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8fb0d4}
+.foot-ids li{display:grid;grid-template-columns:3rem 3.6rem 1fr;column-gap:.5rem;align-items:baseline;font-size:.8125rem;line-height:1.5}
+.foot-ids li:not(.naics-li) b{grid-column:2 / -1}
+.foot-ids span{display:block;font-family:var(--font-display);font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8fb0d4}
 .foot-ids b{font-family:var(--font-mono);font-weight:600;color:#fff;letter-spacing:.04em}
 .foot-legal{margin-top:2rem;padding-top:1.25rem;border-top:1px solid rgba(143,176,212,.25);color:#8fb0d4;font-size:.8125rem}
 
@@ -485,7 +489,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <span class="brand-fallback"><span class="brand-mark">K<svg class="inf" viewBox="0 0 48 24" fill="none" aria-hidden="true"><path class="inf-path" d="M24 12 C24 5.4 14 5.4 14 12 C14 18.6 24 18.6 24 12 Z" stroke="url(#infGrad)" stroke-width="3.4" stroke-linecap="round"/></svg>P</span>
         <span class="brand-sub">Solutions</span></span>
       </div>
-      <span style="font-size: 0.52rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #0284c7; white-space: nowrap; line-height: 1;">
+      <span class="brand-tag">
         Service-Disabled Veteran-Owned Small Business
       </span>
     </a>
@@ -509,7 +513,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       <div id="menuPanel" class="menu-panel">
         <a href="#capabilities">Capabilities</a>
         <a href="#industries">Industries</a>
-        <a href="#delivery">Delivery Framework</a>
+        <a href="#delivery">Delivery Approach</a>
         <a href="#partners">Partners</a>
         <a href="#contact" class="menu-cta"><span>Contact Us</span><svg style="width:1rem;height:1rem" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
       </div>
@@ -769,16 +773,16 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <p class="foot-status">Service-Disabled Veteran-Owned Small Business <span class="cert-stamp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Certified</span></p>
       </div>
       <div>
-        <h4>Company</h4>
+        <h3>Company</h3>
         <ul>
           <li><a href="#capabilities">Capabilities</a></li>
           <li><a href="#industries">Industries</a></li>
-          <li><a href="#delivery">Delivery Framework</a></li>
+          <li><a href="#delivery">Delivery Approach</a></li>
           <li><a href="#partners">Partners</a></li>
         </ul>
       </div>
       <div>
-        <h4>Registration</h4>
+        <h3>Registration</h3>
         <ul class="foot-ids">
           <li><span>UEI</span> <b>PZS2S9ZA1AK6</b></li>
           <li><span>CAGE</span> <b>22YR7</b></li>
@@ -788,7 +792,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         </ul>
       </div>
       <div>
-        <h4>Contact</h4>
+        <h3>Contact</h3>
         <ul>
           <li><a href="mailto:contact@koopsolutions.com">Contact@KoopSolutions.com</a></li>
           <li><a href="#contact">Send a message</a></li>
