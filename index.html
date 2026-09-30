@@ -179,7 +179,7 @@ p{margin:0}
 .menu-panel .menu-cta:hover{background:var(--navy);color:#fff}
 
 /* ---------- hero ---------- */
-.hero{padding:5.5rem 0 5.5rem}
+.hero{padding:5.5rem 0 4rem}
 @media (max-width:640px){.hero{padding:3.5rem 0 4rem}}
 .hero-tag{
   display:inline-flex;align-items:center;gap:.55rem;
@@ -189,14 +189,11 @@ p{margin:0}
 }
 .hero-tag .dot{width:6px;height:6px;border-radius:99px;background:var(--cyan);box-shadow:0 0 0 3px rgba(0,164,228,.18)}
 .hero h1{
-  margin-top:1.6rem;
+  margin-top:1.1rem;
   font-size:clamp(2.5rem,6vw,4.35rem);
   font-weight:800;letter-spacing:-.03em;line-height:1.04;
 }
-.hero h1 .grad{
-  background:linear-gradient(92deg,var(--blue) 10%,var(--cyan) 85%);
-  -webkit-background-clip:text;background-clip:text;color:transparent;
-}
+.hero h1 .grad{color:var(--blue)}
 .hero-copy{max-width:38rem;margin-top:1.75rem;display:grid;gap:1.05rem}
 .hero-copy p{font-size:.9688rem;line-height:1.7;color:var(--muted)}
 .hero-copy strong{color:var(--ink);font-weight:600}
@@ -209,6 +206,12 @@ p{margin:0}
 .cred .k{font-family:var(--font-display);font-size:.625rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--faint)}
 .cred .v{font-family:var(--font-mono);font-size:.85rem;font-weight:600;color:var(--blue);letter-spacing:.04em}
 
+/* ---------- credentials band ---------- */
+.credband{background:#eef4fb;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.credband-row{display:flex;flex-wrap:wrap;align-items:center;gap:.9rem 3rem;padding:1.5rem 0}
+.status-badge{display:inline-flex;align-items:center;gap:.5rem;background:var(--blue);color:#fff;font-family:var(--font-display);font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.6rem .9rem;border-radius:4px}
+.status-badge svg{width:1rem;height:1rem;flex-shrink:0}
+
 /* ---------- generic section ---------- */
 .section{padding:4.5rem 0}
 .section-rule{border-top:1px solid var(--line)}
@@ -218,12 +221,14 @@ p{margin:0}
 @media (min-width:640px){.cap-grid{grid-template-columns:repeat(2,1fr)}}
 @media (min-width:1024px){.cap-grid{grid-template-columns:repeat(3,1fr)}}
 .cap{
-  position:relative;padding:1.6rem 1.5rem 1.7rem;border-radius:1.1rem;
-  background:rgba(255,255,255,.66);border:1px solid var(--line);
-  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-  transition:all .28s var(--ease);
+  position:relative;padding:1.6rem 1.5rem 1.7rem;border-radius:.375rem;
+  background:#fff;border:1px solid var(--line);
+  transition:border-color .2s var(--ease);
 }
-.cap:hover{transform:translateY(-4px);border-color:rgba(0,85,165,.35);box-shadow:0 18px 44px -18px rgba(0,85,165,.22);background:rgba(255,255,255,.92)}
+.cap:hover{border-color:var(--blue)}
+.cap{display:flex;flex-direction:column}
+.cap h3+p{margin-bottom:1.1rem}
+.cap .cap-out{margin-top:auto;padding-top:.8rem;border-top:1px solid var(--line);font-size:.8438rem;font-weight:600;color:var(--blue);line-height:1.5}
 .cap-ico{
   width:2.5rem;height:2.5rem;border-radius:.7rem;margin-bottom:1.05rem;
   display:flex;align-items:center;justify-content:center;
@@ -257,12 +262,11 @@ p{margin:0}
 @media (min-width:640px){.del-grid{grid-template-columns:repeat(2,1fr)}}
 @media (min-width:1024px){.del-grid{grid-template-columns:repeat(4,1fr)}}
 .del{
-  padding:1.7rem 1.4rem;border-radius:1.1rem;text-align:center;
-  background:rgba(255,255,255,.66);border:1px solid var(--line);
-  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-  transition:all .28s var(--ease);
+  padding:1.7rem 1.4rem;border-radius:.375rem;text-align:center;
+  background:#fff;border:1px solid var(--line);
+  transition:border-color .2s var(--ease);
 }
-.del:hover{transform:translateY(-4px);box-shadow:0 18px 44px -18px rgba(0,85,165,.2);background:rgba(255,255,255,.92)}
+.del:hover{border-color:var(--blue)}
 .del svg{width:3.4rem;height:3.4rem;margin-bottom:1rem}
 .del h3{font-size:.8125rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;margin-bottom:.55rem}
 .del p{font-size:.8438rem;color:var(--muted);line-height:1.62}
@@ -300,18 +304,43 @@ p{margin:0}
   padding:.28rem .6rem;border-radius:.35rem;
 }
 
+/* ---------- identifiers full-bleed ---------- */
+.idband{padding:0}
+.idband>.wrap{max-width:none;padding:0}
+.idband .idpanel{border-radius:0;box-shadow:none}
+.idband .idpanel{background:#eef4fb;color:var(--ink);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.idband .idpanel::after{display:none}
+.idband .idpanel .eyebrow{color:var(--blue)}
+.idband .idpanel h2{color:var(--ink)}
+.idband .id-label{color:var(--faint)}
+.idband .id-code{color:var(--blue);background:#fff;border:1px solid var(--line)}
+.idband .naics{border-top:1px solid var(--line)}
+.idband .naics-row{border-bottom:1px solid var(--line)}
+.idband .naics-row .code{color:var(--blue)}
+.idband .naics-row .desc{color:var(--muted)}
+.idband .naics-row .pill{background:var(--blue);color:#fff}
+.idband .idpanel .eyebrow{display:block;text-align:center}
+.idband .idpanel h2{text-align:center;font-size:clamp(1.75rem,3.4vw,2.5rem);line-height:1.12}
+.idband .id-grid{grid-template-columns:1fr;max-width:46rem;margin-left:auto;margin-right:auto;gap:2.2rem}
+.idband .id-grid>div:first-child{display:flex;flex-wrap:wrap;gap:1.25rem 3rem}
+.idband .id-item+.id-item{margin-top:0}
+.idband .idpanel-inner{max-width:72rem;margin:0 auto;padding:3.5rem 1.5rem}
+
 /* ---------- partner tiles ---------- */
 .partner-grid{display:grid;gap:1rem;grid-template-columns:repeat(2,1fr)}
 @media (min-width:640px){.partner-grid{grid-template-columns:repeat(3,1fr)}}
 @media (min-width:1024px){.partner-grid{grid-template-columns:repeat(6,1fr)}}
 .partner{
   aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.7rem;
-  border-radius:1.1rem;text-decoration:none;text-align:center;padding:1rem;
-  background:rgba(255,255,255,.66);border:1px solid var(--line);
-  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-  transition:all .28s var(--ease);
+  border-radius:.375rem;text-decoration:none;text-align:center;padding:1rem;
+  background:#fff;border:1px solid var(--line);
+  transition:border-color .2s var(--ease);
 }
-.partner:hover{transform:translateY(-4px);border-color:rgba(0,85,165,.35);box-shadow:0 18px 44px -18px rgba(0,85,165,.22);background:rgba(255,255,255,.95)}
+.partner:hover{border-color:var(--blue)}
+.partner-grid{display:flex;flex-wrap:wrap;justify-content:center}
+.partner{width:calc((100% - 1rem) / 2)}
+@media (min-width:640px){.partner{width:calc((100% - 2rem) / 3)}}
+@media (min-width:1024px){.partner{width:calc((100% - 5rem) / 6)}}
 .partner-logo{width:3rem;height:3rem;display:flex;align-items:center;justify-content:center}
 .partner-logo img{max-width:2.6rem;max-height:2.6rem;width:auto;height:auto;object-fit:contain;transition:transform .28s var(--ease)}
 .partner:hover .partner-logo img{transform:scale(1.12)}
@@ -357,15 +386,37 @@ p{margin:0}
 .contact-alt a:hover{color:var(--blue)}
 .contact-alt svg{width:1rem;height:1rem;color:#9aa9bf}
 
+.contact-split{display:grid;gap:2rem;grid-template-columns:1fr;align-items:start}
+@media (min-width:860px){.contact-split{grid-template-columns:.8fr 1.2fr;gap:3.5rem}}
+.contact-split>*{min-width:0}
+.contact-intro h2{margin-top:.9rem;font-size:clamp(1.75rem,3.4vw,2.5rem);font-weight:700;letter-spacing:-.02em;line-height:1.12}
+.contact-intro p{margin-top:1rem;color:var(--muted);font-size:.9688rem;line-height:1.65;max-width:26rem}
+.contact-mail{display:inline-block;margin-top:1.4rem;font-family:var(--font-mono);font-size:.875rem;font-weight:600;color:var(--blue);text-decoration:none}
+.contact-mail:hover{text-decoration:underline}
+
 /* ---------- footer ---------- */
 footer{
-  position:relative;z-index:1;margin-top:2rem;
-  border-top:1px solid rgba(255,255,255,.55);
-  background:rgba(255,255,255,.7);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-  padding:2rem 1.5rem;text-align:center;
-  font-size:.75rem;color:var(--faint);line-height:1.7;
+  position:relative;z-index:1;background:var(--navy);color:#dce8f6;
+  padding:3rem 0 2rem;font-size:.875rem;line-height:1.7;
 }
-footer .foot-mark{display:flex;justify-content:center;margin-bottom:.7rem}
+.foot-cols{display:grid;gap:2rem;grid-template-columns:1fr}
+@media (min-width:640px){.foot-cols{grid-template-columns:1fr 1fr}}
+@media (min-width:1000px){.foot-cols{grid-template-columns:1.2fr .9fr 1.5fr 1.1fr}}
+@media (min-width:1200px){.foot-status{white-space:nowrap}.foot-cols{grid-template-columns:max-content 7.5rem 1fr 12.5rem}}
+.foot-cols>div{min-width:0}
+.foot-brand{font-family:var(--font-display);font-weight:800;font-size:1.25rem;color:#fff;margin-bottom:.4rem}
+footer h4{margin:0 0 .7rem;font-family:var(--font-display);font-size:.6875rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8fb0d4}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:.4rem}
+footer a{color:#dce8f6;text-decoration:none}
+footer a:hover{color:#fff;text-decoration:underline}
+.foot-mono{font-family:var(--font-mono);font-size:.8125rem;color:#9fc0e3;margin-top:.5rem}
+.foot-status{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem .7rem}
+.cert-stamp{display:inline-flex;align-items:center;gap:.35rem;border:1px solid #5aa9ee;color:#fff;background:rgba(90,169,238,.16);font-family:var(--font-display);font-size:.6875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .55rem;border-radius:3px}
+.cert-stamp svg{width:.8rem;height:.8rem}
+.foot-ids li{font-size:.8125rem;line-height:1.5}
+.foot-ids span{display:inline-block;min-width:2.9rem;font-family:var(--font-display);font-size:.625rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8fb0d4}
+.foot-ids b{font-family:var(--font-mono);font-weight:600;color:#fff;letter-spacing:.04em}
+.foot-legal{margin-top:2rem;padding-top:1.25rem;border-top:1px solid rgba(143,176,212,.25);color:#8fb0d4;font-size:.8125rem}
 
 /* ---------- back to top ---------- */
 #toTop{
@@ -425,7 +476,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <span class="brand-sub">Solutions</span></span>
       </div>
       <span style="font-size: 0.52rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #0284c7; white-space: nowrap; line-height: 1;">
-        Service-Disabled Veteran-Owned
+        Service-Disabled Veteran-Owned Small Business
       </span>
     </a>
 
@@ -433,7 +484,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       <a href="#capabilities">Capabilities</a>
       <a href="#industries">Industries</a>
       <a href="#delivery">Delivery</a>
-      <a href="#identifiers">Identifiers</a>
       <a href="#partners">Partners</a>
     </nav>
 
@@ -450,7 +500,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <a href="#capabilities">Capabilities</a>
         <a href="#industries">Industries</a>
         <a href="#delivery">Delivery Framework</a>
-        <a href="#identifiers">Identifiers</a>
         <a href="#partners">Partners</a>
         <a href="#contact" class="menu-cta"><span>Contact Us</span><svg style="width:1rem;height:1rem" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></a>
       </div>
@@ -462,19 +511,19 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 <!-- HERO -->
 <section class="hero">
   <div class="wrap">
+    <span class="eyebrow reveal">Cloud, data, and enterprise systems</span>
     <h1 class="reveal reveal-d1">
       Engineering Clarity in<br><span class="grad">Complex Environments.</span>
     </h1>
 
     <div class="hero-copy reveal reveal-d2">
-      <p>Koop Solutions delivers modernization with precision. We integrate cloud, data, and enterprise systems into cohesive architectures that perform reliably at scale — without disruption, noise, or unnecessary complexity.</p>
-      <p>As a Service Disabled Veteran Owned Small Business, our discipline shows up in how we build: <strong>clean execution, rigorous integration, and solutions engineered to last.</strong> We bridge legacy environments to future-state platforms for federal agencies, commercial enterprises, and state organizations alike.</p>
-      <p>Our work is defined by technical excellence, not technical theatrics — systems that are fast, secure, resilient, and ready for mission-critical operations.</p>
+      <p>Koop Solutions modernizes and integrates cloud, data, and enterprise systems for federal agencies, state organizations, and commercial enterprises. We bridge legacy environments to current platforms without putting operations at risk.</p>
+      <p>We are a Service-Disabled Veteran-Owned Small Business, available as a prime contractor or a teaming partner.</p>
     </div>
 
     <div class="hero-ctas reveal reveal-d3" style="display: flex; align-items: center; gap: 14px; margin-top: 2rem; margin-bottom: 2.5rem; flex-wrap: wrap;">
       <a href="#contact" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px; text-decoration: none;">
-        <span>INITIATE ENGAGEMENT</span>
+        <span>Request a Consultation</span>
         <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="flex-shrink: 0;">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
         </svg>
@@ -493,14 +542,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       </a>
     </div>
 
-    <div class="hero-creds reveal reveal-d3">
-      <div class="cred"><span class="k">UEI</span><span class="v">PZS2S9ZA1AK6</span></div>
-      <div class="cred"><span class="k">CAGE</span><span class="v">22YR7</span></div>
-      <div class="cred"><span class="k">Primary NAICS</span><span class="v">541519</span></div>
-      <div class="cred"><span class="k">Status</span><span class="v">SDVOSB Certified</span></div>
-    </div>
   </div>
 </section>
+
 
 <!-- CAPABILITIES -->
 <section id="capabilities" class="section">
@@ -512,56 +556,56 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     </div>
     <div class="cap-grid">
       <div class="cap reveal">
-        <div class="cap-ico"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/></svg></div>
         <h3>Data &amp; Architecture</h3>
         <p>Advanced analytics, machine learning pipelines, enterprise data architecture, and predictive modeling.</p>
+        <p class="cap-out">Trusted data your teams can act on.</p>
       </div>
       <div class="cap reveal reveal-d1">
-        <div class="cap-ico"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/></svg></div>
         <h3>Cloud &amp; Infrastructure</h3>
         <p>Cloud modernization, hybrid architectures, DevSecOps automation, and zero-downtime migrations.</p>
+        <p class="cap-out">Lower-risk moves to the cloud.</p>
       </div>
       <div class="cap reveal reveal-d2">
-        <div class="cap-ico"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg></div>
         <h3>Technology Transformation</h3>
         <p>Legacy modernization, distributed systems engineering, ERP alignment, and API ecosystem integration.</p>
+        <p class="cap-out">Legacy systems, safely modernized.</p>
       </div>
       <div class="cap reveal">
-        <div class="cap-ico"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg></div>
         <h3>Cybersecurity &amp; Governance</h3>
         <p>Threat defense, zero-trust network design, security automation, and regulatory compliance frameworks.</p>
+        <p class="cap-out">Compliant, defensible systems.</p>
       </div>
       <div class="cap reveal reveal-d1">
-        <div class="cap-ico"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg></div>
         <h3>Digital Eng &amp; Manufacturing</h3>
         <p>Industrial IoT, systems automation, edge computing, and digital twin implementations.</p>
+        <p class="cap-out">Real-time operational visibility.</p>
       </div>
       <div class="cap reveal reveal-d2">
-        <div class="cap-ico"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
         <h3>Managed Delivery &amp; Services</h3>
         <p>Continuous operations support, platform maintenance, and SLA-backed infrastructure management.</p>
+        <p class="cap-out">Stable platforms, predictable support.</p>
       </div>
       <div class="cap reveal">
-        <div class="cap-ico"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></div>
         <h3>Strategic Advisory &amp; Supply Chain</h3>
         <p>Operating model design, technology roadmaps, logistics optimization, and vendor ecosystem enablement.</p>
+        <p class="cap-out">Roadmaps tied to mission priorities.</p>
       </div>
       <div class="cap reveal reveal-d1">
-        <div class="cap-ico"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"/></svg></div>
         <h3>Customer &amp; Commerce</h3>
         <p>Omnichannel customer platforms, digital sales enablement, and service automation systems.</p>
+        <p class="cap-out">Consistent service in every channel.</p>
       </div>
       <div class="cap reveal reveal-d2">
-        <div class="cap-ico"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg></div>
         <h3>Sustainable Ops &amp; Learning</h3>
         <p>Green computing strategies, ESG compliance workflows, and enterprise technical upskilling.</p>
+        <p class="cap-out">Efficient operations, capable teams.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- INDUSTRIES -->
-<section id="industries" class="section">
+<section id="industries" class="section" style="background:#eef4fb;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">Industries Served</span>
@@ -569,27 +613,21 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     </div>
     <div class="ind-grid reveal">
       <div class="ind">
-        <div class="ind-ico"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L3 6v6c0 5 3.5 9.5 9 10 5.5-.5 9-5 9-10V6l-9-4z"/></svg></div>
         <div><h3>Public Sector &amp; Defense</h3><p>Aerospace &amp; Defense, U.S. Federal Government, Public Service</p></div>
       </div>
       <div class="ind">
-        <div class="ind-ico"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 10h18M3 6h18M3 14h18M3 18h18"/></svg></div>
         <div><h3>Financial &amp; Corporate</h3><p>Banking, Insurance, Capital Markets, Asset Management</p></div>
       </div>
       <div class="ind">
-        <div class="ind-ico"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16v6H4zM4 14h16v6H4z"/></svg></div>
         <div><h3>Industrial &amp; Infrastructure</h3><p>Energy, Utilities, Industrial Manufacturing, Automotive</p></div>
       </div>
       <div class="ind">
-        <div class="ind-ico"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l7 4v6c0 5-3.5 9.5-7 10-3.5-.5-7-5-7-10V6l7-4z"/></svg></div>
         <div><h3>State &amp; Local Government</h3><p>State Agencies, Municipalities, Higher Education, K-12</p></div>
       </div>
       <div class="ind">
-        <div class="ind-ico"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
         <div><h3>Technology &amp; Consumer</h3><p>High Tech, Software Platforms, Retail, Consumer Systems</p></div>
       </div>
       <div class="ind">
-        <div class="ind-ico"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v20M2 12h20"/></svg></div>
         <div><h3>Healthcare &amp; Life Sciences</h3><p>Health Systems, Digital Health Platforms, Biotech Data</p></div>
       </div>
     </div>
@@ -601,26 +639,22 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">Delivery Framework</span>
-      <h2>How disciplined delivery works</h2>
+      <h2>Delivery approach</h2>
     </div>
     <div class="del-grid">
       <div class="del reveal">
-        <svg viewBox="0 0 64 64" fill="none"><rect x="2" y="2" width="60" height="60" rx="16" fill="#eef4fb"/><path d="M32 14L20 20V30C20 38 25 45 32 48C39 45 44 38 44 30V20L32 14Z" stroke="#0055a5" stroke-width="2" fill="none"/><path d="M26 32L30 36L38 28" stroke="#00a4e4" stroke-width="2" stroke-linecap="round"/><path d="M22 40H42" stroke="#0055a5" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 3"/></svg>
         <h3>Disciplined Execution</h3>
         <p>Predictable delivery models built around rigorous sprint velocity, risk mitigation, and zero pipeline regressions.</p>
       </div>
       <div class="del reveal reveal-d1">
-        <svg viewBox="0 0 64 64" fill="none"><rect x="2" y="2" width="60" height="60" rx="16" fill="#eef4fb"/><circle cx="32" cy="32" r="12" stroke="#0055a5" stroke-width="2"/><circle cx="32" cy="32" r="4" fill="#00a4e4"/><path d="M32 20V12" stroke="#0055a5" stroke-width="2" stroke-linecap="round"/><path d="M32 52V44" stroke="#0055a5" stroke-width="2" stroke-linecap="round"/><path d="M20 32H12" stroke="#0055a5" stroke-width="2" stroke-linecap="round"/><path d="M52 32H44" stroke="#0055a5" stroke-width="2" stroke-linecap="round"/></svg>
         <h3>Mission Alignment</h3>
         <p>Architecture decisions calibrated to strategic outcomes, eliminating technical debt and premature lock-in.</p>
       </div>
       <div class="del reveal reveal-d2">
-        <svg viewBox="0 0 64 64" fill="none"><rect x="2" y="2" width="60" height="60" rx="16" fill="#eef4fb"/><path d="M18 40C20 30 28 24 36 24C44 24 52 30 54 40" stroke="#0055a5" stroke-width="2" stroke-linecap="round"/><circle cx="36" cy="24" r="3" fill="#00a4e4"/><circle cx="36" cy="24" r="10" stroke="rgba(0,85,165,0.4)" stroke-width="1" stroke-dasharray="4 3"/></svg>
         <h3>Verifiable Reliability</h3>
         <p>Automated telemetry, continuous compliance checks, and SLA-backed governance built into every tier.</p>
       </div>
       <div class="del reveal reveal-d3">
-        <svg viewBox="0 0 64 64" fill="none"><rect x="2" y="2" width="60" height="60" rx="16" fill="#eef4fb"/><rect x="18" y="16" width="20" height="28" rx="2" stroke="#0055a5" stroke-width="2" fill="none"/><path d="M20 22H34" stroke="#0055a5" stroke-width="1.5"/><path d="M20 26H30" stroke="#0055a5" stroke-width="1.5"/><path d="M20 30H28" stroke="#0055a5" stroke-width="1.5"/><path d="M46 36L48 40L52 40L49 42L50 46L46 44L42 46L43 42L40 40L44 40L46 36Z" fill="#00a4e4"/></svg>
         <h3>Acquisition Readiness</h3>
         <p>Complete familiarity with prime partnering mechanisms, subcontracting standards, and federal matrices.</p>
       </div>
@@ -628,50 +662,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   </div>
 </section>
 
-<!-- IDENTIFIERS -->
-<section id="identifiers" class="section">
-  <div class="wrap">
-    <div class="idpanel reveal">
-      <div class="idpanel-inner">
-        <span class="eyebrow">Federal Registry</span>
-        <h2>Company Identifiers</h2>
-        <div class="id-grid">
-          <div>
-            <div class="id-item">
-              <div class="id-label">Unique Entity ID (UEI)</div>
-              <span class="id-code">PZS2S9ZA1AK6</span>
-            </div>
-            <div class="id-item">
-              <div class="id-label">CAGE Code</div>
-              <span class="id-code">22YR7</span>
-            </div>
-          </div>
-          <div>
-            <div class="id-label" style="margin-bottom:.8rem">NAICS Codes — Technology &amp; Computing</div>
-            <div class="naics">
-              <div class="naics-row">
-                <span class="code">541519</span>
-                <span class="desc">Other Computer Related Services</span>
-                <span class="pill">Primary</span>
-              </div>
-              <div class="naics-row">
-                <span class="code">541511</span>
-                <span class="desc">Custom Computer Programming Services</span>
-              </div>
-              <div class="naics-row">
-                <span class="code">541512</span>
-                <span class="desc">Computer Systems Design Services</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- PARTNERS -->
-<section id="partners" class="section">
+<section id="partners" class="section" style="background:#eef4fb;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow">Technology Ecosystem</span>
@@ -706,60 +698,87 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 
 <!-- CONTACT -->
 <section id="contact" class="section">
-  <div class="wrap">
-    <div class="section-head reveal">
+  <div class="wrap contact-split">
+    <div class="contact-intro reveal">
       <span class="eyebrow">Contact</span>
-      <h2>Initiate Engagement</h2>
-      <p>Direct channel for prime contracting, technical consulting, and architecture inquiries.</p>
+      <h2>Talk with our team</h2>
+      <p>For prime contracting, teaming, technical consulting, and architecture inquiries. We reply within one business day.</p>
+      <a class="contact-mail" href="mailto:contact@koopsolutions.com">Contact@KoopSolutions.com</a>
     </div>
-    <div class="contact-card reveal">
-      <form action="https://formspree.io/f/mqpzjwav" method="POST" class="form-grid">
-        <div class="field">
-          <label for="name">Full Name</label>
-          <input type="text" id="name" name="name" required placeholder="Jane Doe">
-        </div>
-        <div class="field">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" required placeholder="jane@example.com">
-        </div>
-        <div class="field">
-          <label for="company">Company / Agency</label>
-          <input type="text" id="company" name="company" placeholder="Optional">
-        </div>
-        <div class="field">
-          <label for="interest">Area of Interest</label>
-          <select id="interest" name="interest">
-            <option value="Capabilities Statement Request">Capabilities Statement Request</option>
-            <option value="General Inquiry">General Inquiry</option>
-            <option value="Federal Teaming">Federal Contracting &amp; Teaming (SDVOSB)</option>
-            <option value="Cloud Modernization &amp; Architecture">Cloud Modernization &amp; Architecture</option>
-            <option value="Data Engineering, Analytics &amp; AI">Data Engineering, Analytics &amp; AI</option>
-            <option value="Green Computing &amp; ESG Compliance">Green Computing &amp; ESG Compliance</option>
-            <option value="Enterprise Technical Upskilling">Enterprise Technical Upskilling</option>
-          </select>
-        </div>
-        <div class="field full">
-          <label for="message">Project Scope / Message</label>
-          <textarea id="message" name="message" rows="4" required placeholder="Outline your requirements or teaming proposal..."></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary form-submit">
-          <span>Submit Inquiry</span>
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-        </button>
-      </form>
-      <div class="contact-alt">
-        <a href="mailto:contact@koopsolutions.com">
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-          <span>Contact@KoopSolutions.com</span>
-        </a>
+    <form action="https://formspree.io/f/mqpzjwav" method="POST" class="form-grid reveal">
+      <div class="field">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required placeholder="Jane Doe">
       </div>
-    </div>
+      <div class="field">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required placeholder="jane@example.com">
+      </div>
+      <div class="field">
+        <label for="company">Company / Agency</label>
+        <input type="text" id="company" name="company" placeholder="Optional">
+      </div>
+      <div class="field">
+        <label for="interest">Area of Interest</label>
+        <select id="interest" name="interest">
+          <option value="Capabilities Statement Request">Capabilities Statement Request</option>
+          <option value="General Inquiry">General Inquiry</option>
+          <option value="Federal Teaming">Federal Contracting &amp; Teaming (SDVOSB)</option>
+          <option value="Cloud Modernization &amp; Architecture">Cloud Modernization &amp; Architecture</option>
+          <option value="Data Engineering, Analytics &amp; AI">Data Engineering, Analytics &amp; AI</option>
+          <option value="Green Computing &amp; ESG Compliance">Green Computing &amp; ESG Compliance</option>
+          <option value="Enterprise Technical Upskilling">Enterprise Technical Upskilling</option>
+        </select>
+      </div>
+      <div class="field full">
+        <label for="message">Project Scope / Message</label>
+        <textarea id="message" name="message" rows="4" required placeholder="Outline your requirements or teaming proposal..."></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary form-submit">
+        <span>Send Message</span>
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+      </button>
+    </form>
   </div>
 </section>
 </main>
 
 <footer>
-  &copy; 2026 Koop Solutions. All rights reserved.
+  <div class="wrap">
+    <div class="foot-cols">
+      <div>
+        <div class="foot-brand">Koop Solutions</div>
+        <p class="foot-status">Service-Disabled Veteran-Owned Small Business <span class="cert-stamp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>Certified</span></p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#capabilities">Capabilities</a></li>
+          <li><a href="#industries">Industries</a></li>
+          <li><a href="#delivery">Delivery Framework</a></li>
+          <li><a href="#partners">Partners</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Registration</h4>
+        <ul class="foot-ids">
+          <li><span>UEI</span> <b>PZS2S9ZA1AK6</b></li>
+          <li><span>CAGE</span> <b>22YR7</b></li>
+          <li class="naics-li"><span>NAICS</span> <b>541519</b> Other Computer Related Services (Primary)</li>
+          <li class="naics-li"><span>NAICS</span> <b>541511</b> Custom Computer Programming Services</li>
+          <li class="naics-li"><span>NAICS</span> <b>541512</b> Computer Systems Design Services</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:contact@koopsolutions.com">Contact@KoopSolutions.com</a></li>
+          <li><a href="#contact">Send a message</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-legal">&copy; 2026 Koop Solutions. All rights reserved.</div>
+  </div>
 </footer>
 
 <button id="toTop" aria-label="Back to top">
