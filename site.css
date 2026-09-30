@@ -445,6 +445,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 }
 
 /* ---------- multi-page additions ---------- */
+body.home .site{min-height:100vh;display:flex;flex-direction:column}
+body.home main{flex:1;display:flex;align-items:center}
+body.home main .hero{width:100%}
 .nav-tabs a[aria-current="page"]{color:var(--blue);background:rgba(255,255,255,.95);box-shadow:0 2px 8px rgba(0,0,0,.05)}
 .menu-panel a[aria-current="page"]{color:var(--blue);background:rgba(0,85,165,.07)}
 .page-banner{position:relative;overflow:hidden;background:linear-gradient(120deg,#06254a 0%,#0a3a70 70%,#0b4a8c 100%);padding:3.75rem 0 3.5rem}
