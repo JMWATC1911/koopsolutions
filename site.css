@@ -473,3 +473,48 @@ body.home main .hero{width:100%}
 .delivery-page .del h3{font-size:1rem}
 .delivery-page .del p{font-size:.9688rem}
 .contact-page .contact-intro h3{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);font-family:var(--font-display);font-weight:700}
+
+/* ---------- photography ---------- */
+.hero-photo,.about-photo,.page-photo,.ind-photo{margin:0;overflow:hidden;background:#eef4fb}
+.hero-photo img,.about-photo img,.page-photo img,.ind-photo img{display:block;width:100%;height:100%;object-fit:cover}
+
+/* home: photo beside the hero copy on laptop/desktop widths, hidden on tablets and phones */
+.hero-photo{display:none}
+@media (min-width:960px){
+  .hero-grid{display:grid;grid-template-columns:minmax(0,1fr) clamp(16rem,28vw,22rem);gap:3.5rem;align-items:center}
+  .hero-grid h1{font-size:clamp(2.5rem,5vw,3.6rem)}
+  .hero-photo{display:block;aspect-ratio:4/5;border-radius:1.25rem;border:1px solid var(--glass-line);box-shadow:0 30px 70px -28px rgba(0,55,120,.42)}
+}
+
+/* even right edge on the intro paragraphs (desktop only) */
+@media (min-width:860px){
+  .hero-copy p,.about-copy p{text-align:justify;text-wrap:pretty}
+}
+
+/* about: photo beside the intro copy */
+.about-photo{aspect-ratio:4/3;border-radius:1rem;box-shadow:0 26px 60px -30px rgba(0,55,120,.4)}
+@media (min-width:860px){.about-grid.has-photo{grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center}}
+
+/* about: past performance cards */
+.pp-head{margin-bottom:1.75rem}
+.pp-head h2{font-size:clamp(1.5rem,2.6vw,1.9rem);font-weight:700;letter-spacing:-.02em}
+.pp-head .note{margin-top:.35rem;font-size:.8125rem;color:var(--muted)}
+.pp-grid{display:grid;gap:1rem;grid-template-columns:1fr}
+@media (min-width:768px){.pp-grid{grid-template-columns:repeat(3,1fr)}}
+.pp-card{background:#fff;border:1px solid var(--line);border-radius:.375rem;padding:1.5rem;transition:border-color .2s var(--ease)}
+.pp-card:hover{border-color:var(--blue)}
+.pp-card h3{font-size:.9375rem;font-weight:700;line-height:1.4;color:var(--ink);margin-bottom:.5rem}
+.pp-card p{font-size:.875rem;line-height:1.6;color:var(--muted)}
+
+/* capabilities + delivery: wide photo under the page banner */
+.page-photo{aspect-ratio:16/9;border-radius:1rem;margin-bottom:2.5rem;box-shadow:0 26px 60px -32px rgba(0,55,120,.4)}
+@media (min-width:768px){.page-photo{aspect-ratio:21/9}}
+
+/* industries: photo on each card */
+.ind-grid.with-photos{border-top:none;gap:2.5rem 1.75rem}
+@media (min-width:1024px){.ind-grid.with-photos{grid-template-columns:repeat(3,1fr)}}
+.ind-grid.with-photos .ind{flex-direction:column;gap:1rem;padding:0;border:none;background:none}
+.ind-grid.with-photos .ind>div{padding:0 .15rem}
+.ind-photo{aspect-ratio:4/3;border-radius:.75rem;box-shadow:0 18px 40px -26px rgba(0,55,120,.45)}
+.ind-photo img{transition:transform .5s var(--ease)}
+.ind:hover .ind-photo img{transform:scale(1.03)}
