@@ -174,7 +174,7 @@
   function frame(now){
     raf=null;
     resize();
-    var t=(now-start)*0.00028;
+    var t=(now-start)*0.00021;
     gl.clear(gl.COLOR_BUFFER_BIT);
     gl.uniformMatrix4fv(U.uProj,false,proj);
     gl.uniformMatrix4fv(U.uView,false,view);
