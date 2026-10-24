@@ -148,8 +148,8 @@
   var proj=perspective(32*Math.PI/180,1,0.1,100);
 
   var ribbons=[
-    {phase:2.6,amp:0.70,opacity:0.26,yOff:-3.65,zOff:-2.6,speed:0.75,colorA:hex('#4593d2'),colorB:hex('#8fdbf7')},
-    {phase:0.0,amp:0.80,opacity:0.92,yOff:-4.35,zOff: 0.0,speed:1.00,colorA:hex('#0055a5'),colorB:hex('#00a4e4')}
+    {phase:2.6,amp:0.70,opacity:0.30,yOff:-3.65,zOff:-2.6,speed:0.75,colorA:hex('#9fb8d4'),colorB:hex('#d5e3f1')},
+    {phase:0.0,amp:0.80,opacity:0.85,yOff:-4.35,zOff: 0.0,speed:1.00,colorA:hex('#06254a'),colorB:hex('#0b4a8c')}
   ];
 
   gl.disable(gl.DEPTH_TEST);

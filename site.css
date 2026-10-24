@@ -39,7 +39,7 @@ section[id]{scroll-margin-top:5.5rem}
 #wave-fallback{
   position:fixed;left:0;right:0;bottom:0;height:42vh;z-index:0;pointer-events:none;display:none;
   background:
-    radial-gradient(120% 90% at 50% 115%, rgba(0,164,228,.34), rgba(0,85,165,.22) 45%, rgba(255,255,255,0) 72%);
+    radial-gradient(120% 90% at 50% 115%, rgba(11,74,140,.30), rgba(6,37,74,.16) 45%, rgba(255,255,255,0) 72%);
 }
 #wave-veil{
   position:fixed;inset:0;z-index:0;pointer-events:none;
